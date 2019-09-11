@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 208">
+    <linearGradient id="grad" x2="0%" y2="100%">
+        <stop offset="0" stop-color="#fff" stop-opacity="0"></stop>
+        <stop offset="1" stop-color="#fff" stop-opacity=".7"></stop>
+    </linearGradient>
+    <mask id="fader" maskContentUnits="objectBoundingBox">
+        <rect width="1" height="1" fill="url(#grad)"></rect>
+    </mask>
+    <g id="award" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" mask="url(#fader)">
+        <polygon stroke-width="2" points="118.78 103 59.89 1 1 103 59.95 103 118.78 103"/>
+        <path stroke-dasharray="2" d="M1.31,103l88-51m29.56,51L30.44,52M60,103,59.89,1"/>
+    </g>
+    <use xlink:href="#award" transform="scale(1 -1)" transform-origin="center center" mask="url(#fader)"></use>
+</svg>

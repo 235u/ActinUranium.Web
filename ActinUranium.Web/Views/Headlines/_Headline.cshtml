@@ -1,0 +1,15 @@
+﻿@model Headline
+
+<a class="headline-card card" asp-controller="Headlines" asp-action="Details" asp-route-slug="@Model.Slug">
+    <partial name="_Image" model="@Model.GetPrimaryImage()" />
+    <div class="card-body">
+        <div class="tag">@Model.Tag.Name</div>
+        <h2 class="line-clamp-3">@Model.Title</h2>
+        <p class="line-clamp-8">@Model.Lead</p>
+        <ul class="inline-list">
+            <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
+            <li class="text-muted">@Model.Author.Name</li>
+        </ul>
+    </div>
+    <div class="card-overlay"></div>
+</a>

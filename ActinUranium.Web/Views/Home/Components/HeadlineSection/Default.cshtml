@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Headline>
+
+<style>
+    .float-right {
+        float: right;
+    }
+</style>
+
+<section>
+    <h1>@Localizer["recent headlines"]</h1>
+    <div class="card-group responsive-flex-wrap">
+        @foreach (var headline in Model)
+        {
+            <partial name="~/Views/Headlines/_Headline.cshtml" model="headline" />
+        }
+    </div>
+    <div class="float-right">
+        <a class="btn-headlines btn btn-expand-left" asp-controller="Headlines" asp-action="Index">
+            <img class="btn-img" src="~/img/icons/headlines.svg" />
+            <span class="btn-text">@Localizer["view all headlines"]</span>
+        </a>
+    </div>
+</section>

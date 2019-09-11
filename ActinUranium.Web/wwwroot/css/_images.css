@@ -1,0 +1,27 @@
+﻿.slide-img,
+.release-slide-img {
+    padding: 10%;
+    width: 100%;
+}
+
+@media (min-width: 733px) {
+    .slide-img {
+        height: 306px;
+    }
+}
+
+@media (min-width: 1018px) {
+    .slide-img {
+        height: 459px;
+    }
+}
+
+@media (min-width: 1303px) {
+    .slide-img {
+        height: 612px;
+    }
+}
+
+.release-slide-img {
+    height: 100vh;
+}

@@ -1,0 +1,22 @@
+﻿<nav class="navbar">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-home btn-expand-right">
+        <span class="btn-text">@Localizer["overview"]</span>
+        <img class="btn-img" src="~/img/icons/awards.svg" asp-append-version="true">
+    </a>
+    <a asp-controller="Creations" asp-action="Index" class="btn btn-creations btn-expand-right">
+        <span class="btn-text">@Localizer["creations"]</span>
+        <img class="btn-img" src="~/img/icons/projects.svg" asp-append-version="true" />
+    </a>
+    <a asp-controller="Headlines" asp-action="Index" class="btn btn-headlines btn-expand-right">
+        <span class="btn-text">@Localizer["headlines"]</span>
+        <img class="btn-img" src="~/img/icons/headlines.svg" asp-append-version="true" />
+    </a>
+    <a asp-controller="Customers" asp-action="Index" class="btn btn-customers btn-expand-right">
+        <span class="btn-text">@Localizer["customers"]</span>
+        <img class="btn-img" src="~/img/icons/customers.svg" asp-append-version="true" />
+    </a>
+    <a href="https://github.com/necolas/normalize.css" class="btn btn-github btn-expand-right" target="_blank">
+        <span class="btn-text">@Localizer["source code"]</span>
+        <img class="btn-img" src="~/img/icons/github.svg" asp-append-version="true" />
+    </a>
+</nav>

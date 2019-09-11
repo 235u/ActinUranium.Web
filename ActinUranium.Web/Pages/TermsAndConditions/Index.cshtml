@@ -1,0 +1,37 @@
+﻿@page
+@{
+    ViewData["Title"] = Localizer["Terms and Conditions"];
+}
+
+@section Styles {
+    <style>
+        main {
+            counter-reset: chapter;
+        }
+
+        h2:before {
+            content: counter(chapter) ". ";
+            counter-increment: chapter;
+        }
+
+        h2 {
+            counter-reset: section;
+        }
+
+        p:not(:only-of-type)::before {
+            content: counter(chapter) "." counter(section) " ";
+            counter-increment: section;
+        }
+    </style>
+}
+
+<article class="container">
+    <header>
+        <img src="~/img/icons/terms-and-conditions.svg" />
+        <h1>@ViewData["Title"]</h1>
+    </header>
+    @for (int section = 1; section <= 15; section++)
+    {
+        <partial name="_Section" />
+    }
+</article>

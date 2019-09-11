@@ -1,0 +1,20 @@
+<svg data-name="Layer 1" 
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119.62 104">
+    <defs>
+        <style>.a6a61cb9-e120-4093-988a-c9aff0000734,.afbc3f71-814b-4e39-a363-e36e0c3091b3,.b5ef41b1-9c6a-4a81-befb-b6d50ae671fd,.e0451433-ef11-4b91-8846-a26e8bc1a420{fill:none;stroke:#000;}.a6a61cb9-e120-4093-988a-c9aff0000734,.afbc3f71-814b-4e39-a363-e36e0c3091b3,.e0451433-ef11-4b91-8846-a26e8bc1a420{stroke-linecap:round;}.a6a61cb9-e120-4093-988a-c9aff0000734,.e0451433-ef11-4b91-8846-a26e8bc1a420{stroke-linejoin:round;}.e0451433-ef11-4b91-8846-a26e8bc1a420{stroke-width:3px;}.a6a61cb9-e120-4093-988a-c9aff0000734,.afbc3f71-814b-4e39-a363-e36e0c3091b3{stroke-dasharray:2;}.afbc3f71-814b-4e39-a363-e36e0c3091b3,.b5ef41b1-9c6a-4a81-befb-b6d50ae671fd{stroke-miterlimit:10;}</style>
+    </defs>
+    <title>19</title>
+    <polygon class="e0451433-ef11-4b91-8846-a26e8bc1a420" points="59.81 1.5 1.5 102.5 118.13 102.5 59.81 1.5"/>
+    <line class="a6a61cb9-e120-4093-988a-c9aff0000734" x1="59.81" y1="2" x2="59.81" y2="102.5"/>
+    <polyline class="a6a61cb9-e120-4093-988a-c9aff0000734" points="74.81 27 2.81 102 89.11 52.25"/>
+    <line class="a6a61cb9-e120-4093-988a-c9aff0000734" x1="116.81" y1="102" x2="30.66" y2="52"/>
+    <path class="b5ef41b1-9c6a-4a81-befb-b6d50ae671fd" d="M88.81,103" transform="translate(0)"/>
+    <path class="b5ef41b1-9c6a-4a81-befb-b6d50ae671fd" d="M88.81,52" transform="translate(0)"/>
+    <line class="afbc3f71-814b-4e39-a363-e36e0c3091b3" x1="88.81" y1="103" x2="59.81" y2="2"/>
+    <path class="b5ef41b1-9c6a-4a81-befb-b6d50ae671fd" d="M30.81,103" transform="translate(0)"/>
+    <path class="b5ef41b1-9c6a-4a81-befb-b6d50ae671fd" d="M30.81,52" transform="translate(0)"/>
+    <line class="afbc3f71-814b-4e39-a363-e36e0c3091b3" x1="30.81" y1="102" x2="59.81" y2="2"/>
+    <line class="a6a61cb9-e120-4093-988a-c9aff0000734" x1="103.4" y1="77" x2="2.81" y2="102"/>
+    <line class="a6a61cb9-e120-4093-988a-c9aff0000734" x1="45.09" y1="27" x2="116.81" y2="102"/>
+    <line class="a6a61cb9-e120-4093-988a-c9aff0000734" x1="16.22" y1="77" x2="116.81" y2="102"/>
+</svg>

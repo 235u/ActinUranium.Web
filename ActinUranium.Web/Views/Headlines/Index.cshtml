@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Headline>
+
+@section Metas {
+    <meta name="keywords" content="headline, news, publication" />
+    <meta name="description" content="Our first class headlines." />
+}
+
+@{
+    ViewData["Title"] = Localizer["headlines"];
+}
+
+<section class="container">
+    <header>
+        <img src="~/img/icons/headline.svg" />
+        <h1>@ViewData["Title"]</h1>
+    </header>
+    @if (Model.Any())
+    {
+        <div class="card-columns">
+            @foreach (var headline in Model)
+            {
+                <partial name="_Headline" model="headline" />
+            }
+        </div>
+    }
+</section>
+
+@section Scripts {
+    <script>
+        //let elements = document.getElementsByClassName('card');
+        //for (let element of elements) {
+        //    quantizeHeight(element);
+        //}
+
+        function quantizeHeight(element) {
+            const HeightQuantum = 25;
+            let actualHeight = element.getBoundingClientRect().height;
+            let quantumCount = Math.floor(actualHeight / HeightQuantum);
+            if ((actualHeight % HeightQuantum) > 0) {
+                quantumCount += 1;
+            }
+
+            element.style.height = (quantumCount * HeightQuantum) + 'px';
+            element.style.visibility = "visible";
+        }
+    </script>
+}

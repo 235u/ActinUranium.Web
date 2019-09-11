@@ -1,0 +1,46 @@
+﻿@page
+@{
+    ViewData["Title"] = "Zahlen und Fakten";
+}
+
+@section Styles {
+    <style>
+        .card.figure {
+            width: 285px;
+            height: 285px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .figure span:first-child {
+            font-weight: bold;
+        }
+    </style>
+}
+
+<article>
+    <header>
+        <img src="~/img/geometry/01-triangles/15.svg" />
+        <h1>@ViewData["Title"]</h1>
+    </header>
+    <div class="card-group bg-gradient-light">
+        <div class="card figure">
+            <span>9,2e+1‬</span>
+            <span>Protonen</span>
+        </div>
+        <div class="card figure">
+            <span>1,43e+2‬</span>
+            <span>Neutronen</span>
+        </div>
+        <div class="card figure">
+            <span>7,20051e-1 %</span>
+            <span>Natürliche Häufigkeit</span>            
+        </div>
+        <div class="card figure">            
+            <span>7,041e+8 Jahre</span>
+            <span>Halbwertszeit</span>
+        </div>
+    </div>
+</article>

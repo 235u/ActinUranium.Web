@@ -1,0 +1,27 @@
+﻿@model IReadOnlyCollection<Headline>
+
+@if (Model.Count > 0)
+{
+    <section>
+        <h2>Mehr zum Thema</h2>
+        @if (Model.Count > 4)
+        {
+            <div class="card-columns">
+                @foreach (var headline in Model)
+                {
+                    <partial name="_Headline" model="headline" />
+                }
+            </div>
+        }
+        else
+        {
+            <div class="card-group responsive-flex-wrap">
+                @foreach (var headline in Model)
+                {
+                    <partial name="_Headline" model="headline" />
+                }
+            </div>
+        }
+    </section>
+}
+

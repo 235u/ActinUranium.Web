@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Customer>
+
+<section>
+    <h1>@Localizer["loyal customers"]</h1>
+    <div class="card-group flex-wrap">
+        @foreach (var customer in Model)
+        {
+            <partial name="~/Views/Customers/_Customer.cshtml" model="customer" />
+        }
+    </div>
+</section>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.6 77" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round">
+    <g stroke-linejoin="round">
+        <polyline class="a" points="46.3 4.46 44.3 1 42.3 4.46"/>
+        <polyline class="a" points="3 72.54 1 76 5 76"/>
+        <polyline class="a" points="83.6 76 87.6 76 85.6 72.54"/>
+    </g>
+    <g stroke-dasharray="8.73 8.73">
+        <line class="b" x1="37.93" y1="12.03" x2="5.18" y2="68.75"/>
+        <line class="b" x1="13.73" y1="76" x2="79.24" y2="76"/>
+        <line class="b" x1="81.24" y1="64.97" x2="48.48" y2="8.25"/>
+    </g>
+    <path stroke-dasharray="10" d="M66,38.5,1,76M22.65,38.5,87.6,76"/>
+</svg>

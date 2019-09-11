@@ -1,0 +1,118 @@
+﻿.card-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.card {
+    /*height: 153px;*/
+    float: left;
+    overflow: hidden;
+    position: relative;
+    width: 285px;
+}
+
+.card-img {
+    height: 153px;
+    width: 100%;
+    padding: 30px;
+    /*stroke: #000;*/
+}
+
+svg.card-img-inverted {
+    stroke: #fff;
+    /*fill: #fff;*/
+}
+
+.card.creation {
+    height: 153px;
+}
+
+    .card.creation .card-overlay {
+        background-color: rgb(203, 203, 203);
+    }
+
+.card.customer .card-img {
+    padding: 20px 45px;
+}
+
+.card.customer .card-overlay {
+    background-color: #000;
+}
+
+.card.headline {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+    padding: 30px;
+}
+
+svg + .card-body {
+    padding-top: 0;
+}
+
+svg * {
+    stroke: inherit;
+}
+
+.card-columns {
+    column-count: 4;
+    column-width: 285px;
+    column-gap: 0;
+    background: linear-gradient(to right, rgb(249, 249, 249) 25%, rgb(246, 246, 246) 25%, rgb(246, 246, 246) 50%, rgb(243, 243, 243) 50%, rgb(243, 243, 243) 75%, rgb(240, 240, 240) 75%);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.card-columns .card {
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+    break-inside: avoid;
+    height: auto;
+    width: auto;
+    color: #000;
+    float: none;
+    transition: all ease .3s;
+    visibility: hidden;
+}
+
+.card-columns .card-body {
+    padding: 30px;
+}
+
+    .card-columns .card-body > svg {
+        height: 123px;
+        width: 100%;
+        margin: 15px 0 45px 0;
+    }
+
+    .card-columns .card-body .btn-sm {
+        font-family: 'Futura PT';
+        display: inline-block;
+        text-transform: uppercase;
+        background-color: black;
+        color: white;
+        padding: 2px 3px;
+        transition: all ease .5s;
+    }
+
+    .card-columns .card-body h2 {
+        margin-top: 0;
+    }
+
+    .card-columns .card-body ul.inline-list {
+        margin-bottom: 5px;
+    }
+
+        .card-columns .card-body ul.inline-list > li {
+            margin-bottom: 4px;
+        }
+
+    .card-columns .card-body p {
+        margin-bottom: 0;
+    }
+

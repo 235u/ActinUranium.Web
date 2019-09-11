@@ -1,0 +1,69 @@
+﻿/*html,
+body {
+    height: 100%;
+}*/
+
+body {
+    /*position: relative;
+    max-width: 1920px;*/
+    margin: 0;
+    /*display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;*/
+}
+
+header > .inline-list {
+    margin-bottom: 0;
+}
+
+section {
+    overflow: hidden;    
+}
+
+.container {
+    margin: 0 auto;
+    width: 285px;
+}
+
+.jumbotron {
+    height: 100vh;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+@media (max-width: 732px) {
+    .row {
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 733px) and (max-width: 1017px) {
+    .container {
+        width: 570px;
+    }
+}
+
+@media (min-width: 1018px) and (max-width: 1302px) {
+    .container {
+        width: 855px;
+    }
+}
+
+@media (min-width: 1303px) {
+    .container {
+        width: 1140px;
+    }
+}

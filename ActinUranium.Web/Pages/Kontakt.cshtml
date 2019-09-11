@@ -1,0 +1,97 @@
+﻿@page
+@{
+    ViewData["Title"] = "Kontakt";
+}
+
+<article>
+    <header>
+        <img src="~/img/icons/envelope.svg" />
+        <h1>@ViewData["Title"]</h1>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col">
+                <img src="~/img/mp09.jpg" />
+            </div>
+            <div class="col">
+                <h2>Mörth &amp; Mörth GmbH</h2>
+                <ul class="unstyled-list">
+                    <li>P +43 (0) 50/9669-9000</li>
+                    <li>F +43 (0) 50/9669-9114</li>
+                    <li><a href="mailto:moerth@moerth.at">moerth(at)moerth.at</a></li>
+                </ul>
+                <div class="row">
+                    <div class="col">
+                        <ul class="unstyled-list">
+                            <li><strong>Graz</strong></li>
+                            <li>Liebenauer Tangente 6</li>
+                            <li>8041 Graz</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <ul class="unstyled-list">
+                            <li><strong>Graz</strong></li>
+                            <li>Rechte Wienzeile 37</li>
+                            <li>1040 Wien</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="unstyled-list">
+                    <li>Bewerbungen senden Sie bitte an: <a href="mailto:job@moerth.at">job(at)moerth.at</a></li>
+                </ul>
+            </div>
+        </div>        
+    </section>
+    <section>
+        <h2>Schreiben sie uns!</h2>
+        <form>
+            <div class="form-group">
+                <label>Betreff</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label>Nachricht</label>
+                <textarea class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Anrede</label>
+                <select class="form-control">
+                    <option>Herr</option>
+                    <option>Frau</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Vorname</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label>Nachname</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label>E-Mail</label>
+                <input class="form-control" type="text" />
+            </div>
+            <div class="form-group">
+                <label>Telefon</label>
+                <input class="form-control" type="text" />
+            </div>
+            <button type="submit">Absenden</button>
+        </form>
+    </section>
+    <section>
+        <h2>Anfahrt</h2>
+        <section class="google-maps-location">
+            <h2>Graz</h2>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2718.689564327518!2d15.4558972158593!3d47.0463220791514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476e4abf0b2583e9%3A0x2abd0009614642f2!2sLiebenauer+Tangente+6%2C+8041+Graz!5e0!3m2!1sde!2sat!4v1475762157538"></iframe>
+            </div>
+        </section>
+        <section class="google-maps-location">
+            <h2>Wien</h2>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.5117135047158!2d16.358063515893928!3d48.19675877922829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d0785d635b7b3%3A0x1132359a36304ef7!2sRechte+Wienzeile+37%2C+1040+Wien!5e0!3m2!1sde!2sat!4v1475762940001"></iframe>
+            </div>
+        </section>
+    </section>
+</article>

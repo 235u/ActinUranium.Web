@@ -1,0 +1,14 @@
+﻿@model IReadOnlyCollection<Creation>
+
+@if (Model.Count > 0)
+{
+    <section>
+        <h2>Ähnliche Kreaturen</h2>
+        <div class="card-group responsive-flex-wrap">
+            @foreach (var creation in Model)
+            {
+                <partial name="_Creation" model="@creation" />
+            }
+        </div>
+    </section>
+}

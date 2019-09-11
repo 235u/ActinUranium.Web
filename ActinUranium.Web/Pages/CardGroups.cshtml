@@ -1,0 +1,80 @@
+﻿@page
+@{
+    Layout = null;
+}
+
+<style>
+    .container {
+        margin: 0 auto;
+        width: calc(285px * 3);
+    }
+
+    .card-group {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 285px;
+        flex-grow: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+        .card:nth-child(1) {
+            background-color: rgb(252, 252, 252);
+        }
+
+        .card:nth-child(2) {
+            background-color: rgb(249, 249, 249);
+        }
+
+        .card:nth-child(3) {
+            background-color: rgb(246, 246, 246);
+        }
+
+        .card:nth-child(4) {
+            background-color: rgb(243, 243, 243);            
+        }
+
+        .card:nth-child(4) > .card-img {
+            width: calc(285px * 2);
+            height: calc(153px * 3);
+        }
+
+    .card-img {
+        width: 285px;
+        height: calc(153px * 2);
+    }
+
+    .card-body {        
+        background-color: rgba(0, 0, 0, .1);
+        width: 285px;
+        height: 153px;
+    }
+</style>
+
+<div class="container">
+    <div class="card-group">
+        <div class="card">
+            <div class="card-img"></div>
+            <div class="card-body"></div>
+        </div>
+        <div class="card">
+            <div class="card-img"></div>
+            <div class="card-body"></div>
+        </div>
+        <div class="card">
+            <div class="card-img"></div>
+            <div class="card-body"></div>
+        </div>
+        <div class="card">
+            <div class="card-img"></div>
+            <div class="card-body"></div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,230 @@
+﻿.card-group {
+    background: linear-gradient(to right, rgb(252, 252, 252) 285px, rgb(249, 249, 249) 286px 570px, rgb(246, 246, 246) 571px 855px, rgb(243, 243, 243) 856px);
+    display: inline-flex;
+    margin-bottom: 13px;
+}
+
+.flex-wrap,
+.responsive-flex-wrap {
+    flex-wrap: wrap;
+}
+
+@media (min-width: 1018px) and (max-width: 1302px) {
+    .responsive-flex-wrap {
+        flex-wrap: nowrap;
+    }
+}
+
+.card-columns {
+    background: linear-gradient(to right, rgb(250, 250, 250) 285px, rgb(245, 245, 245) 286px 570px, rgb(240, 240, 240) 571px 855px, rgb(235, 235, 235) 856px);
+    column-count: 4;
+    column-gap: 0;
+    column-width: 285px;
+}
+
+    .card-columns > .card {
+        break-inside: avoid;
+        display: block;        
+    }
+
+.card {
+    color: #000;
+    overflow: hidden;
+    position: relative;
+    width: 285px;
+    flex-shrink: 0;
+    background: linear-gradient(rgba(0, 0, 0, .01), rgba(0, 0, 0, .03));
+}
+
+    .card:hover {
+        color: #000;
+        text-decoration: none;
+    }
+
+.release-slide-card {
+    background-color: rgba(227, 227, 227, .95);
+    width: 380px;
+    height: 202px;
+}
+
+.creation-card > img {
+    height: 306px;
+    padding: 60px 60px 30px 60px;
+}
+
+.headline-card > img,
+.customer-card > img {
+    height: 153px;
+}
+
+.headline-card > img {    
+    padding: 30px 30px 0 30px;
+}
+
+.customer-card > img {
+    padding: 26px 47px;
+}
+
+.card-body {
+    padding: 30px;
+}
+
+    .card-body .tag {
+        margin-bottom: 3px;
+    }
+
+    .card-body > h1,
+    .card-body > h2 {
+        margin-top: 0;
+    }
+
+    .card-body > .inline-list,
+    .card-body > .unstyled-list,
+    .card-body > p {
+        margin-bottom: 0;
+    }
+
+.card-overlay {
+    animation-duration: .3s;
+    animation-timing-function: ease;
+    background-color: rgba(0, 0, 0, .2);
+    color: #000;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+}
+
+    .card-overlay.top-in,
+    .card-overlay.right-in,
+    .card-overlay.bottom-in,
+    .card-overlay.left-in {
+        left: 0;
+        opacity: 1;
+        top: 0;
+    }
+
+
+    .card-overlay.top-in {
+        animation-name: top-in;
+    }
+
+    .card-overlay.top-out {
+        animation-name: top-out;
+    }
+
+    .card-overlay.right-in {
+        animation-name: right-in;
+    }
+
+    .card-overlay.right-out {
+        animation-name: right-out;
+    }
+
+    .card-overlay.bottom-in {
+        animation-name: bottom-in;
+    }
+
+    .card-overlay.bottom-out {
+        animation-name: bottom-out;
+    }
+
+    .card-overlay.left-in {
+        animation-name: left-in;
+    }
+
+    .card-overlay.left-out {
+        animation-name: left-out;
+    }
+
+@keyframes top-in {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes top-out {
+    from {
+        opacity: 1;
+        top: 0;
+    }
+
+    to {
+        opacity: 0;
+        top: -100%;
+    }
+}
+
+@keyframes right-in {
+    from {
+        left: 100%;
+        top: 0;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes right-out {
+    from {
+        left: 0;
+        opacity: 1;
+        top: 0;
+    }
+
+    to {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes bottom-in {
+    from {
+        top: 100%;
+    }
+
+    to {
+        top: 0;
+    }
+}
+
+@keyframes bottom-out {
+    from {
+        opacity: 1;
+        top: 0;
+    }
+
+    to {
+        opacity: 0;
+        top: 100%;
+    }
+}
+
+@keyframes left-in {
+    from {
+        left: -100%;
+        top: 0;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes left-out {
+    from {
+        left: 0;
+        opacity: 1;
+        top: 0;
+    }
+
+    to {
+        left: -100%;
+        opacity: 0;
+    }
+}

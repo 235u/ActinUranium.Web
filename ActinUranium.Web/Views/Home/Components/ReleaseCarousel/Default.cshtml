@@ -1,0 +1,62 @@
+﻿@model IReadOnlyCollection<IRelease>
+
+<div class="carousel jumbotron">
+    @foreach (var release in Model)
+    {
+        var className = release == Model.First() ? "active-slide" : "slide";
+        <div class="@className">
+            @{
+                var image = release.GetPrimaryImage();
+            }
+
+            <img class="release-slide-img" src="@image.Source" alt="@image.AlternativeText" asp-append-version="true" />
+            <div class="release-slide-overlay">
+                @if (release is Creation creation)
+                {
+                    <a class="release-slide-card card"
+                       asp-controller="Creations"
+                       asp-action="Details"
+                       asp-route-slug="@creation.Slug">
+                        <div class="card-body">
+                            <h1 class="line-clamp-2">@creation.Title</h1>
+                            <ul class="unstyled-list">
+                                <li class="line-clamp-2">@creation.Mission</li>
+                                <li class="line-clamp-1 text-muted">@creation.Customer.Name</li>
+                            </ul>
+                        </div>
+                        <div class="card-overlay"></div>
+                    </a>
+                }
+                else if (release is Headline headline)
+                {
+                    <a class="release-slide-card card"
+                       asp-controller="Headlines"
+                       asp-action="Details"
+                       asp-route-slug="@headline.Slug">
+                        <div class="card-body">
+                            <h1 class="line-clamp-2">@headline.Title</h1>
+                            <p class="line-clamp-3">@headline.Lead</p>
+                        </div>
+                        <div class="card-overlay"></div>
+                    </a>
+                }
+                else
+                {
+                    var message = $"'{release.GetType().Name}' is not supported.";
+                    throw new NotSupportedException(message);
+                }
+            </div>
+        </div>
+    }
+
+    @if (Model.Count > 1)
+    {
+        <ol class="slide-bullets">
+            @foreach (var release in Model)
+            {
+                var className = release == Model.First() ? "active-bullet" : "bullet";
+                <li class="@className"></li>
+            }
+        </ol>
+    }
+</div>
