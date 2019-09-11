@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Services;
 using System.Globalization;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace ActinUranium.Web.Extensions
 {
@@ -37,9 +38,12 @@ namespace ActinUranium.Web.Extensions
             app.UseRequestLocalization(options);
         }
 
-        public static void UseNonWwwRedirection(this IApplicationBuilder app)
+        public static void ConfigurePermanentRedirects(this IApplicationBuilder app)
         {
-
+            var options = new RewriteOptions();
+            options.AddRedirectToHttpsPermanent();
+            options.AddRedirectToWwwPermanent();
+            app.UseRewriter(options);
         }
     }
 }

@@ -60,8 +60,7 @@ namespace ActinUranium.Web
 
             app.UseDataSeeding();
             app.ConfigureRequestLocalization();
-            app.UseHttpsRedirection();
-            //app.UseRewriter(new RewriteOptions().);
+            app.ConfigurePermanentRedirects();
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {

@@ -28,7 +28,7 @@
         color: #000;
     }
 
-        /* Darken the background colors by masking, containing the difference between shade values. */
+        /* Darken the background colors by masking, containing the visible difference between shade values. */
         .btn:hover::after {
             opacity: .2;
             visibility: visible;
