@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\img\digital-genial\**" />
+    <Content Remove="wwwroot\img\digital-genial\**" />
+    <EmbeddedResource Remove="wwwroot\img\digital-genial\**" />
+    <None Remove="wwwroot\img\digital-genial\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\js\_carousel.js" />
   </ItemGroup>
 
@@ -24,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\digital-genial\" />
     <Folder Include="wwwroot\img\icons\" />
     <Folder Include="wwwroot\img\headlines\" />
   </ItemGroup>
