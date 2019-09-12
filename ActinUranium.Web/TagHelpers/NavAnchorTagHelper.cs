@@ -43,7 +43,7 @@ namespace ActinUranium.Web.TagHelpers
         {
             var currentController = ViewContext.RouteData.Values["controller"] as string;
             var currentAction = ViewContext.RouteData.Values["action"] as string;
-            return (currentController == Controller) &&
+            return (currentController != null) && (currentController == Controller) &&
                 ((currentAction == Action) || (currentAction == "Details"));
         }
     }

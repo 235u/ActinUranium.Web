@@ -1,23 +1,21 @@
 ﻿@model IEnumerable<Creation>
-
-@section Metas {
-    <meta name="keywords" content="creation, combination, mutation" />
-    <meta name="description" content="Impossible is nothing." />
-}
-
 @{
     ViewData["Title"] = Localizer["creations"];
 }
 
-<section class="container">
-    <header>
-        <img src="~/img/icons/projects.svg" />
-        <h1>@ViewData["Title"]</h1>
-    </header>
-    <div class="card-group flex-wrap">
-        @foreach (var creation in Model)
-        {
-            <partial name="_Creation" model="creation" />
-        }
+<div class="table-container">
+    <div class="table-cell-container container">
+        <main>
+            <h1>@ViewData["Title"]</h1>
+            <div class="card-group flex-wrap">
+                @foreach (var creation in Model)
+                {
+                    <partial name="_Creation" model="creation" />
+                }
+            </div>
+        </main>
+        <partial name="_Footer" />
     </div>
-</section>
+</div>
+
+

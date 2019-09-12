@@ -1,18 +1,20 @@
 ﻿@model IEnumerable<Customer>
-
 @{
     ViewData["Title"] = Localizer["customers"];
 }
 
-<section class="container">
-    <header>
-        <img src="~/img/icons/customers.svg" />
-        <h1>@ViewData["Title"]</h1>
-    </header>
-    <div class="card-group flex-wrap">
-        @foreach (Customer customer in Model)
-        {
-            <partial name="_Customer" model="customer" />
-        }
+<div class="table-container">
+    <div class="table-cell-container container">
+        <main>
+            <h1>@ViewData["Title"]</h1>
+            <div class="card-group flex-wrap">
+                @foreach (Customer customer in Model)
+                {
+                    <partial name="_Customer" model="customer" />
+                }
+            </div>
+        </main>
+        <partial name="_Footer" />
     </div>
-</section>
+</div>
+

@@ -1,12 +1,14 @@
-﻿/*html,
+﻿html,
 body {
     height: 100%;
-}*/
+}
 
 body {
     /*position: relative;
     max-width: 1920px;*/
+    /*margin: 0 auto;*/
     margin: 0;
+    /*display: table;*/
     /*display: flex;
     justify-content: center;
     align-items: center;
@@ -68,6 +70,22 @@ section {
     }
 }
 
+.table-container {
+    display: table;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.table-cell-container {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 100px 0;
+}
+
 footer {
-    margin-bottom: 2em;
+    margin-top: 0;
+}
+
+.inline-list:only-child {
+    margin: 0;
 }

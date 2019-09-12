@@ -1,6 +1,6 @@
 ﻿@model Creation
 
-<a class="creation-card card bg-gradient" asp-controller="Creations" asp-action="Details" asp-route-slug="@Model.Slug">
+<a class="creation-card card" asp-controller="Creations" asp-action="Details" asp-route-slug="@Model.Slug">
     <partial name="_Image" model="@Model.GetPrimaryImage()" />    
     <div class="card-body">
         <ul class="inline-list">

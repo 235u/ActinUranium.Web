@@ -1,6 +1,8 @@
 ﻿using ActinUranium.Web.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ActinUranium.Web.Helpers
 {
@@ -88,6 +90,39 @@ namespace ActinUranium.Web.Helpers
             }
 
             return wordGroup;
+        }
+
+        public static string NextKeywords()
+        {
+            var keywords = NextWordGroup(3, 5).Split(' ');
+            return string.Join(", ", keywords);
+        }
+
+        
+        public static string NextDescription()
+        {
+            var wordLottery = new Lottery<string>(Words);
+            var keywords = new List<string>();            
+
+            // See: https://blog.spotibo.com/meta-description-length/
+            int softCharLimit = GetSoftCount(64, 128);
+            int actualCharCount = 0;
+
+            while (actualCharCount < softCharLimit)
+            {
+                string word = wordLottery.Pull();
+                if (actualCharCount == 0)
+                {
+                    word = word.ToSentenceCase();
+                }
+
+                // Consider spaces between words and the dot at the end of the final sentence.
+                actualCharCount += word.Length + 1;
+                keywords.Add(word);
+            }
+
+            string description = string.Join(" ", keywords);
+            return description + ".";
         }
 
         private static int GetSoftCount(int minCount, int maxCount)

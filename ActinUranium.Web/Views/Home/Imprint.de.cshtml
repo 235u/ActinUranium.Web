@@ -2,17 +2,18 @@
     ViewData["Title"] = Localizer["Imprint"];
 }
 
-<article class="container">
-    <header>
-        <img src="~/img/icons/imprint.svg" asp-append-version="true" />
-        <h1>@ViewData["Title"]</h1>
-    </header>
-    <section>
-        <h2>Actin Uranium</h2>
-        <ul class="unstyled-list">
-            <li>Ordnungszahl 92, Massenzahl 235</li>            
-            <li>Periode 7, Block f</li>
-            <li>Actinoide</li>
-        </ul>
-    </section>
-</article>
+<div class="table-container">
+    <div class="table-cell-container container">
+        <article>
+            <h1>@ViewData["Title"]</h1>
+            <h2>Actin Uranium</h2>
+            <ul class="unstyled-list">
+                <li>Ordnungszahl 92, Massenzahl 235</li>
+                <li>Periode 7, Block f</li>
+                <li>Actinoide</li>
+            </ul>
+        </article>
+        <partial name="_Footer" />
+    </div>
+</div>
+

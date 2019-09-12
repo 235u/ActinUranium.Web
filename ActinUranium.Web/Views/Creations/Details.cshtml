@@ -1,33 +1,30 @@
 ﻿@model Creation
-
-@section Metas {
-    <meta name="description" content="Wir sind eine hochdekorierte Einrichtung, dekoriert mit Kristallen von Swarowski." />
-    <meta name="keywords" content="Dekoration, Kristall, Swarowski" />
-}
-
 @{
     ViewData["Title"] = Model.Title;
 }
 
-<article class="container">
-    <header>
-        <partial name="_Carousel" model="@Model.GetImages()" />
-        <ul class="inline-list">
-            <li>@Model.ReleaseDate.Year</li>
-            <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>
-        </ul>
-        <h1>@ViewData["Title"]</h1>
-        <p class="lead">@Model.Mission</p>
-    </header>
-    <div class="row">
-        <section class="col">
-            <h2>@Html.DisplayNameFor(c => c.Strategy)</h2>
-            <p>@Model.Strategy</p>
-        </section>
-        <section class="col">
-            <h2>@Html.DisplayNameFor(c => c.Execution)</h2>
-            <p>@Model.Execution</p>
-        </section>
-    </div>
-    <vc:related-creation-section creation="@Model" count="4"></vc:related-creation-section>
-</article>
+<div class="container">
+    <article>
+        <header>
+            <partial name="_Carousel" model="@Model.GetImages()" />
+            <ul class="inline-list">
+                <li>@Model.ReleaseDate.Year</li>
+                <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>
+            </ul>
+            <h1>@ViewData["Title"]</h1>
+            <p class="lead">@Model.Mission</p>
+        </header>
+        <div class="row">
+            <section class="col">
+                <h2>@Html.DisplayNameFor(c => c.Strategy)</h2>
+                <p>@Model.Strategy</p>
+            </section>
+            <section class="col">
+                <h2>@Html.DisplayNameFor(c => c.Execution)</h2>
+                <p>@Model.Execution</p>
+            </section>
+        </div>
+        <vc:related-creation-section creation="@Model" count="4"></vc:related-creation-section>
+    </article>
+    <partial name="_Footer" />
+</div>

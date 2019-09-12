@@ -22,7 +22,7 @@ h2 {
 h1 {
     font-size: 1.875rem; /* 30px */
     /*margin: 2.6875rem 0 1.75rem 0;*/ /* margin: 43px 0 28px 0 */
-    margin: 0 0 28px 0;
+    margin: 0 0 15px 0;
 }
 
 h2 {
@@ -31,7 +31,7 @@ h2 {
 }
 
 p {
-    margin: 0 0 1em 0;
+    margin: 0 0 15px 0;
 }
 
 a {
@@ -50,6 +50,10 @@ a {
 
 .text-right {
     text-align: right;
+}
+
+.float-right {
+    float: right;
 }
 
 .inline-list,

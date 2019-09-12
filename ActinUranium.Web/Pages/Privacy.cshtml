@@ -3,65 +3,32 @@
     ViewData["Title"] = "Datenschutz";
 }
 
-@section Metas {
-    <meta name="description" content="@LoremIpsum.NextSentence()" />
-}
-
-<article>
-    <header>
-        <img src="~/img/sacred-geometry/triangles/02.svg" />
-        <h1>@ViewData["Title"]</h1>
-    </header>
-    <section>
-        <h2>@LoremIpsum.NextHeading(1, 1)</h2>
-        <p>@LoremIpsum.NextParagraph(4, 4)</p>
-    </section>
-    <section>
-        <h2>@LoremIpsum.NextHeading(6, 6)</h2>
-        <p>@LoremIpsum.NextParagraph(4, 4)</p>       
-    </section>
-    <section>
-        <h2>@LoremIpsum.NextHeading(1, 1)</h2>
-        <p>@LoremIpsum.NextParagraph(2, 2) @LoremIpsum.NextHeading(14, 14):</p>
-        <ul>
-            @{ 
-                for (int listItem = 1; listItem < 4; listItem++)
-                {
-                    <li>@LoremIpsum.NextWordGroup(7, 13);</li>
-                }
-
-                <li>@LoremIpsum.NextWordGroup(7, 13).</li>
-            }
-        </ul>
-        <p>@LoremIpsum.NextParagraph(2, 2)</p>
-    </section>
-    <section>
-        <h2>@LoremIpsum.NextHeading(6, 6)</h2>
-        <p>@LoremIpsum.NextParagraph(3, 3)</p>
-    </section>
-    <section>
-        <h2>@LoremIpsum.NextHeading(1, 1)</h2>
-        <p>@LoremIpsum.NextParagraph(4, 4)</p>
-    </section>
-    <section>
-        <h2>Webanalyse mit Google Analytics</h2>
-
-        <p>Dieses Angebot benutzt Google Analytics, einen Webanalysedienst der Google Inc. ("Google"). Google Analytics verwendet sog. "Cookies", Textdateien, die auf den Computern der Nutzer gespeichert werden und die eine Analyse der Benutzung der Website ermöglichen. Die durch Cookies erzeugten Informationen über die Benutzung der Website durch die Nutzer werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Jedoch wird im Falle der Aktivierung der IP-Anonymisierung auf dieser Webseite die IP-Adresse bei Nutzern von Google innerhalb der Mitgliedstaaten der Europäischen Union oder bei Nutzern aus anderen Vertragsstaaten des Europäischen Wirtschaftsraums zuvor gekürzt. Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Die IP-Anonymisierung ist auf dieser Website aktiv. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um die Nutzung der Website durch die Nutzer auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen.Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP-Adresse wird nicht mit anderen Daten von Google zusammengeführt. Die Nutzer können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; Dieses Angebot weist die Nutzer jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Die Nutzer können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) durch Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: <a href="http://tools.google.com/dlpage/gaoptout?hl=de">http://tools.google.com/dlpage/gaoptout?hl=de</a>.</p>
-    </section>
-    <section>
-        <h2>Verwendung von Facebook-Plugins</h2>
-
-        <p>Wir haben in unsere Internetpräsenz sogenannte Plugins des sozialen Netzwerkes facebook.com (nachfolgend „Facebook“) integriert. Facebook ist ein Unternehmen der Facebook Inc., 1601 S. California Ave, Palo Alto, CA 94304, USA. Eine Auflistung und das Aussehen dieser Plugins von Facebook kann unter der nachfolgenden Internetadresse eingesehen werden: <a href="http://developers.facebook.com/plugins">http://developers.facebook.com/plugins</a>.
-
-        <p>Bei jedem Aufruf einer Website unserer Internetpräsenz, die mit einem solchen Plugin versehen ist, veranlasst das Plugin, dass der von Ihnen verwendete Browser die optische Darstellung des Plugins vom Facebook-Server lädt und darstellt. Dabei wird dem Facebook-Server mitgeteilt, welche bestimmte Website unserer Internetpräsenz Sie gerade besuchen. Wenn Sie Mitglied bei Facebook und während des Besuchs unserer Internetpräsenz bei Facebook eingeloggt sind, erkennt Facebook durch die von dem Plugin gesendete Information, welche bestimmte Website unserer Internetpräsenz Sie gerade besuchen und weist sie Ihrem persönlichen Benutzerkonto auf Facebook zu. Betätigen Sie nun eines der Plugins, beispielsweise durch Anklicken des „Gefällt mir“-Buttons oder durch die Abgabe eines Kommentares, wird dies an Ihr persönliches Benutzerkonto auf Facebook gesendet und dort gespeichert. Zudem wird die Information, dass Sie unsere Internetpräsenz besucht haben, an Facebook übermittelt, unabhängig davon, ob Sie eines der Plugins betätigen oder nicht.</p>
-
-        <p>Um das Übermitteln und Speichern von Daten über Sie und Ihr Surfverhalten durch Facebook zu verhindern, müssen Sie sich bei Facebook ausloggen, bevor Sie unsere Internetpräsenz besuchen. Um die Datenerhebung und -weitergabe Ihrer Besucherdaten durch Facebook-Plugins für die Zukunft zu blocken, können Sie für einige Internetbrowser unter nachfolgendem Link ein Browser-Add-On von „Facebook Blocker“ beziehen. Bitte löschen Sie das Browser-Add-On nicht, solange Sie die Facebook-Plugins blocken wollen: <a href="http://webgraph.com/resources/facebookblocker">http://webgraph.com/resources/facebookblocker</a>.</p>
-
-        <p>Unter der nachstehenden Internetadresse finden Sie die Datenschutzhinweise von Facebook mit näheren Informationen zur Erhebung und Nutzung von Daten durch Facebook, zu Ihren diesbezüglichen Rechten sowie zu den Einstellungsmöglichkeiten zum Schutz Ihrer Privatsphäre: <a href="http://www.facebook.com/policy.php">http://www.facebook.com/policy.php</a>.</p>
-    </section>
-    <section>
-        <h2>Kontaktaufnahme und Auskunft</h2>
-
-        <p>Bei der Kontaktaufnahme mit MuM (per Kontaktformular oder E-Mail) werden die Nutzerangaben zwecks Bearbeitung der Anfrage sowie für den Fall, dass Anschlussfragen entstehen, gespeichert. Nach dem Datenschutzgesetz aus dem Jahre 2000 (DSG 2000) haben Sie jederzeit das Recht, Auskunft über die zu Ihrer Person gespeicherten Daten und den Zweck der Speicherung dieser Daten zu erhalten. Für diese Anfrage oder auch für andere Fragen zu unseren Datenschutz-Informationen oder den technischen Besonderheiten dieser Webseite wenden Sie sich bitte an <a href="mailto:moerth@moerth.at">moerth(at)moerth.at</a>.</p>
-    </section>
-</article>
+<div class="table-container">
+    <div class="table-cell-container container">
+        <article>
+            <h1>@ViewData["Title"]</h1>
+            <section>
+                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+                <p>@LoremIpsum.NextParagraph(2, 4)</p>
+            </section>
+            <section>
+                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+                <p>@LoremIpsum.NextParagraph(2, 4)</p>
+                <p>@LoremIpsum.NextWordGroup(5, 9):</p>
+                <ul>
+                    <li>@LoremIpsum.NextWordGroup(3, 7);</li>
+                    <li>@LoremIpsum.NextWordGroup(2, 7);</li>
+                    <li>@LoremIpsum.NextWordGroup(3, 7);</li>
+                    <li>@LoremIpsum.NextWordGroup(2, 7).</li>
+                </ul>
+                <p>@LoremIpsum.NextParagraph(2, 3)</p>
+            </section>
+            <section>
+                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+                <p>@LoremIpsum.NextParagraph(2, 4)</p>
+                <p>@LoremIpsum.NextParagraph(2, 4)</p>
+            </section>
+        </article>
+        <partial name="_Footer" />
+    </div>
+</div>

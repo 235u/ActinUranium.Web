@@ -1,9 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    @RenderSection("Metas", required: false)
+    <partial name="_Meta" />
     <partial name="_Title" />
     <link href="https://use.typekit.net/lge2pgz.css" rel="stylesheet" />
     <link href="~/css/site.css" asp-append-version="true" rel="stylesheet" />
@@ -12,10 +10,7 @@
 <body>
     <partial name="_Header" />
     <partial name="_Navbar" />
-    <main>
-        @RenderBody()
-    </main>
-    <partial name="_Footer" />
+    @RenderBody()
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
