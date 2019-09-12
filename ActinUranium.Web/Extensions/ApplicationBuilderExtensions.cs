@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Rewrite;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace ActinUranium.Web.Extensions
 {
@@ -44,6 +46,21 @@ namespace ActinUranium.Web.Extensions
             options.AddRedirectToHttpsPermanent();
             options.AddRedirectToWwwPermanent();
             app.UseRewriter(options);
+        }
+
+        public static void ConfigureStaticFileCaching(this IApplicationBuilder app)
+        {
+            var options = new StaticFileOptions()
+            {
+                OnPrepareResponse = (ctx) =>
+                {                    
+                    const int CachePeriodInSeconds = 31_536_000;
+                    var cacheControlHeaderValue = $"public, max-age={CachePeriodInSeconds}";
+                    ctx.Context.Response.Headers.Append("Cache-Control", cacheControlHeaderValue);
+                }
+            };
+
+            app.UseStaticFiles(options);
         }
     }
 }

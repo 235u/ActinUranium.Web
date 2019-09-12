@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Extensions;
 using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace ActinUranium.Web
 {
@@ -61,7 +62,8 @@ namespace ActinUranium.Web
             app.UseDataSeeding();
             app.ConfigureRequestLocalization();
             app.ConfigurePermanentRedirects();
-            app.UseStaticFiles();
+            app.ConfigureStaticFileCaching();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(name: "default", template: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");

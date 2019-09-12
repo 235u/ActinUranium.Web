@@ -79,8 +79,7 @@
     }
 
     .card-body > .inline-list,
-    .card-body > .unstyled-list,
-    .card-body > p {
+    .card-body > .unstyled-list {
         margin-bottom: 0;
     }
 
