@@ -4,15 +4,7 @@ body {
 }
 
 body {
-    /*position: relative;
-    max-width: 1920px;*/
-    /*margin: 0 auto;*/
     margin: 0;
-    /*display: table;*/
-    /*display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;*/
 }
 
 header > .inline-list {
@@ -28,10 +20,10 @@ section {
     width: 285px;
 }
 
-.jumbotron {
+/*.masthead {
     height: 100vh;
     width: 100%;
-}
+}*/
 
 .row {
     display: flex;
@@ -49,6 +41,10 @@ section {
 @media (max-width: 732px) {
     .row {
         flex-wrap: wrap;
+    }
+
+    .masthead {
+        display: none;
     }
 }
 

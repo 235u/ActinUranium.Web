@@ -20,7 +20,7 @@
         left: 0;
         content: '';
         visibility: hidden;
-        background-color: #000;        
+        background-color: #000;
     }
 
     .btn:hover {
@@ -57,6 +57,16 @@
     .btn-expand-right:hover {
         left: 0;
     }
+
+@media (max-width: 732px) {
+    .btn-img {
+        order: -1;
+    }
+
+    .btn-expand-right {
+        left: 0;
+    }
+}
 
 .btn-expand-left {
     right: calc(-100% + var(--img-width));
