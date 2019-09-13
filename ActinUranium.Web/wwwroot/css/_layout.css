@@ -23,7 +23,7 @@ section {
     overflow: hidden;    
 }
 
-.container {
+.responsive-container {
     margin: 0 auto;
     width: 285px;
 }
@@ -53,19 +53,19 @@ section {
 }
 
 @media (min-width: 733px) and (max-width: 1017px) {
-    .container {
+    .responsive-container {
         width: 570px;
     }
 }
 
 @media (min-width: 1018px) and (max-width: 1302px) {
-    .container {
+    .responsive-container {
         width: 855px;
     }
 }
 
 @media (min-width: 1303px) {
-    .container {
+    .responsive-container {
         width: 1140px;
     }
 }
