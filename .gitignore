@@ -338,3 +338,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Bundled and minified static assets
+/ActinUranium.Web/wwwroot/css/site.min.css
+/ActinUranium.Web/wwwroot/css/site.css
