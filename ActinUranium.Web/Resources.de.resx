@@ -143,15 +143,15 @@
     <value>Publizistik</value>
     <comment>Schlagzeilen</comment>
   </data>
+  <data name="home" xml:space="preserve">
+    <value>Äquilibristik</value>
+    <comment>Überblick</comment>
+  </data>
   <data name="imprint" xml:space="preserve">
     <value>Impressum</value>
   </data>
   <data name="loyal customers" xml:space="preserve">
     <value>behandelte Fabelwesen</value>
-  </data>
-  <data name="overview" xml:space="preserve">
-    <value>Äquilibristik</value>
-    <comment>Übersicht</comment>
   </data>
   <data name="privacy" xml:space="preserve">
     <value>Datenschutz</value>

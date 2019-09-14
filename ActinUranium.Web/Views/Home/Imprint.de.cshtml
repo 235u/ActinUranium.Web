@@ -1,19 +1,14 @@
 ﻿@{
-    ViewData["Title"] = Localizer["Imprint"];
+    ViewData["Title"] = Localizer["imprint"];
+    ViewData["VerticallyCentered"] = true;
 }
 
-<div class="table-container">
-    <div class="table-cell-container responsive-container">
-        <article>
-            <h1>@ViewData["Title"]</h1>
-            <h2>Actin Uranium</h2>
-            <ul class="unstyled-list">
-                <li>Ordnungszahl 92, Massenzahl 235</li>
-                <li>Periode 7, Block f</li>
-                <li>Actinoide</li>
-            </ul>
-        </article>
-        <partial name="_Footer" />
-    </div>
-</div>
-
+<article>
+    <h1>@ViewData["Title"]</h1>
+    <h2>Actin Uranium</h2>
+    <ul class="unstyled-list">
+        <li>Ordnungszahl 92, Massenzahl 235</li>
+        <li>Periode 7, Block f</li>
+        <li>Actinoide</li>
+    </ul>
+</article>

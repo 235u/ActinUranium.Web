@@ -1,34 +1,29 @@
 ﻿@page
 @{
-    ViewData["Title"] = "Datenschutz";
+    ViewData["Title"] = "Datenschutz";    
 }
 
-<div class="table-container">
-    <div class="table-cell-container responsive-container">
-        <article>
-            <h1>@ViewData["Title"]</h1>
-            <section>
-                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
-                <p>@LoremIpsum.NextParagraph(2, 4)</p>
-            </section>
-            <section>
-                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
-                <p>@LoremIpsum.NextParagraph(2, 4)</p>
-                <p>@LoremIpsum.NextWordGroup(5, 9):</p>
-                <ul>
-                    <li>@LoremIpsum.NextWordGroup(3, 7);</li>
-                    <li>@LoremIpsum.NextWordGroup(2, 7);</li>
-                    <li>@LoremIpsum.NextWordGroup(3, 7);</li>
-                    <li>@LoremIpsum.NextWordGroup(2, 7).</li>
-                </ul>
-                <p>@LoremIpsum.NextParagraph(2, 3)</p>
-            </section>
-            <section>
-                <h2>@LoremIpsum.NextHeading(2, 4)</h2>
-                <p>@LoremIpsum.NextParagraph(2, 4)</p>
-                <p>@LoremIpsum.NextParagraph(2, 4)</p>
-            </section>
-        </article>
-        <partial name="_Footer" />
-    </div>
-</div>
+<article>
+    <h1>@ViewData["Title"]</h1>
+    <section>
+        <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+        <p>@LoremIpsum.NextParagraph(2, 4)</p>
+    </section>
+    <section>
+        <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+        <p>@LoremIpsum.NextParagraph(2, 4)</p>
+        <p>@LoremIpsum.NextWordGroup(5, 9):</p>
+        <ul>
+            <li>@LoremIpsum.NextWordGroup(3, 7);</li>
+            <li>@LoremIpsum.NextWordGroup(2, 7);</li>
+            <li>@LoremIpsum.NextWordGroup(3, 7);</li>
+            <li>@LoremIpsum.NextWordGroup(2, 7).</li>
+        </ul>
+        <p>@LoremIpsum.NextParagraph(2, 3)</p>
+    </section>
+    <section>
+        <h2>@LoremIpsum.NextHeading(2, 4)</h2>
+        <p>@LoremIpsum.NextParagraph(2, 4)</p>
+        <p>@LoremIpsum.NextParagraph(2, 4)</p>
+    </section>
+</article>

@@ -25,26 +25,20 @@
     </style>
 }
 
-<div class="table-container">
-    <div class="table-cell-container responsive-container">
-        <article>
-            <h1>@ViewData["Title"]</h1>
-            @for (int section = 1; section <= 15; section++)
-            {
-                <section>
-                    <h2>@LoremIpsum.NextHeading(1, 4)</h2>
-                    @{
-                        var random = new Random();
-                        int paragraphCount = random.Next(1, 7);
-                        for (int paragraph = 1; paragraph <= paragraphCount; paragraph++)
-                        {
-                            <p>@LoremIpsum.NextParagraph(1, 4)</p>
-                        }
-                    }
-                </section>
+<article>
+    <h1>@ViewData["Title"]</h1>
+    @for (int section = 1; section <= 15; section++)
+    {
+        <section>
+            <h2>@LoremIpsum.NextHeading(1, 4)</h2>
+            @{
+                var random = new Random();
+                int paragraphCount = random.Next(1, 7);
+                for (int paragraph = 1; paragraph <= paragraphCount; paragraph++)
+                {
+                    <p>@LoremIpsum.NextParagraph(1, 4)</p>
+                }
             }
-        </article>
-        <partial name="_Footer" />
-    </div>
-</div>
-
+        </section>
+    }
+</article>

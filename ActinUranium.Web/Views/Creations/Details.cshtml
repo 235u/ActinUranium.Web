@@ -3,28 +3,25 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="responsive-container">
-    <article>
-        <header>
-            <partial name="_Carousel" model="@Model.GetImages()" />
-            <ul class="inline-list">
-                <li>@Model.ReleaseDate.Year</li>
-                <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>
-            </ul>
-            <h1>@ViewData["Title"]</h1>
-            <p class="lead">@Model.Mission</p>
-        </header>
-        <div class="row">
-            <section class="col">
-                <h2>@Html.DisplayNameFor(c => c.Strategy)</h2>
-                <p>@Model.Strategy</p>
-            </section>
-            <section class="col">
-                <h2>@Html.DisplayNameFor(c => c.Execution)</h2>
-                <p>@Model.Execution</p>
-            </section>
-        </div>
-        <vc:related-creation-section creation="@Model" count="4"></vc:related-creation-section>
-    </article>
-    <partial name="_Footer" />
-</div>
+<article>
+    <header>
+        <partial name="_Carousel" model="@Model.GetImages()" />
+        <ul class="inline-list">
+            <li>@Model.ReleaseDate.Year</li>
+            <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>
+        </ul>
+        <h1>@ViewData["Title"]</h1>
+        <p class="lead">@Model.Mission</p>
+    </header>
+    <div class="row">
+        <section class="col">
+            <h2>@Html.DisplayNameFor(c => c.Strategy)</h2>
+            <p>@Model.Strategy</p>
+        </section>
+        <section class="col">
+            <h2>@Html.DisplayNameFor(c => c.Execution)</h2>
+            <p>@Model.Execution</p>
+        </section>
+    </div>
+    <vc:related-creation-section creation="@Model" count="4"></vc:related-creation-section>
+</article>

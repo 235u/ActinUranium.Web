@@ -1,0 +1,105 @@
+﻿@page
+@{
+    Layout = null;
+}
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    html {
+        overflow-y: scroll;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    nav {
+        background-color: darkgray;
+    }
+
+    header {
+        height: 100px;
+        width: 200px;
+        margin: 25px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    nav {
+        height: 300px;
+        width: 60px;
+        position: fixed;
+        margin: auto 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .masthead {
+        height: 100vh;
+        background-color: lightgray;
+        margin-bottom: 25px;
+    }
+
+    .outer-flex-container {
+        height: 100%;
+        display: flex;
+    }
+
+    .inner-flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .main,
+    .footer,
+    .fake-header {
+        background-color: lightgray;
+        flex-shrink: 0;
+    }
+
+    .main {
+        height: 400px;
+        width: 1140px;
+    }
+
+    .footer,
+    .fake-header {
+        align-self: flex-end;
+        height: 60px;
+        width: 400px;
+        margin: 25px;
+    }
+
+    .fake-header {
+        opacity: 0;
+    }
+</style>
+
+<body>
+    <header></header>
+    <nav></nav>
+    @*<div class="masthead"></div>*@
+    <div class="outer-flex-container">
+        <div class="inner-flex-container">
+            <div class="fake-header"></div>
+            <main class="main"></main>
+            <footer class="footer"></footer>
+        </div>
+    </div>
+</body>
+

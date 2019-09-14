@@ -35,7 +35,7 @@ namespace ActinUranium.Web.Models
             {
                 Slug = FullName.Slugify(),
                 Name = FullName,
-                Email = "legion@253u.net"
+                Email = "legion@235u.net"
             };
 
             dbContext.Authors.Add(author);

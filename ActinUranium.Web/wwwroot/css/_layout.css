@@ -3,6 +3,10 @@ body {
     height: 100%;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     margin: 0;
 }
@@ -12,7 +16,7 @@ header > .inline-list {
 }
 
 section {
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 .responsive-container {
@@ -20,10 +24,10 @@ section {
     width: 285px;
 }
 
-/*.masthead {
+.masthead {
     height: 100vh;
-    width: 100%;
-}*/
+    /*width: 100%;*/
+}
 
 .row {
     display: flex;
@@ -66,22 +70,44 @@ section {
     }
 }
 
-.table-container {
-    display: table;
-    margin: 0 auto;
-    height: 100%;
-}
-
-.table-cell-container {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 100px 0;
-}
-
 footer {
     margin-top: 0;
 }
 
 .inline-list:only-child {
     margin: 0;
+}
+
+.outer-flex-container {
+    height: 100%;
+    display: flex;
+}
+
+.inner-flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.fake-header,
+.main,
+.footer {
+    /*background-color: lightgray;*/
+    flex-shrink: 0;
+}
+
+.fake-header,
+.footer {
+    align-self: flex-end;
+    padding: 13px 19px;
+    margin: 25px;
+}
+
+/* Helps center main vertically. */
+.fake-header {
+    height: 42px;
+    width: 285px;
+    /*opacity: 0;*/
 }

@@ -5,7 +5,6 @@
       "wwwroot/css/_buttons.css",
       "wwwroot/css/_card.css",
       "wwwroot/css/_carousel.css",
-      "wwwroot/css/_color.css",
       "wwwroot/css/_images.css",
       "wwwroot/css/_layout.css",
       "wwwroot/css/_navbar.css",
@@ -15,9 +14,8 @@
   {
     "outputFileName": "wwwroot/js/site.js",
     "inputFiles": [
-      "wwwroot/js/_card.js",
+      "wwwroot/js/_card-overlay.js",
       "wwwroot/js/_carousel.js",
-      "wwwroot/js/_gradient.js",
       "wwwroot/js/_navbar.js"
     ]
   }

@@ -79,22 +79,22 @@ a {
     height: auto;
 }
 
-header > img {
-    height: 90px;
-    margin-left: 3px;
-}
-
-.brand {    
-    position: absolute;
+.brand {
+    position: fixed;
     right: 25px;
-    top: 25px;    
+    top: 25px;
     z-index: 1;
+    transition: opacity ease .2s;
 }
 
 .brand-logo {
     background-color: #fff;
-    padding: 13px 19px;
+    display: inline-block;
 }
+
+.fade-out {
+    opacity: 0;    
+} 
 
 @media (max-width: 732px) {
     .brand {
@@ -112,7 +112,8 @@ header > img {
 }
 
 .brand-logo-img {
-    height: auto;
+    margin: 13px 19px;
+    height: auto;    
     width: 109px;
 }
 

@@ -3,24 +3,20 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="responsive-container">
-    <article>
-        <header>
-            <partial name="_Carousel" model="@Model.GetImages()" />
-            <a class="tag tag-link"
-               asp-controller="Headlines"
-               asp-action="Tag"
-               asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
-            <h1>@ViewData["Title"]</h1>
-        </header>
-        <p><strong>@Model.Lead</strong></p>
-        <p>@Model.Text</p>
-        <ul class="inline-list">
-            <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
-            <li><a href="mailto:@Model.Author.Email">@Model.Author.Name</a></li>
-        </ul>
-        <vc:related-headline-section headline="@Model"></vc:related-headline-section>
-    </article>
-    <partial name="_Footer" />
-</div>
-
+<article>
+    <header>
+        <partial name="_Carousel" model="@Model.GetImages()" />
+        <a class="tag tag-link"
+           asp-controller="Headlines"
+           asp-action="Tag"
+           asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
+        <h1>@ViewData["Title"]</h1>
+    </header>
+    <p><strong>@Model.Lead</strong></p>
+    <p>@Model.Text</p>
+    <ul class="inline-list">
+        <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
+        <li><a href="mailto:@Model.Author.Email">@Model.Author.Name</a></li>
+    </ul>
+    <vc:related-headline-section headline="@Model"></vc:related-headline-section>
+</article>

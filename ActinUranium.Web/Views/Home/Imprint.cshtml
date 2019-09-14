@@ -1,18 +1,14 @@
 ﻿@{
-    ViewData["Title"] = Localizer["Imprint"];
+    ViewData["Title"] = Localizer["imprint"];
+    ViewData["VerticallyCentered"] = true;
 }
 
 <article>
-    <header>
-        @*<img src="~/img/icons/imprint.svg" asp-append-version="true" />*@
-        <h1>@ViewData["Title"]</h1>
-    </header>
-    <section>
-        <h2>Actin Uranium</h2>
-        <ul class="unstyled-list">
-            <li>Atomic Number 92, Mass Number 235</li>            
-            <li>Period 7, Block f</li>
-            <li>Actinides</li>
-        </ul>
-    </section>
+    <h1>@ViewData["Title"]</h1>
+    <h2>Actin Uranium</h2>
+    <ul class="unstyled-list">
+        <li>Atomic Number 92, Mass Number 235</li>
+        <li>Period 7, Block f</li>
+        <li>Actinides</li>
+    </ul>
 </article>

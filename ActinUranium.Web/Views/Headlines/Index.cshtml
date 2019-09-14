@@ -1,25 +1,18 @@
 ﻿@model IEnumerable<Headline>
 @{
     ViewData["Title"] = Localizer["headlines"];
+    ViewData["VerticallyCentered"] = true;
 }
 
-<div class="table-container">
-    <div class="table-cell-container responsive-container">
-        <main>
-            <h1>@ViewData["Title"]</h1>
-            @if (Model.Any())
-            {
-                <div class="card-columns">
-                    @foreach (var headline in Model)
-                    {
-                        <partial name="_Headline" model="headline" />
-                    }
-                </div>
-            }
-        </main>
-        <partial name="_Footer" />
+<main>
+    <h1>@ViewData["Title"]</h1>
+    <div class="card-columns">
+        @foreach (var headline in Model)
+        {
+            <partial name="_Headline" model="headline" />
+        }
     </div>
-</div>
+</main>
 
 @section Scripts {
     <script>
