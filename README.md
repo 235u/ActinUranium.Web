@@ -1,16 +1,19 @@
-# 16.07.2019
+<p align="right">
+  <a href="https://www.235u.net">
+    <img src="ActinUranium.Web/wwwroot/img/logo.svg" alt="Actin Uranium logo" width="109">
+  </a>
+</p>
+
+## Ideas
 
 - Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
-
-# 15.07.2019
-
 - Time-Machine-Funktionalität
   - Verlinkung zu bestimmten Versionen, statt Screenshots
   - Eine Multi-Tenancy-Funktionalität
 - Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
 - Developer PC Build
 
-## Versionierung
+## Versioning
 
 - 2019.01.25 22:39:11
 - 2019.07.15.1730
@@ -19,8 +22,6 @@
 ## Text-Bausteine
 
 - Ich werde nicht nur Software entwickeln, sondern auch viel Software anwenden / einsetzen.
-
-# 01.07.2019
 
 ## Built with
 
@@ -52,6 +53,3 @@ In Form einer schönen Tabelle; eventuell als SVG
 
 Nicht per Session - der Speicher würde explodieren.
 
-## Licensing
-
-Verlinkung zur Lizenz; eventuell ein eigener Image-Viewer (s. Wikipedia).
