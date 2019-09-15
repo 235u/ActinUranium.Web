@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Extensions;
 using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Http;
+using System;
 
 namespace ActinUranium.Web
 {
@@ -42,6 +43,11 @@ namespace ActinUranium.Web
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddHsts(options =>
+            {
+                options.MaxAge = TimeSpan.FromDays(365);
+            });
+
             const string DatabaseName = "ActinUranium.Web";
             services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(DatabaseName));
 
@@ -60,7 +66,7 @@ namespace ActinUranium.Web
             }
             else
             {
-                app.UseHsts();
+                app.UseHsts();               
             }
 
             app.UseDataSeeding();
