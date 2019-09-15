@@ -58,6 +58,10 @@ namespace ActinUranium.Web
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseDataSeeding();
             app.ConfigureRequestLocalization();
