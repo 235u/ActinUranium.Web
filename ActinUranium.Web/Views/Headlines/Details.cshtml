@@ -1,11 +1,16 @@
 ﻿@model Headline
 @{
     ViewData["Title"] = Model.Title;
+    var images = @Model.GetImages();
+    if (images.Count == 0)
+    {
+        ViewData["VerticallyCentered"] = true;
+    }
 }
 
 <article>
     <header>
-        <partial name="_Carousel" model="@Model.GetImages()" />
+        <partial name="_Carousel" model="images" />
         <a class="tag tag-link"
            asp-controller="Headlines"
            asp-action="Tag"
