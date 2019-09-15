@@ -342,3 +342,5 @@ healthchecksdb
 # Bundled and minified static assets
 /ActinUranium.Web/wwwroot/css/site.min.css
 /ActinUranium.Web/wwwroot/css/site.css
+/ActinUranium.Web/wwwroot/js/site.js
+/ActinUranium.Web/wwwroot/js/site.min.js
