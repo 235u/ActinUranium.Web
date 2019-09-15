@@ -10,6 +10,13 @@ using ActinUranium.Web.Extensions;
 using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Http;
 using System;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Net.Http.Headers;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace ActinUranium.Web
 {
@@ -18,41 +25,16 @@ namespace ActinUranium.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();
-            services.AddRouting(options =>
-            {
-                options.LowercaseUrls = true;
-                options.LowercaseQueryStrings = true;
-                options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
-            });            
+            services.AddRouting(ConfigureRouting);
 
-            var transformer = new SlugifyParameterTransformer();
-            services.AddMvc(options =>
-                {
-                    var convention = new RouteTokenTransformerConvention(transformer);
-                    options.Conventions.Add(convention);
-                })
-                .AddRazorPagesOptions(options =>
-                {
-                    var convention = new PageRouteTransformerConvention(transformer);
-                    options.Conventions.Add(convention);
-                })
+            services.AddMvc(ConfigureMvc)
+                .AddRazorPagesOptions(ConfigureRazorPages)
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-                .AddDataAnnotationsLocalization(options =>
-                {
-                    options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources));
-                })
+                .AddDataAnnotationsLocalization(ConfigureDataAnnotationsLocalization)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddHsts(options =>
-            {
-                options.Preload = true;
-                options.IncludeSubDomains = true;
-                options.MaxAge = TimeSpan.FromDays(365);
-            });
-
-            const string DatabaseName = "ActinUranium.Web";
-            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase(DatabaseName));
-
+            services.AddHsts(ConfigureHsts);
+            services.AddDbContext<ApplicationDbContext>(ConfigureDbContext);
             services.AddTransient<CreationStore>();
             services.AddTransient<CustomerStore>();
             services.AddTransient<GeometryService>();
@@ -68,18 +50,90 @@ namespace ActinUranium.Web
             }
             else
             {
-                app.UseHsts();               
+                app.UseHsts();
             }
 
             app.UseDataSeeding();
-            app.ConfigureRequestLocalization();
-            app.ConfigurePermanentRedirects();
-            app.ConfigureStaticFileCaching();
+            app.UseRequestLocalization(ConfigureRequestLocalization);
+            app.UseRewriter(ConfigureRewriter);
+            app.UseStaticFiles(ConfigureCacheControl);
+            app.UseContentTypeOptions();
+            app.UseContentSecurityPolicy();
+            app.UseFrameOptions();
+            app.UseMvc(ConfigureRoutes);
+        }
 
-            app.UseMvc(routes =>
+        private static void ConfigureRouting(RouteOptions options)
+        {
+            options.LowercaseUrls = true;
+            options.LowercaseQueryStrings = true;
+            options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+        }
+
+        private static void ConfigureMvc(MvcOptions options)
+        {
+            var transformer = new SlugifyParameterTransformer();
+            var convention = new RouteTokenTransformerConvention(transformer);
+            options.Conventions.Add(convention);
+        }
+
+        private static void ConfigureRazorPages(RazorPagesOptions options)
+        {
+            var transformer = new SlugifyParameterTransformer();
+            var convention = new PageRouteTransformerConvention(transformer);
+            options.Conventions.Add(convention);
+        }
+
+        private static void ConfigureDataAnnotationsLocalization(MvcDataAnnotationsLocalizationOptions options)
+        {
+            options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources));
+        }
+
+        private static void ConfigureHsts(HstsOptions options)
+        {
+            options.Preload = true;
+            options.IncludeSubDomains = true;
+            options.MaxAge = TimeSpan.FromDays(365);
+        }
+
+        private static void ConfigureDbContext(DbContextOptionsBuilder options)
+        {
+            const string DatabaseName = "ActinUranium.Web";
+            options.UseInMemoryDatabase(DatabaseName);
+        }
+
+        public static void ConfigureRequestLocalization(RequestLocalizationOptions options)
+        {
+            var supportedCultures = new[]
             {
-                routes.MapRoute(name: "default", template: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");
-            });
+                new CultureInfo("de"),
+                new CultureInfo("en")
+            };
+
+            options.SupportedCultures = supportedCultures;
+            options.SupportedUICultures = supportedCultures;
+            options.DefaultRequestCulture = new RequestCulture("de");
+        }
+
+        private static void ConfigureRewriter(RewriteOptions options)
+        {
+            options.AddRedirectToHttpsPermanent();
+            options.AddRedirectToWwwPermanent();
+        }
+
+        private void ConfigureCacheControl(StaticFileOptions options)
+        {
+            options.OnPrepareResponse = (context) =>
+            {
+                const int CachePeriodInSeconds = 31_536_000; // 1 year
+                string cacheControlHeaderValue = $"public, max-age={CachePeriodInSeconds}";
+                context.Context.Response.Headers.Append(HeaderNames.CacheControl, cacheControlHeaderValue);
+            };
+        }
+
+        private static void ConfigureRoutes(IRouteBuilder routes)
+        {
+            routes.MapRoute(name: "default", template: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");
         }
     }
 }

@@ -1,66 +1,75 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Services;
-using System.Globalization;
 using Microsoft.AspNetCore.Rewrite;
-using System.Linq;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Net.Http.Headers;
+using System;
 
 namespace ActinUranium.Web.Extensions
 {
     internal static class ApplicationBuilderExtensions
     {
-        public static void UseDataSeeding(this IApplicationBuilder app)
+        public static IApplicationBuilder UseDataSeeding(this IApplicationBuilder app)
         {
-            var serviceScopeFactory = 
-                app.ApplicationServices.GetService(typeof(IServiceScopeFactory)) as IServiceScopeFactory;
+            var serviceType = typeof(IServiceScopeFactory);
+            var serviceScopeFactory = app.ApplicationServices.GetService(serviceType) as IServiceScopeFactory;
+
             using (IServiceScope serviceScope = serviceScopeFactory.CreateScope())
             {
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 dbContext.Seed();
             }
+
+            return app;
         }
 
-        public static void ConfigureRequestLocalization(this IApplicationBuilder app)
-        {
-            var supportedCultures = new[]
-            {
-                new CultureInfo("de"),
-                new CultureInfo("en")
-            };
-
-            var options = new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture("de"),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            };
-
-            app.UseRequestLocalization(options);
-        }
-
-        public static void ConfigurePermanentRedirects(this IApplicationBuilder app)
+        public static IApplicationBuilder UseRewriter(
+            this IApplicationBuilder app, Action<RewriteOptions> configureOptions)
         {
             var options = new RewriteOptions();
-            options.AddRedirectToHttpsPermanent();
-            options.AddRedirectToWwwPermanent();
-            app.UseRewriter(options);
+            configureOptions(options);
+            return app.UseRewriter(options);
         }
 
-        public static void ConfigureStaticFileCaching(this IApplicationBuilder app)
+        public static IApplicationBuilder UseStaticFiles(
+            this IApplicationBuilder app, Action<StaticFileOptions> configureOptions)
         {
-            var options = new StaticFileOptions()
-            {
-                OnPrepareResponse = (ctx) =>
-                {                    
-                    const int CachePeriodInSeconds = 31_536_000;
-                    var cacheControlHeaderValue = $"public, max-age={CachePeriodInSeconds}";
-                    ctx.Context.Response.Headers.Append("Cache-Control", cacheControlHeaderValue);
-                }
-            };
-
-            app.UseStaticFiles(options);
+            var options = new StaticFileOptions();
+            configureOptions(options);
+            return app.UseStaticFiles(options);
         }
+
+        public static IApplicationBuilder UseContentTypeOptions(this IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                await next();
+            });
+
+            return app;
+        }
+
+        public static IApplicationBuilder UseContentSecurityPolicy(this IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add(HeaderNames.ContentSecurityPolicy, "frame-ancestors 'none'");
+                await next();
+            });
+
+            return app;
+        }
+
+        public static IApplicationBuilder UseFrameOptions(this IApplicationBuilder app)
+        {
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "DENY");
+                await next();
+            });
+
+            return app;
+        } 
     }
 }
