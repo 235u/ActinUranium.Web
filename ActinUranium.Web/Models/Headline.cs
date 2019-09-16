@@ -32,7 +32,7 @@ namespace ActinUranium.Web.Models
         [MaxLength(1024)]        
         public string Text { get; set; }
 
-        [Column(TypeName = TransactSqlTypeName.Date)]
+        [Column(TypeName = TransactSqlTypeNames.Date)]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = FormatString.ShortDate)]
         public DateTime ReleaseDate { get; set; }

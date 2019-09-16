@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ActinUranium.Web.Helpers;
 
 namespace ActinUranium.Web.Models
 {
@@ -40,18 +41,20 @@ namespace ActinUranium.Web.Models
 
         internal static void Seed(ApplicationDbContext dbContext)
         {
+            const char Nbsp = UnicodeLiterals.NoBreakSpace;
+
             dbContext.Customers.AddRange(
-                CreateCustomer("Aliquid AG", "aliquid.svg"),
-                CreateCustomer("Ande Animi GmbH", "ande-animi.svg"),
+                CreateCustomer($"Aliquid{Nbsp}AG", "aliquid.svg"),
+                CreateCustomer($"Ande Animi{Nbsp}GmbH", "ande-animi.svg"),
                 CreateCustomer("Culpa Porro Commodi", "culpa-porro-comodi.svg"),
-                CreateCustomer("Delectus Ratione GmbH", "delectus-ratione.svg"),
-                CreateCustomer("Dolore Odio Corrupti GmbH", "dolore-odio-corrupti.svg"),
-                CreateCustomer("Facilis AG", "facilis.svg"),
-                CreateCustomer("Maiores AG", "maiores.svg"),
+                CreateCustomer($"Delectus Ratione{Nbsp}GmbH", "delectus-ratione.svg"),
+                CreateCustomer($"Dolore Odio Corrupti{Nbsp}GmbH", "dolore-odio-corrupti.svg"),
+                CreateCustomer($"Facilis{Nbsp}AG", "facilis.svg"),
+                CreateCustomer($"Maiores{Nbsp}AG", "maiores.svg"),
                 CreateCustomer("Nostrum Tenetur Voluptas", "nostrum-tenetur-voluptas.svg"),
-                CreateCustomer("Rem Vel AG", "rem-vel.svg"),
-                CreateCustomer("Sapiente Numquam GmbH", "sapiente-numquam.svg"),
-                CreateCustomer("Tempora GmbH", "tempora.svg"),
+                CreateCustomer($"Rem Vel{Nbsp}AG", "rem-vel.svg"),
+                CreateCustomer($"Sapiente Numquam{Nbsp}GmbH", "sapiente-numquam.svg"),
+                CreateCustomer($"Tempora{Nbsp}GmbH", "tempora.svg"),
                 CreateCustomer("Vero Harum Veniam Nemo", "vero-harum-veniam-nemo.svg"));
 
             dbContext.SaveChanges();

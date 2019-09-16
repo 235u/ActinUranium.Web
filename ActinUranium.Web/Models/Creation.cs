@@ -34,7 +34,7 @@ namespace ActinUranium.Web.Models
         [Display(Name = "Kunde")]
         public Customer Customer { get; set; }
 
-        [Column(TypeName = TransactSqlTypeName.Date)]
+        [Column(TypeName = TransactSqlTypeNames.Date)]
         [DataType(DataType.Date)]
         [Display(Name = "Datum der Veröffentlichung")]
         public DateTime ReleaseDate { get; set; }

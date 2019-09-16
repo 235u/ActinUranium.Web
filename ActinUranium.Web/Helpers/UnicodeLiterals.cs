@@ -1,6 +1,6 @@
-﻿namespace ActinUranium.Web.Extensions
+﻿namespace ActinUranium.Web.Helpers
 {
-    internal static class UnicodeLiteral
+    internal static class UnicodeLiterals
     {
         public const char NoBreakSpace = '\u00A0';
     }
