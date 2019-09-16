@@ -4,11 +4,11 @@ using System.IO;
 
 namespace ActinUranium.Web.Services
 {
-    public sealed class GeometryService
+    public sealed class GeometryStore
     {
         private IHostingEnvironment _env;
 
-        public GeometryService(IHostingEnvironment env)
+        public GeometryStore(IHostingEnvironment env)
         {
             _env = env;
         }

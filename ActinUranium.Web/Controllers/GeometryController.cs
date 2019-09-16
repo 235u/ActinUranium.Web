@@ -9,9 +9,9 @@ namespace ActinUranium.Web.Controllers
 {
     public class GeometryController : Controller
     {
-        private readonly GeometryService _service;
+        private readonly GeometryStore _service;
 
-        public GeometryController(GeometryService service)
+        public GeometryController(GeometryStore service)
         {
             _service = service;
         }

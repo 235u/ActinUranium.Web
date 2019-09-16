@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,8 +8,6 @@ using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Http;
 using System;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Mvc.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Net.Http.Headers;
 using System.Globalization;
@@ -25,20 +20,11 @@ namespace ActinUranium.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();
-            services.AddRouting(ConfigureRouting);
-
-            services.AddMvc(ConfigureMvc)
-                .AddRazorPagesOptions(ConfigureRazorPages)
-                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-                .AddDataAnnotationsLocalization(ConfigureDataAnnotationsLocalization)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddHsts(ConfigureHsts);
-            services.AddDbContext<ApplicationDbContext>(ConfigureDbContext);
-            services.AddTransient<CreationStore>();
-            services.AddTransient<CustomerStore>();
-            services.AddTransient<GeometryService>();
-            services.AddTransient<HeadlineStore>();
+            services.AddConfiguredRouting();
+            services.AddConfiguredMvc();
+            services.AddConfiguredHsts();
+            services.AddApplicationDbContext();
+            services.AddDataStores();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -61,45 +47,6 @@ namespace ActinUranium.Web
             app.UseContentSecurityPolicy();
             app.UseFrameOptions();
             app.UseMvc(ConfigureRoutes);
-        }
-
-        private static void ConfigureRouting(RouteOptions options)
-        {
-            options.LowercaseUrls = true;
-            options.LowercaseQueryStrings = true;
-            options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
-        }
-
-        private static void ConfigureMvc(MvcOptions options)
-        {
-            var transformer = new SlugifyParameterTransformer();
-            var convention = new RouteTokenTransformerConvention(transformer);
-            options.Conventions.Add(convention);
-        }
-
-        private static void ConfigureRazorPages(RazorPagesOptions options)
-        {
-            var transformer = new SlugifyParameterTransformer();
-            var convention = new PageRouteTransformerConvention(transformer);
-            options.Conventions.Add(convention);
-        }
-
-        private static void ConfigureDataAnnotationsLocalization(MvcDataAnnotationsLocalizationOptions options)
-        {
-            options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources));
-        }
-
-        private static void ConfigureHsts(HstsOptions options)
-        {
-            options.Preload = true;
-            options.IncludeSubDomains = true;
-            options.MaxAge = TimeSpan.FromDays(365);
-        }
-
-        private static void ConfigureDbContext(DbContextOptionsBuilder options)
-        {
-            const string DatabaseName = "ActinUranium.Web";
-            options.UseInMemoryDatabase(DatabaseName);
         }
 
         public static void ConfigureRequestLocalization(RequestLocalizationOptions options)
