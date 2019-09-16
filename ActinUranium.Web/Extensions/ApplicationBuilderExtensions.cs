@@ -3,7 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.Net.Http.Headers;
-using System;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 
 namespace ActinUranium.Web.Extensions
 {
@@ -23,20 +26,57 @@ namespace ActinUranium.Web.Extensions
             return app;
         }
 
-        public static IApplicationBuilder UseRewriter(
-            this IApplicationBuilder app, Action<RewriteOptions> configureOptions)
+        public static IApplicationBuilder UseConfiguredRequestLocalization(this IApplicationBuilder app)
+        {
+            var supportedCultures = new[]
+            {
+                new CultureInfo("de"),
+                new CultureInfo("en")
+            };
+
+            app.UseRequestLocalization(options =>
+            {
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+                options.DefaultRequestCulture = new RequestCulture("de");
+            });
+
+            return app;
+        }
+
+        public static IApplicationBuilder UseConfiguredRewriter(this IApplicationBuilder app)
         {
             var options = new RewriteOptions();
-            configureOptions(options);
+
+            options.AddRedirectToHttpsPermanent();
+            options.AddRedirectToWwwPermanent();
+
             return app.UseRewriter(options);
         }
 
-        public static IApplicationBuilder UseStaticFiles(
-            this IApplicationBuilder app, Action<StaticFileOptions> configureOptions)
+        public static IApplicationBuilder UseConfiguredStaticFiles(this IApplicationBuilder app)
         {
-            var options = new StaticFileOptions();
-            configureOptions(options);
+            var options = new StaticFileOptions()
+            {
+                OnPrepareResponse = (context) =>
+                {
+                    const int CachePeriodInSeconds = 31_536_000; // 1 year
+                    string cacheControlHeaderValue = $"public, max-age={CachePeriodInSeconds}";
+                    context.Context.Response.Headers.Append(HeaderNames.CacheControl, cacheControlHeaderValue);
+                }
+            };
+
             return app.UseStaticFiles(options);
+        }
+
+        public static IApplicationBuilder UseConfiguredMvc(this IApplicationBuilder app)
+        {
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");
+            });
+
+            return app;
         }
 
         /// <summary>

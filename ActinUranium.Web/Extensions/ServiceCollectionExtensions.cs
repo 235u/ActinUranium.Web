@@ -78,7 +78,6 @@ namespace ActinUranium.Web.Extensions
             services.AddTransient<CustomerStore>();
             services.AddTransient<GeometryStore>();
             services.AddTransient<HeadlineStore>();
-
             return services;
         }
     }
