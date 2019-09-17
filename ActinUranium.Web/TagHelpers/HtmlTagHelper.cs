@@ -26,7 +26,7 @@ namespace ActinUranium.Web.TagHelpers
                 output.Attributes.SetAttribute(nameof(lang), lang);
             }
         }
-        
+
         private string GetLanguageTag()
         {
             // For language tag format, see: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang

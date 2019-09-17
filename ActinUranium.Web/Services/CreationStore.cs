@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,13 +15,13 @@ namespace ActinUranium.Web.Services
             _dbContext = dbContext;
         }
 
-        private IQueryable<Creation> CreationsQuery =>
+        private IQueryable<Creation> CreationsQuery => 
             _dbContext.Creations
                 .Include(c => c.CreationImages)
-                    .ThenInclude(ci => ci.Image)
+                .ThenInclude(ci => ci.Image)
                 .Include(c => c.Customer);
 
-        private IOrderedQueryable<Creation> OrderedCreationsQuery =>
+        private IOrderedQueryable<Creation> OrderedCreationsQuery => 
             CreationsQuery.OrderByDescending(c => c.ReleaseDate);
 
         public async Task<Creation> GetCreationAsync(string slug)
@@ -37,20 +37,19 @@ namespace ActinUranium.Web.Services
 
         public async Task<IReadOnlyCollection<Creation>> GetCreationsAsync(int count)
         {
-            return await OrderedCreationsQuery.Take(count)
-                .ToListAsync();
+            return await OrderedCreationsQuery.Take(count).ToListAsync();
         }
 
         public async Task<IReadOnlyCollection<Creation>> GetRelatedCreationsAsync(Creation creation, int count)
         {
-            var prevCreations = await OrderedCreationsQuery.Where(c => c.ReleaseDate < creation.ReleaseDate)
+            List<Creation> prevCreations = await OrderedCreationsQuery.Where(c => c.ReleaseDate < creation.ReleaseDate)
                 .Take(count)
                 .ToListAsync();
-            
+
             if (prevCreations.Count < count)
             {
-                var remainingCount = count - prevCreations.Count;
-                var nextCreations = await CreationsQuery.Where(c => c.ReleaseDate > creation.ReleaseDate)
+                int remainingCount = count - prevCreations.Count;
+                List<Creation> nextCreations = await CreationsQuery.Where(c => c.ReleaseDate > creation.ReleaseDate)
                     .OrderBy(c => c.ReleaseDate)
                     .Take(remainingCount)
                     .OrderByDescending(c => c.ReleaseDate)

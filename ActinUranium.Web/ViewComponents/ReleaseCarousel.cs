@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
 using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
 {
@@ -28,7 +28,7 @@ namespace ActinUranium.Web.ViewComponents
                 .OrderByDescending(r => r.ReleaseDate)
                 .Take(releaseCount)
                 .ToList();
-            
+
             return View(model);
         }
     }

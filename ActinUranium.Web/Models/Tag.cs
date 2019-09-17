@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ActinUranium.Web.Extensions;
+﻿using ActinUranium.Web.Extensions;
 using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models
@@ -23,7 +23,7 @@ namespace ActinUranium.Web.Models
         {
             for (int count = 0; count < 2; count++)
             {
-                var tag = Create(dbContext);
+                Tag tag = Create(dbContext);
                 dbContext.Tags.Add(tag);
             }
 
@@ -32,7 +32,8 @@ namespace ActinUranium.Web.Models
 
         internal static void OnModelCreating(EntityTypeBuilder<Tag> typeBuilder)
         {
-            typeBuilder.HasIndex(t => t.Name).IsUnique();
+            typeBuilder.HasIndex(t => t.Name)
+                .IsUnique();
         }
 
         private static Tag Create(ApplicationDbContext dbContext)
@@ -44,7 +45,7 @@ namespace ActinUranium.Web.Models
             {
                 name = LoremIpsum.NextWord(7);
                 slug = name.Slugify();
-                var isUnique = dbContext.Tags.Find(slug) == null;
+                bool isUnique = dbContext.Tags.Find(slug) == null;
                 if (isUnique)
                 {
                     break;

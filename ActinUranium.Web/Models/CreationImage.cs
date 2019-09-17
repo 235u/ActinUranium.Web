@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ActinUranium.Web.Helpers;
+﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -60,7 +60,7 @@ namespace ActinUranium.Web.Models
         {
             return new Image()
             {
-                Source = $"~/img/creations/{fileName}",                
+                Source = $"~/img/creations/{fileName}",
                 AlternativeText = LoremIpsum.NextSentence()
             };
         }

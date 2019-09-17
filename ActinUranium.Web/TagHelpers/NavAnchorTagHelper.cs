@@ -21,12 +21,12 @@ namespace ActinUranium.Web.TagHelpers
         // Seems to run after processing the base tag helper, so no 'base.Process(context, output)' required.
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
-            var classAttributeValue = string.Empty;
+            string classAttributeValue = string.Empty;
             if (output.Attributes.TryGetAttribute(ClassAttributeName, out TagHelperAttribute attribute))
             {
                 classAttributeValue = ((HtmlString)attribute.Value).Value;
             }
-            
+
             if (IsActive() && !classAttributeValue.Contains(ActiveClassName))
             {
                 classAttributeValue += ActiveClassName;
@@ -41,8 +41,8 @@ namespace ActinUranium.Web.TagHelpers
 
         private bool IsActive()
         {
-            var currentController = ViewContext.RouteData.Values["controller"] as string;
-            var currentAction = ViewContext.RouteData.Values["action"] as string;
+            string currentController = ViewContext.RouteData.Values["controller"] as string;
+            string currentAction = ViewContext.RouteData.Values["action"] as string;
             return (currentController != null) && (currentController == Controller) &&
                 ((currentAction == Action) || (currentAction == "Details"));
         }

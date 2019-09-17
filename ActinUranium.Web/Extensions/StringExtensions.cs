@@ -13,7 +13,7 @@ namespace ActinUranium.Web.Extensions
                 throw new ArgumentNullException(nameof(text));
             }
 
-            var pattern = $@"\b{word}\b";
+            string pattern = $@"\b{word}\b";
             return Regex.IsMatch(text, pattern);
         }
 
@@ -35,7 +35,7 @@ namespace ActinUranium.Web.Extensions
                 return text;
             }
         }
-        
+
         public static string[] SplitIntoSentences(this string text)
         {
             if (text == null)
@@ -62,7 +62,7 @@ namespace ActinUranium.Web.Extensions
                 .Select(word => word.ToLower())
                 .ToArray();
         }
-        
+
         public static string ToSentenceCase(this string text)
         {
             if (text == null)

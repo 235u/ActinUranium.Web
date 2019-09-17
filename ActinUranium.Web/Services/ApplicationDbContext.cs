@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ActinUranium.Web.Services
 {
@@ -44,7 +44,7 @@ namespace ActinUranium.Web.Services
         {
             Author.OnModelCreating(modelBuilder.Entity<Author>());
             CreationImage.OnModelCreating(modelBuilder.Entity<CreationImage>());
-            HeadlineImage.OnModelCreating(modelBuilder.Entity<HeadlineImage>());            
+            HeadlineImage.OnModelCreating(modelBuilder.Entity<HeadlineImage>());
         }
     }
 }

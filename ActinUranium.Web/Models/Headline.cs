@@ -24,21 +24,21 @@ namespace ActinUranium.Web.Models
         public string Title { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [MaxLength(256)]        
+        [MaxLength(256)]
         [Display(Name = "Vorspann")]
         public string Lead { get; set; }
 
         [Required(AllowEmptyStrings = false)]
-        [MaxLength(1024)]        
+        [MaxLength(1024)]
         public string Text { get; set; }
 
         [Column(TypeName = TransactSqlTypeNames.Date)]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = FormatString.ShortDate)]
+        [DisplayFormat(DataFormatString = FormatStrings.ShortDate)]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
-        [ForeignKey(nameof(Author))]        
+        [ForeignKey(nameof(Author))]
         [MaxLength(Author.SlugMaxLength)]
         public string AuthorSlug { get; set; }
 
@@ -63,12 +63,12 @@ namespace ActinUranium.Web.Models
 
             for (int count = 0; count < Count; count++)
             {
-                var headline = Create(dbContext);
+                Headline headline = Create(dbContext);
 
-                var headlineTag = tagLottery.Next();
+                Tag headlineTag = tagLottery.Next();
                 headline.TagSlug = headlineTag.Slug;
 
-                var headlineAuthor = authorLottery.Next();
+                Author headlineAuthor = authorLottery.Next();
                 headline.AuthorSlug = headlineAuthor.Slug;
 
                 dbContext.Headlines.Add(headline);
@@ -86,7 +86,7 @@ namespace ActinUranium.Web.Models
             {
                 title = LoremIpsum.NextHeading(2, 8);
                 slug = title.Slugify();
-                var isUnique = dbContext.Headlines.Find(slug) == null;
+                bool isUnique = dbContext.Headlines.Find(slug) == null;
                 if (isUnique)
                 {
                     break;

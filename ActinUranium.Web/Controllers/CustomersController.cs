@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
 using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

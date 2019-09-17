@@ -55,7 +55,7 @@ namespace ActinUranium.Web.Models
 
         [Display(Name = "Bilder")]
         public List<CreationImage> CreationImages { get; set; }
-        
+
         internal static void Seed(ApplicationDbContext dbContext)
         {
             var customers = dbContext.Customers.ToList();
@@ -63,9 +63,9 @@ namespace ActinUranium.Web.Models
 
             for (int count = 0; count < 32; count++)
             {
-                var creation = Create(dbContext);
+                Creation creation = Create(dbContext);
 
-                var creationCustomer = customerLottery.Next();
+                Customer creationCustomer = customerLottery.Next();
                 creation.CustomerSlug = creationCustomer.Slug;
 
                 dbContext.Creations.Add(creation);
@@ -78,12 +78,12 @@ namespace ActinUranium.Web.Models
         {
             string slug;
             string title;
-            
+
             while (true)
             {
                 title = LoremIpsum.NextHeading(2, 3);
                 slug = title.Slugify();
-                var isUnique = dbContext.Creations.Find(slug) == null;
+                bool isUnique = dbContext.Creations.Find(slug) == null;
                 if (isUnique)
                 {
                     break;

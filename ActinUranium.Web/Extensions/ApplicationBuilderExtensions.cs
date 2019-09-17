@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using ActinUranium.Web.Services;
+﻿using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
 using System.Globalization;
-using Microsoft.AspNetCore.Localization;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
 
 namespace ActinUranium.Web.Extensions
 {
@@ -28,7 +28,7 @@ namespace ActinUranium.Web.Extensions
 
         public static IApplicationBuilder UseConfiguredRequestLocalization(this IApplicationBuilder app)
         {
-            var supportedCultures = new[]
+            CultureInfo[] supportedCultures = new[]
             {
                 new CultureInfo("de"),
                 new CultureInfo("en")
@@ -139,6 +139,6 @@ namespace ActinUranium.Web.Extensions
             });
 
             return app;
-        } 
+        }
     }
 }

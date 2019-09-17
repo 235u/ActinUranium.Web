@@ -9,8 +9,8 @@ namespace ActinUranium.Web.Helpers
         public static string Next()
         {
             var guid = Guid.NewGuid();
-            var bytes = guid.ToByteArray();
-            var base64 = Convert.ToBase64String(bytes);
+            byte[] bytes = guid.ToByteArray();
+            string base64 = Convert.ToBase64String(bytes);
 
             // The conversion is unidirectional, as we are loosing some data, by design.
             return Regex.Replace(base64, "[/+=]", string.Empty);

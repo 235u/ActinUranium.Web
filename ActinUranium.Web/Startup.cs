@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ActinUranium.Web.Extensions;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using ActinUranium.Web.Extensions;
 
 namespace ActinUranium.Web
 {
@@ -36,7 +36,7 @@ namespace ActinUranium.Web
             app.UseConfiguredMvc();
             app.UseContentTypeOptions();
             app.UseContentSecurityPolicy();
-            app.UseFrameOptions();            
+            app.UseFrameOptions();
         }
     }
 }

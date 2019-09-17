@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ActinUranium.Web.Extensions;
+﻿using ActinUranium.Web.Extensions;
+using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using ActinUranium.Web.Helpers;
 
 namespace ActinUranium.Web.Models
 {
@@ -37,7 +37,8 @@ namespace ActinUranium.Web.Models
 
         internal static void OnModelCreating(EntityTypeBuilder<Customer> typeBuilder)
         {
-            typeBuilder.HasIndex(c => c.Name).IsUnique();
+            typeBuilder.HasIndex(c => c.Name)
+                .IsUnique();
         }
 
         internal static void Seed(ApplicationDbContext dbContext)

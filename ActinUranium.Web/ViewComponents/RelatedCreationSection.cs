@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
 using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
@@ -16,7 +17,7 @@ namespace ActinUranium.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(Creation creation, int count)
         {
-            var model = await _store.GetRelatedCreationsAsync(creation, count);
+            IReadOnlyCollection<Creation> model = await _store.GetRelatedCreationsAsync(creation, count);
             return View(model);
         }
     }

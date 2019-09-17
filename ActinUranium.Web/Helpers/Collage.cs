@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 
@@ -23,11 +22,11 @@ namespace ActinUranium.Web.Helpers
         {
             var collage = new Collage();
 
-            var bitmap = new bool[RowCount, ColumnCount];
+            bool[,] bitmap = new bool[RowCount, ColumnCount];
 
             for (int elementIndex = 0; elementIndex < elementCount; elementIndex++)
             {
-                var rectangle = RectangleVariants.Next();
+                Rectangle rectangle = RectangleVariants.Next();
                 rectangle = Align(bitmap, rectangle);
                 collage.Add(rectangle);
             }

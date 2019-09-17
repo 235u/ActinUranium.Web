@@ -20,8 +20,8 @@ namespace ActinUranium.Web.Services
                 return null;
             }
 
-            var input = value.ToString();
-            var result = Regex.Replace(input, Pattern, Replacement).ToLower();
+            string input = value.ToString();
+            string result = Regex.Replace(input, Pattern, Replacement).ToLower();
             return result;
         }
     }

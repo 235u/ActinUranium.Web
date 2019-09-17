@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Text.Encodings.Web;
 using System.Xml.Linq;
 
 namespace ActinUranium.Web.TagHelpers
@@ -34,7 +31,7 @@ namespace ActinUranium.Web.TagHelpers
         }
 
         private XElement BuildSymbol(XElement svg)
-        {            
+        {
             XNamespace ns = svg.GetDefaultNamespace();
             var elementName = XName.Get("symbol", ns.NamespaceName);
             var idAttribute = new XAttribute(IdAttributeName, Id);

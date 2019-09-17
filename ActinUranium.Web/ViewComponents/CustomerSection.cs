@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ActinUranium.Web.Models;
 using ActinUranium.Web.Services;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
@@ -15,7 +17,7 @@ namespace ActinUranium.Web.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync(int customerCount)
         {
-            var model = await _store.GetCustomersAsync(customerCount);
+            IEnumerable<Customer> model = await _store.GetCustomersAsync(customerCount);
             return View(model);
         }
     }

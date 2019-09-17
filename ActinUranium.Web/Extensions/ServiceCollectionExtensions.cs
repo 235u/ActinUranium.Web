@@ -45,7 +45,7 @@ namespace ActinUranium.Web.Extensions
             {
                 options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources));
             });
-            
+
             return services;
         }
 

@@ -9,7 +9,7 @@ namespace ActinUranium.Web.Helpers
         private const string PoolEmptyMessage = "The element pool is empty.";
         private static readonly Random Random = new Random();
 
-        private List<T> _elementPool;
+        private readonly List<T> _elementPool;
 
         public Lottery()
         {

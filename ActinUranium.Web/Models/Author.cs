@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ActinUranium.Web.Extensions;
+﻿using ActinUranium.Web.Extensions;
 using ActinUranium.Web.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models

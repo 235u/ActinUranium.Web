@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ActinUranium.Web.Helpers;
+﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 
 namespace ActinUranium.Web.Models
 {
@@ -37,13 +36,15 @@ namespace ActinUranium.Web.Models
 
         internal static void Seed(ApplicationDbContext dbContext)
         {
-            var imageLottery = new WeightedLottery<bool>();
-            imageLottery.Add(true, 16);
-            imageLottery.Add(false, 4);
+            var imageLottery = new WeightedLottery<bool>
+            {
+                { true, 16 },
+                { false, 4 }
+            };
 
             var imageNumberLottery = new Int32Lottery(1, 17);
 
-            foreach (var headline in dbContext.Headlines)
+            foreach (Headline headline in dbContext.Headlines)
             {
                 bool doCreateImage = imageLottery.Pull();
                 if (doCreateImage)

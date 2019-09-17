@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ActinUranium.Web.Helpers
 {
@@ -74,7 +73,7 @@ namespace ActinUranium.Web.Helpers
                 throw new ArgumentOutOfRangeException(nameof(minWordCount), message);
             }
 
-            var wordGroup = string.Empty;
+            string wordGroup = string.Empty;
 
             int actualWordCount = 0;
             int targetWordCount = GetSoftCount(minWordCount, maxWordCount);
@@ -94,15 +93,14 @@ namespace ActinUranium.Web.Helpers
 
         public static string NextKeywords()
         {
-            var keywords = NextWordGroup(3, 5).Split(' ');
+            string[] keywords = NextWordGroup(3, 5).Split(' ');
             return string.Join(", ", keywords);
         }
 
-        
         public static string NextDescription()
         {
             var wordLottery = new Lottery<string>(Words);
-            var keywords = new List<string>();            
+            var keywords = new List<string>();
 
             // See: https://blog.spotibo.com/meta-description-length/
             int softCharLimit = GetSoftCount(64, 128);

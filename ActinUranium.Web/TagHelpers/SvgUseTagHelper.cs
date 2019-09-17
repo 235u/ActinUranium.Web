@@ -13,7 +13,7 @@ namespace ActinUranium.Web.TagHelpers
         {
             output.Reinitialize("svg", TagMode.StartTagAndEndTag);
             ProcessAttributes(context, output);
-            var content = $"<use xlink:href=\"#{SymbolId}\" />";
+            string content = $"<use xlink:href=\"#{SymbolId}\" />";
             output.Content.SetHtmlContent(content);
         }
 
@@ -21,6 +21,7 @@ namespace ActinUranium.Web.TagHelpers
         {
             IEnumerable<TagHelperAttribute> attributes = context.AllAttributes
                 .Where(a => !a.Name.Equals("symbol-id", StringComparison.OrdinalIgnoreCase));
+
             foreach (TagHelperAttribute attribute in attributes)
             {
                 output.Attributes.SetAttribute(attribute);

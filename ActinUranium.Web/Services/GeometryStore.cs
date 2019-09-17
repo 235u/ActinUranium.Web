@@ -6,7 +6,7 @@ namespace ActinUranium.Web.Services
 {
     public sealed class GeometryStore
     {
-        private IHostingEnvironment _env;
+        private readonly IHostingEnvironment _env;
 
         public GeometryStore(IHostingEnvironment env)
         {
@@ -23,7 +23,7 @@ namespace ActinUranium.Web.Services
         private IEnumerable<string> GetSources(DirectoryInfo directory)
         {
             FileInfo[] files = directory.GetFiles("*.svg", SearchOption.AllDirectories);
-            foreach (var file in files)
+            foreach (FileInfo file in files)
             {
                 string relativePath = file.FullName.Remove(0, _env.WebRootPath.Length);
                 relativePath = "~" + relativePath.Replace('\\', '/');

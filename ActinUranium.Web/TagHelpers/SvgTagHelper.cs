@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
@@ -38,7 +37,7 @@ namespace ActinUranium.Web.TagHelpers
         protected static string GetContent(XElement svg)
         {
             SaveOptions options = SaveOptions.DisableFormatting | SaveOptions.OmitDuplicateNamespaces;
-            var content = svg.ToString(options);
+            string content = svg.ToString(options);
             return RemoveNamespaceAttributes(content);
         }
 

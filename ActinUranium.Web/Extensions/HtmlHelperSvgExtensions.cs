@@ -28,8 +28,8 @@ namespace ActinUranium.Web.Extensions
             var elementName = XName.Get("symbol", ns.NamespaceName);
 
             var idAttribute = new XAttribute("id", id);
-            
-            var viewBoxAttribute = tree.Attribute("viewBox");
+
+            XAttribute viewBoxAttribute = tree.Attribute("viewBox");
             viewBoxAttribute.Remove();
 
             var symbol = new XElement(elementName, idAttribute, viewBoxAttribute);
@@ -40,7 +40,7 @@ namespace ActinUranium.Web.Extensions
             tree.ReplaceNodes(symbol);
             tree.SetAttributeValue("style", "display: none");
 
-            var options = SaveOptions.DisableFormatting | SaveOptions.OmitDuplicateNamespaces;
+            SaveOptions options = SaveOptions.DisableFormatting | SaveOptions.OmitDuplicateNamespaces;
             svg = tree.ToString(options);
 
             return helper.Raw(svg);
@@ -48,13 +48,13 @@ namespace ActinUranium.Web.Extensions
 
         public static IHtmlContent SvgUse(this IHtmlHelper helper, string symbolId)
         {
-            var svg = $"<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"#{symbolId}\" /></svg>";
+            string svg = $"<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"#{symbolId}\" /></svg>";
             return helper.Raw(svg);
         }
 
         public static IHtmlContent SvgUse(this IHtmlHelper helper, string symbolId, string className)
         {
-            var svg = $"<svg class=\"{className}\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"#{symbolId}\" /></svg>";
+            string svg = $"<svg class=\"{className}\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><use xlink:href=\"#{symbolId}\" /></svg>";
             return helper.Raw(svg);
         }
 

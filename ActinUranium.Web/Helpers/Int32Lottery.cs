@@ -14,7 +14,7 @@ namespace ActinUranium.Web.Helpers
         {
             if (maxValue < 0)
             {
-                var message = $"'{nameof(maxValue)}' must be greater than 0.";
+                string message = $"'{nameof(maxValue)}' must be greater than 0.";
                 throw new ArgumentOutOfRangeException(nameof(maxValue), message);
             }
 
@@ -34,7 +34,7 @@ namespace ActinUranium.Web.Helpers
         {
             if (minValue > maxValue)
             {
-                var message = $"'{nameof(minValue)}' cannot be greater than '{nameof(maxValue)}'.";
+                string message = $"'{nameof(minValue)}' cannot be greater than '{nameof(maxValue)}'.";
                 throw new ArgumentOutOfRangeException(nameof(minValue), message);
             }
 

@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using ActinUranium.Web.Models;
+﻿using ActinUranium.Web.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,7 +10,7 @@ namespace ActinUranium.Web.Services
     {
         private readonly ApplicationDbContext _dbContext;
 
-        private IOrderedQueryable<Headline> HeadlinesQuery =>
+        private IOrderedQueryable<Headline> HeadlinesQuery => 
             _dbContext.Headlines
                 .Include(h => h.HeadlineImages)
                     .ThenInclude(hi => hi.Image)
