@@ -15,8 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\js\site.js" />
-    <Content Remove="wwwroot\js\site.min.js" />
     <Content Remove="wwwroot\js\_carousel.js" />
   </ItemGroup>
 

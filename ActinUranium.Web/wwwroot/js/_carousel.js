@@ -7,33 +7,38 @@
         NEXT: 2
     };
 
+    const INTERVAL_IN_MILLISECONDS = 5000;
+
     const ClassName = {
-        ACTIVE_BULLET: 'active-bullet',
         ACTIVE_SLIDE: 'active-slide',
-        BULLET: 'bullet',
+        ACTIVE_SLIDE_BULLET: 'active-slide-bullet',
         CAROUSEL: 'carousel',
         NEXT_SLIDE: 'next-slide',
         PREV_SLIDE: 'prev-slide',
         SLIDE: 'slide',
+        SLIDE_BULLET: 'slide-bullet',
         SLIDE_LEFT: 'slide-left',
         SLIDE_RIGHT: 'slide-right'
     };
 
     const Selector = {
         ACTIVE_SLIDE: '.active-slide',
-        BULLETS: '.active-bullet, .bullet',
         NEXT_SLIDE_CONTROL: '.next-slide-control',
         PREV_SLIDE_CONTROL: '.prev-slide-control',
+        SLIDE_BULLETS: '.active-slide-bullet, .slide-bullet',
         SLIDES: '.active-slide, .slide'
-    };
+    };    
 
     class Carousel {
         constructor(element) {
             this._rootElement = element;
-            this._slides = this.getElementsAsArray(Selector.SLIDES);
-            this._bullets = this.getElementsAsArray(Selector.BULLETS);
+            this._slides = this.getElementsAsArray(Selector.SLIDES);                        
+            this._slideBullets = this.getElementsAsArray(Selector.SLIDE_BULLETS);
             this._isSliding = false;
-            this.addEventListeners();
+            this._interval = setInterval(this.slideIn.bind(this), INTERVAL_IN_MILLISECONDS, SlideOrder.NEXT);
+
+            this.handleSlideControls();
+            this.handleSlideBullets();
         }
 
         getElementsAsArray(selector) {
@@ -41,10 +46,11 @@
             return Array.from(elements);
         }
 
-        addEventListeners() {
+        handleSlideControls() {
             let prevSlideControl = this._rootElement.querySelector(Selector.PREV_SLIDE_CONTROL);
             if (prevSlideControl) {
                 prevSlideControl.onclick = () => {
+                    clearInterval(this._interval);
                     this.slideIn(SlideOrder.PREV);
                 };
             }
@@ -52,13 +58,17 @@
             let nextSlideControl = this._rootElement.querySelector(Selector.NEXT_SLIDE_CONTROL);
             if (nextSlideControl) {
                 nextSlideControl.onclick = () => {
+                    clearInterval(this._interval);
                     this.slideIn(SlideOrder.NEXT);
                 };
             }
+        }
 
+        handleSlideBullets() {
             for (let slideIndex = 0; slideIndex < this._slides.length; slideIndex++) {
-                if (slideIndex < this._bullets.length) {
-                    this._bullets[slideIndex].onclick = () => {
+                if (slideIndex < this._slideBullets.length) {
+                    this._slideBullets[slideIndex].onclick = () => {
+                        clearInterval(this._interval);
                         this.slideTo(slideIndex);
                     };
                 }
@@ -66,9 +76,11 @@
         }
 
         slideIn(targetSlideOrder) {
-            let activeSlide = this.getActiveSlide();
-            let targetSlide = this.getTargetSlide(activeSlide, targetSlideOrder);
-            this.slide(activeSlide, targetSlide, targetSlideOrder);
+            if (!this._isSliding) {
+                let activeSlide = this.getActiveSlide();
+                let targetSlide = this.getTargetSlide(activeSlide, targetSlideOrder);
+                this.slide(activeSlide, targetSlide, targetSlideOrder);
+            }
         }
 
         slideTo(targetSlideIndex) {
@@ -76,13 +88,15 @@
                 throw `Slide index out of range: ${targetSlideIndex}.`;
             }
 
-            let activeSlide = this.getActiveSlide();
-            const activeSlideIndex = this.getSlideIndex(activeSlide);
-            const targetSlideOrder = this.getTargetSlideOrder(activeSlideIndex, targetSlideIndex);
+            if (!this._isSliding) {
+                let activeSlide = this.getActiveSlide();
+                const activeSlideIndex = this.getSlideIndex(activeSlide);
+                const targetSlideOrder = this.getTargetSlideOrder(activeSlideIndex, targetSlideIndex);
 
-            if (targetSlideOrder !== SlideOrder.NONE) {
-                let targetSlide = this._slides[targetSlideIndex];
-                this.slide(activeSlide, targetSlide, targetSlideOrder);
+                if (targetSlideOrder !== SlideOrder.NONE) {
+                    let targetSlide = this._slides[targetSlideIndex];
+                    this.slide(activeSlide, targetSlide, targetSlideOrder);
+                }                
             }
         }
 
@@ -131,6 +145,10 @@
         }
 
         slide(activeSlide, targetSlide, targetSlideOrder) {
+            this._isSliding = true;
+
+            this.updateSlideBullets(activeSlide, targetSlide);
+
             const slideOrderClassName = this.getSlideOrderClassName(targetSlideOrder);
             const slidingDirectionClassName = this.getSlidingDirectionClassName(targetSlideOrder);
 
@@ -146,9 +164,9 @@
 
                 activeSlide.classList.remove(slidingDirectionClassName);
                 activeSlide.classList.replace(ClassName.ACTIVE_SLIDE, ClassName.SLIDE);
-            }, { once: true });
 
-            this.updateBullets(activeSlide, targetSlide);
+                this._isSliding = false;
+            }, { once: true });            
         }
 
         getSlideOrderClassName(slideOrder) {
@@ -165,17 +183,17 @@
             element.offsetHeight;
         }
 
-        updateBullets(activeSlide, targetSlide) {
+        updateSlideBullets(activeSlide, targetSlide) {
             const activeSlideIndex = this.getSlideIndex(activeSlide);
-            if (activeSlideIndex < this._bullets.length) {
-                let activeBullet = this._bullets[activeSlideIndex];
-                activeBullet.classList.replace(ClassName.ACTIVE_BULLET, ClassName.BULLET);
+            if (activeSlideIndex < this._slideBullets.length) {
+                let activeSlideBullet = this._slideBullets[activeSlideIndex];
+                activeSlideBullet.classList.replace(ClassName.ACTIVE_SLIDE_BULLET, ClassName.SLIDE_BULLET);
             }
 
             const targetSlideIndex = this.getSlideIndex(targetSlide);
-            if (targetSlideIndex < this._bullets.length) {
-                let targetBullet = this._bullets[targetSlideIndex];
-                targetBullet.classList.replace(ClassName.BULLET, ClassName.ACTIVE_BULLET);
+            if (targetSlideIndex < this._slideBullets.length) {
+                let targetSlideBullet = this._slideBullets[targetSlideIndex];
+                targetSlideBullet.classList.replace(ClassName.SLIDE_BULLET, ClassName.ACTIVE_SLIDE_BULLET);
             }
         }
     }

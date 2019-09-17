@@ -15,10 +15,10 @@
         {
             <a class="prev-slide-control"></a>
             <a class="next-slide-control"></a>
-            <ol class="slide-bullets">
+            <ol class="slide-bullet-container">
                 @foreach (var image in Model)
                 {
-                    var className = image == Model.First() ? "active-bullet" : "bullet";
+                    var className = image == Model.First() ? "active-slide-bullet" : "slide-bullet";
                     <li class="@className"></li>
                 }
             </ol>

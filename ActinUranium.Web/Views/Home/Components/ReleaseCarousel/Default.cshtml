@@ -51,10 +51,10 @@
 
     @if (Model.Count > 1)
     {
-        <ol class="slide-bullets">
+        <ol class="slide-bullet-container">
             @foreach (var release in Model)
             {
-                var className = release == Model.First() ? "active-bullet" : "bullet";
+                var className = release == Model.First() ? "active-slide-bullet" : "slide-bullet";
                 <li class="@className"></li>
             }
         </ol>
