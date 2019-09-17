@@ -21,6 +21,7 @@ namespace ActinUranium.Web.Models
         [Required(AllowEmptyStrings = false)]
         [MaxLength(SlugMaxLength)]
         [Display(Name = "Bezeichnung")]
+        [DisplayFormat(HtmlEncode = false)]
         public string Name { get; set; }
 
         [Required]

@@ -35,17 +35,17 @@ p {
 }
 
 a {
-    color: #797979; /* achromatic gray value: 121, corresponding to rgb(121, 121, 121) */
+    color: #757575; /* achromatic gray value: 117, corresponding to rgb(117, 117, 117) */
     text-decoration: none;
 }
 
     a:hover {
-        color: #8e8e8e; /* achromatic gray: 142 */
+        color: #606060; /* achromatic gray: 96 */
         text-decoration: underline;
     }
 
 .text-muted {
-    color: #9a9a9a; /* achromatic gray: 154 */
+    color: #757575; /* achromatic gray: 117 */
 }
 
 .text-right {

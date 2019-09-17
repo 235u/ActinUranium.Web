@@ -143,6 +143,17 @@ namespace ActinUranium.Web.Helpers
             return Sentences[index];
         }
 
+        public static string NextSentence(int minWordCount, int maxWordCount)
+        {
+            return NextSentence(minWordCount, maxWordCount, '.');
+        }
+
+        public static string NextSentence(int minWordCount, int maxWordCount, char endMark)
+        {
+            string words = NextWordGroup(minWordCount, maxWordCount);
+            return words.ToSentenceCase() + endMark;
+        }
+
         private static string Concat(string firstString, string secondString)
         {
             if (firstString.Length > 0)

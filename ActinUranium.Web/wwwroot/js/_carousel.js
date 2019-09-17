@@ -35,8 +35,9 @@
             this._slides = this.getElementsAsArray(Selector.SLIDES);                        
             this._slideBullets = this.getElementsAsArray(Selector.SLIDE_BULLETS);
             this._isSliding = false;
-            this._interval = setInterval(this.slideIn.bind(this), INTERVAL_IN_MILLISECONDS, SlideOrder.NEXT);
+            this._interval = null;
 
+            this.cycle();
             this.handleSlideControls();
             this.handleSlideBullets();
         }
@@ -44,6 +45,12 @@
         getElementsAsArray(selector) {
             const elements = this._rootElement.querySelectorAll(selector);
             return Array.from(elements);
+        }
+
+        cycle() {
+            if (this._slides.length > 1) {
+                this._interval = setInterval(this.slideIn.bind(this), INTERVAL_IN_MILLISECONDS, SlideOrder.NEXT);
+            }
         }
 
         handleSlideControls() {
