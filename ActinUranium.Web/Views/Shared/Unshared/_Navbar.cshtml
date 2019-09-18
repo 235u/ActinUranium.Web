@@ -1,37 +1,37 @@
 ﻿<nav class="navbar">
     <a class="btn btn-home btn-expand-right" asp-controller="Home" asp-action="Index">
-        <span class="btn-text">@Localizer["home"]</span>
+        <span class="btn-text">@Localizer[SharedResources.Home]</span>
         <img class="btn-img"
              src="~/img/icons/awards.svg"
              asp-append-version="true"
-             alt="@Localizer["home"] icon" />
+             alt="@Localizer[SharedResources.HomeIcon]" />
     </a>
     <a class="btn btn-creations btn-expand-right" asp-controller="Creations" asp-action="Index">
-        <span class="btn-text">@Localizer["creations"]</span>
+        <span class="btn-text">@Localizer[SharedResources.Creations]</span>
         <img class="btn-img"
              src="~/img/icons/projects.svg"
              asp-append-version="true"
-             alt="@Localizer["creations"] icon" />
+             alt="@Localizer[SharedResources.CreationsIcon]" />
     </a>
     <a class="btn btn-headlines btn-expand-right" asp-controller="Headlines" asp-action="Index">
-        <span class="btn-text">@Localizer["headlines"]</span>
+        <span class="btn-text">@Localizer[SharedResources.Headlines]</span>
         <img class="btn-img"
              src="~/img/icons/headlines.svg"
              asp-append-version="true"
-             alt="@Localizer["headlines"] icon" />
+             alt="@Localizer[SharedResources.HeadlinesIcon]" />
     </a>
     <a class="btn btn-customers btn-expand-right" asp-controller="Customers" asp-action="Index">
-        <span class="btn-text">@Localizer["customers"]</span>
+        <span class="btn-text">@Localizer[SharedResources.Customers]</span>
         <img class="btn-img"
              src="~/img/icons/customers.svg"
              asp-append-version="true"
-             alt="@Localizer["customers"] icon" />
+             alt="@Localizer[SharedResources.CustomersIcon]" />
     </a>
     <a class="btn btn-github btn-expand-right" href="https://github.com/235u/ActinUranium.Web" target="_blank">
-        <span class="btn-text">@Localizer["source code"]</span>
+        <span class="btn-text">@Localizer[SharedResources.SourceCode]</span>
         <img class="btn-img"
              src="~/img/icons/github.svg"
              asp-append-version="true"
-             alt="GitHub @Localizer["icon"]" />
+             alt="@Localizer[SharedResources.GitHubIcon]" />
     </a>
 </nav>

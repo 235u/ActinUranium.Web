@@ -117,71 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Organisation</value>
-    <comment>Unternehmung</comment>
-  </data>
-  <data name="Awards" xml:space="preserve">
-    <value>Dekoration</value>
-    <comment>Auszeichnungen</comment>
-  </data>
-  <data name="AwardsMetaDescription" xml:space="preserve">
-    <value>Wir sind eine hochdekorierte Einrichtung, dekoriert mit geometrischen Figuren.</value>
-  </data>
-  <data name="AwardsMetaKeywords" xml:space="preserve">
-    <value>Einrichtung, Dekoration, Geometrie</value>
-  </data>
-  <data name="creations" xml:space="preserve">
+  <data name="Creations" xml:space="preserve">
     <value>Kombinatorik</value>
-    <comment>Kreation</comment>
+    <comment>Kreationen</comment>
   </data>
-  <data name="customers" xml:space="preserve">
+  <data name="Creations icon" xml:space="preserve">
+    <value>Kombinatorik-Symbol</value>
+  </data>
+  <data name="Customers" xml:space="preserve">
     <value>Diagnostik</value>
     <comment>Kunden</comment>
   </data>
-  <data name="headlines" xml:space="preserve">
+  <data name="Customers icon" xml:space="preserve">
+    <value>Diagnostik-Symbol</value>
+  </data>
+  <data name="GitHub icon" xml:space="preserve">
+    <value>GitHub-Symbol</value>
+  </data>
+  <data name="Headlines" xml:space="preserve">
     <value>Publizistik</value>
     <comment>Schlagzeilen</comment>
   </data>
-  <data name="home" xml:space="preserve">
+  <data name="Headlines icon" xml:space="preserve">
+    <value>Publizistik-Symbol</value>
+  </data>
+  <data name="Home" xml:space="preserve">
     <value>Äquilibristik</value>
     <comment>Überblick</comment>
   </data>
-  <data name="imprint" xml:space="preserve">
+  <data name="Home icon" xml:space="preserve">
+    <value>Äquilibristik-Symbol</value>
+  </data>
+  <data name="Imprint" xml:space="preserve">
     <value>Impressum</value>
   </data>
-  <data name="loyal customers" xml:space="preserve">
-    <value>behandelte Fabelwesen</value>
+  <data name="Loyal customers" xml:space="preserve">
+    <value>Behandelte Fabelwesen</value>
+    <comment>Loyale Kunden</comment>
   </data>
-  <data name="privacy" xml:space="preserve">
+  <data name="Privacy" xml:space="preserve">
     <value>Datenschutz</value>
   </data>
-  <data name="recent headlines" xml:space="preserve">
-    <value>neueste Beiträge</value>
-    <comment>neueste Schlagzeilen</comment>
+  <data name="Recent headlines" xml:space="preserve">
+    <value>Neueste Beiträge</value>
+    <comment>Neueste Schlagzeilen</comment>
   </data>
-  <data name="recently released creations" xml:space="preserve">
-    <value>zuletzt veröffentliche Kombinationen</value>
-    <comment>zuletzt veröffentliche Kreationen</comment>
+  <data name="Recently released creations" xml:space="preserve">
+    <value>Zuletzt veröffentliche Kombinationen</value>
+    <comment>Zuletzt veröffentliche Kreationen</comment>
   </data>
-  <data name="source code" xml:space="preserve">
+  <data name="Source code" xml:space="preserve">
     <value>Forensik</value>
     <comment>Quellcode</comment>
   </data>
-  <data name="terms" xml:space="preserve">
+  <data name="Terms" xml:space="preserve">
     <value>AGBs</value>
     <comment>Nutzungsbedingungen</comment>
   </data>
-  <data name="terms and conditions" xml:space="preserve">
+  <data name="Terms and conditions" xml:space="preserve">
     <value>Allgemeine Geschäftsbedingungen</value>
     <comment>Nutzungsbedingungen</comment>
   </data>
-  <data name="view all creations" xml:space="preserve">
-    <value>alle Kombinationen anzeigen</value>
-    <comment>alle Kreationen anzeigen</comment>
+  <data name="View all creations" xml:space="preserve">
+    <value>Alle Kombinationen anzeigen</value>
+    <comment>Alle Kreationen anzeigen</comment>
   </data>
-  <data name="view all headlines" xml:space="preserve">
-    <value>alle Beiträge anzeigen</value>
-    <comment>alle Schlagzeilen anzeigen</comment>
+  <data name="View all headlines" xml:space="preserve">
+    <value>Alle Beiträge anzeigen</value>
+    <comment>Alle Schlagzeilen anzeigen</comment>
   </data>
 </root>

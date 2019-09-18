@@ -1,7 +1,7 @@
 ﻿@model IReadOnlyCollection<Creation>
 
 <section>
-    <h1>@Localizer["recently released creations"]</h1>
+    <h1>@Localizer[SharedResources.RecentlyReleasedCreations]</h1>
     <div class="card-group responsive-flex-wrap">
         @foreach (var creation in Model)
         {
@@ -11,7 +11,7 @@
     <div class="float-right">
         <a class="btn-creations btn btn-expand-left" asp-controller="Creations" asp-action="Index">
             <img class="btn-img" src="~/img/icons/projects.svg" alt="Creations Icon" />
-            <span class="btn-text">@Localizer["view all creations"]</span>
+            <span class="btn-text">@Localizer[SharedResources.ViewAllCreations]</span>
         </a>
     </div>
 </section>
