@@ -3,6 +3,7 @@ using ActinUranium.Web.Services;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Globalization;
 
 namespace ActinUranium.Web.Models
 {
@@ -50,7 +51,7 @@ namespace ActinUranium.Web.Models
                 if (doCreateImage)
                 {
                     int imageNumber = imageNumberLottery.Pull();
-                    string fileName = string.Format("{0:00}.svg", imageNumber);
+                    string fileName = string.Format(CultureInfo.InvariantCulture, "{0:00}.svg", imageNumber);
                     Image image = CreateImage(fileName);
                     dbContext.Images.Add(image);
 

@@ -43,7 +43,7 @@ namespace ActinUranium.Web.Extensions
             mvc.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
             mvc.AddDataAnnotationsLocalization(options =>
             {
-                options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources));
+                options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(SharedResources));
             });
 
             return services;

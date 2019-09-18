@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -47,8 +48,7 @@ namespace ActinUranium.Web.Extensions
             const string Pattern = @"(?<=[\.!\?])\s+";
             return Regex.Split(text, Pattern);
         }
-
-
+        
         public static string[] SplitIntoWords(this string text)
         {
             if (text == null)
@@ -59,7 +59,7 @@ namespace ActinUranium.Web.Extensions
             char[] separator = { ' ', ',', '.', '?' };
             return text.Split(separator, StringSplitOptions.RemoveEmptyEntries)
                 .Distinct()
-                .Select(word => word.ToLower())
+                .Select(word => word.ToLowerInvariant())
                 .ToArray();
         }
 
@@ -78,7 +78,7 @@ namespace ActinUranium.Web.Extensions
 
             // See: https://stackoverflow.com/a/27073919
             char[] charArray = text.ToCharArray();
-            charArray[0] = char.ToUpper(charArray[0]);
+            charArray[0] = char.ToUpperInvariant(charArray[0]);
             return new string(charArray);
         }
 
@@ -87,7 +87,7 @@ namespace ActinUranium.Web.Extensions
             return text.Trim()
                 .CollapseAjacentWhitespace()
                 .Replace(' ', '-')
-                .ToLower();
+                .ToLowerInvariant();
         }
 
         public static string CollapseAjacentWhitespace(this string text)

@@ -1,4 +1,8 @@
-﻿.multi-level-numbering {
+﻿.muted-text {
+    color: #757575; /* achromatic gray: 117 */
+}
+
+.multi-level-numbering {
     counter-reset: chapter;
 }
 

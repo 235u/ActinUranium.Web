@@ -2,11 +2,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ActinUranium.Web
 {
-    public sealed partial class Startup
-    {
+    [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Not supported by the framework")]
+    public sealed class Startup
+    {        
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();

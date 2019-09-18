@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ActinUranium.Web.Helpers
 {
-    public class Lottery<T> : IEnumerable
+    [SuppressMessage(
+        "Naming",
+        "CA1710:Identifiers should have correct suffix",
+        Justification = "Generalized data structure that might be extended")]
+    internal class Lottery<T> : IEnumerable
     {
         private const string PoolEmptyMessage = "The element pool is empty.";
         private static readonly Random Random = new Random();

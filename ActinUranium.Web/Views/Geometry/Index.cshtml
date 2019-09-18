@@ -4,7 +4,7 @@
     ViewData["Title"] = "Geometrie";
 }
 
-@section Styles {
+@*@section Styles {
     <style>
         .responsive-container {
             display: flex;
@@ -23,7 +23,7 @@
         }
 
     </style>
-}
+}*@
 
 <article>
     <header>
@@ -34,7 +34,7 @@
         {
             <div class="item" title="@virtualPath">
                 <a href="@virtualPath.Remove(0, 2)" target="_blank">
-                    @Html.Svg(virtualPath)
+                    <svg src="@virtualPath"></svg>
                 </a>                
             </div>
         }

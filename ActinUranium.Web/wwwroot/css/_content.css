@@ -44,10 +44,6 @@ a {
         text-decoration: underline;
     }
 
-.text-muted {
-    color: #757575; /* achromatic gray: 117 */
-}
-
 .text-right {
     text-align: right;
 }

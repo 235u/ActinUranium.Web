@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace ActinUranium.Web.Extensions
 {
-    public static class HtmlHelperSvgExtensions
+    internal static class HtmlHelperSvgExtensions
     {
         private const string TildeSlash = "~/";
 

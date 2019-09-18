@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.IO;
+using System.Text;
 using System.Xml.Linq;
 
 namespace ActinUranium.Web.TagHelpers
@@ -58,8 +60,9 @@ namespace ActinUranium.Web.TagHelpers
         // See: https://stackoverflow.com/a/18468348
         private static string RemoveNamespaceAttributes(string content)
         {
-            return content.Replace("xmlns=\"http://www.w3.org/2000/svg\"", string.Empty)
-                .Replace("xmlns:xlink=\"http://www.w3.org/1999/xlink\"", string.Empty);
+            var comparisonType = StringComparison.OrdinalIgnoreCase;                        
+            return content.Replace("xmlns=\"http://www.w3.org/2000/svg\"", string.Empty, comparisonType)
+                .Replace("xmlns:xlink=\"http://www.w3.org/1999/xlink\"", string.Empty, comparisonType);
         }
     }
 }

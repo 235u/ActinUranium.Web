@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System;
 
 namespace ActinUranium.Web.TagHelpers
 {
@@ -27,18 +28,20 @@ namespace ActinUranium.Web.TagHelpers
                 classAttributeValue = ((HtmlString)attribute.Value).Value;
             }
 
-            if (IsActive() && !classAttributeValue.Contains(ActiveClassName))
+            var comparisonType = StringComparison.OrdinalIgnoreCase;
+            if (IsActive() && !classAttributeValue.Contains(ActiveClassName, comparisonType))
             {
                 classAttributeValue += ActiveClassName;
             }
             else
             {
-                classAttributeValue = classAttributeValue.Replace(ActiveClassName, string.Empty);
+                classAttributeValue = classAttributeValue.Replace(ActiveClassName, string.Empty, comparisonType);
             }
 
             output.Attributes.SetAttribute(ClassAttributeName, classAttributeValue);
         }
 
+#pragma warning disable IDE0019 // Use pattern matching
         private bool IsActive()
         {
             string currentController = ViewContext.RouteData.Values["controller"] as string;
@@ -46,5 +49,6 @@ namespace ActinUranium.Web.TagHelpers
             return (currentController != null) && (currentController == Controller) &&
                 ((currentAction == Action) || (currentAction == "Details"));
         }
+#pragma warning restore IDE0019 // Use pattern matching
     }
 }

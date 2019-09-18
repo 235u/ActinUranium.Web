@@ -1,6 +1,6 @@
 ﻿namespace ActinUranium.Web.Helpers
 {
-    public sealed class WeightedLottery<T> : Lottery<T>
+    internal sealed class WeightedLottery<T> : Lottery<T>
     {
         public void Add(T element, int weighting)
         {

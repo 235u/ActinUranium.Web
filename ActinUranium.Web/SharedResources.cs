@@ -1,6 +1,12 @@
-﻿namespace ActinUranium.Web
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace ActinUranium.Web
 {
-    public class Resources
+    [SuppressMessage(
+        "Design",
+        "CA1052:Static holder types should be Static or NotInheritable",
+        Justification = "Not supported by the framework")]
+    public class SharedResources
     {
         public const string About = nameof(About);
         public const string Awards = nameof(Awards);

@@ -1,9 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 
 namespace ActinUranium.Web.Helpers
 {
+    [SuppressMessage(
+        "Naming",
+        "CA1710:Identifiers should have correct suffix",
+        Justification = "Will hold an arbitrary set of diverse items")]
     public class Collage : List<Rectangle>
     {
         private const int ColumnCount = 3;

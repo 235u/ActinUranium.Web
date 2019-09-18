@@ -42,7 +42,7 @@ namespace ActinUranium.Web.Helpers
             while (actualSentenceCount < targetSentenceCount)
             {
                 string sentence = NextSentence();
-                if (!paragraph.Contains(sentence))
+                if (!paragraph.Contains(sentence, StringComparison.Ordinal))
                 {
                     paragraph = Concat(paragraph, sentence);
                     actualSentenceCount += 1;
