@@ -1,6 +1,6 @@
 ﻿@{
     var title = "Actin Uranium";
-    var viewTitle = ViewData["Title"] as LocalizedHtmlString;
+    var viewTitle = ViewData[ViewDataKeys.Title] as LocalizedHtmlString;
     if (viewTitle != null)
     {
         title = $"{viewTitle.Value} | {title}";

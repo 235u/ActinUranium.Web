@@ -1,10 +1,10 @@
 ﻿@{
-    ViewData["Title"] = Localizer[SharedResources.Imprint];
-    ViewData["VerticallyCentered"] = true;
+    ViewData[ViewDataKeys.Title] = Localizer[SharedResources.Imprint];
+    ViewData[ViewDataKeys.VerticallyCentered] = true;
 }
 
 <article>
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     <h2>Actin Uranium</h2>
     <ul class="unstyled-list">
         <li>Ordnungszahl 92, Massenzahl 235</li>

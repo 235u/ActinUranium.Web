@@ -11,7 +11,7 @@
     @RenderSection("Masthead", required: false)
     <div class="outer-flex-container">
         <div class="inner-flex-container">
-            @if ((ViewData["VerticallyCentered"] is bool centered) && centered)
+            @if ((ViewData[ViewDataKeys.VerticallyCentered] is bool centered) && centered)
             {
                 <div class="fake-header"></div>
             }

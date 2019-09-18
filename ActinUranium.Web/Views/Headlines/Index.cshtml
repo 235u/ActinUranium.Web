@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Headline>
 @{
-    ViewData["Title"] = Localizer[SharedResources.Headlines];
-    ViewData["VerticallyCentered"] = true;
+    ViewData[ViewDataKeys.Title] = Localizer[SharedResources.Headlines];
+    ViewData[ViewDataKeys.VerticallyCentered] = true;
 }
 
 <main>
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     <div class="card-columns">
         @foreach (var headline in Model)
         {

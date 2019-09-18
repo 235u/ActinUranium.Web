@@ -1,10 +1,10 @@
 ﻿@model Headline
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData[ViewDataKeys.Title] = Model.Title;
     var images = @Model.GetImages();
     if (images.Count == 0)
     {
-        ViewData["VerticallyCentered"] = true;
+        ViewData[ViewDataKeys.VerticallyCentered] = true;
     }
 }
 
@@ -15,7 +15,7 @@
            asp-controller="Headlines"
            asp-action="Tag"
            asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
-        <h1>@ViewData["Title"]</h1>
+        <h1>@ViewData[ViewDataKeys.Title]</h1>
     </header>
     <p><strong>@Model.Lead</strong></p>
     <p>@Model.Text</p>

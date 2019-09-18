@@ -1,6 +1,6 @@
 ﻿@model Creation
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData[ViewDataKeys.Title] = Model.Title;
 }
 
 <article>
@@ -10,7 +10,7 @@
             <li>@Model.ReleaseDate.Year</li>
             <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>
         </ul>
-        <h1>@ViewData["Title"]</h1>
+        <h1>@ViewData[ViewDataKeys.Title]</h1>
         <p class="lead">@Model.Mission</p>
     </header>
     <div class="row">

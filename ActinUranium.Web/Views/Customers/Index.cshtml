@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<Customer>
 @{
-    ViewData["Title"] = Localizer[SharedResources.Customers];
-    ViewData["VerticallyCentered"] = true;
+    ViewData[ViewDataKeys.Title] = Localizer[SharedResources.Customers];
+    ViewData[ViewDataKeys.VerticallyCentered] = true;
 }
 
 <main>
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     <div class="card-group flex-wrap">
         @foreach (Customer customer in Model)
         {

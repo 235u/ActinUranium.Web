@@ -1,10 +1,10 @@
 ﻿@page
 @{
-    ViewData["Title"] = Localizer[SharedResources.TermsAndConditions];
+    ViewData[ViewDataKeys.Title] = Localizer[SharedResources.TermsAndConditions];
 }
 
 <article class="multi-level-numbering">
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     @for (int section = 1; section <= 15; section++)
     {
         <section>

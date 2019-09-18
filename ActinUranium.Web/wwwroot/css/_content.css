@@ -157,11 +157,3 @@ a {
 .line-clamp-8 {
     -webkit-line-clamp: 8;
 }
-
-.sentence-case {
-    display: inline-block; /* required by the '::first-letter' selector */
-}
-
-    .sentence-case::first-letter {
-        text-transform: uppercase;
-    }

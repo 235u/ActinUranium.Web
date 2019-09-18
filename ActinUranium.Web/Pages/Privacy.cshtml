@@ -1,10 +1,10 @@
 ﻿@page
 @{
-    ViewData["Title"] = "Datenschutz";    
+    ViewData[ViewDataKeys.Title] = "Datenschutz";    
 }
 
 <article>
-    <h1>@ViewData["Title"]</h1>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     <section>
         <h2>@LoremIpsum.NextHeading(2, 4)</h2>
         <p>@LoremIpsum.NextParagraph(2, 4)</p>
