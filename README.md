@@ -6,12 +6,26 @@
 
 ## Ideas
 
+- Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
 - Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
 - Time-Machine-Funktionalität
   - Verlinkung zu bestimmten Versionen, statt Screenshots
   - Eine Multi-Tenancy-Funktionalität
 - Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
 - Developer PC Build
+
+## Observations
+
+### Globalization and localization
+Setting (via `Project Properties > Package > Assembly neutral language` or manually in `.csproj`)
+
+```xml
+<PropertyGroup>
+  <NeutralLanguage>de</NeutralLanguage>
+</PropertyGroup>
+```
+
+leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI.
 
 ## Versioning
 

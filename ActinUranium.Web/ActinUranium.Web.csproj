@@ -8,13 +8,15 @@
         <Authors>Legion von Gadara</Authors>
         <Company>Actin Uranium</Company>
         <Product>235u.net</Product>
-        <NeutralLanguage>de</NeutralLanguage>
+        <NeutralLanguage></NeutralLanguage>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+        <PackageLicenseFile></PackageLicenseFile>
         <PackageProjectUrl>https://www.235u.net</PackageProjectUrl>
         <PackageIconUrl>https://github.com/235u/ActinUranium.Web/tree/master/ActinUranium.Web/wwwroot/img/square-logo.png</PackageIconUrl>
         <RepositoryUrl>https://github.com/235u/ActinUranium.Web</RepositoryUrl>
+        <Copyright>2019 Actin Uranium</Copyright>
+        <PackageLicenseExpression>Copyright (c) 2019 Actin Uranium</PackageLicenseExpression>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -30,10 +32,6 @@
         <Content Remove="wwwroot\img\digital-genial\**" />
         <EmbeddedResource Remove="wwwroot\img\digital-genial\**" />
         <None Remove="wwwroot\img\digital-genial\**" />
-        <None Include="..\LICENSE.md">
-          <Pack>True</Pack>
-          <PackagePath></PackagePath>
-        </None>
     </ItemGroup>
 
     <ItemGroup>
