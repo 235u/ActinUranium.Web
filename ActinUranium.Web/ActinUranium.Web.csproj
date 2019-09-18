@@ -8,11 +8,11 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <CodeAnalysisRuleSet>ActinUranium.Web.ruleset</CodeAnalysisRuleSet>
+      <CodeAnalysisRuleSet>Properties\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-      <CodeAnalysisRuleSet>ActinUranium.Web.ruleset</CodeAnalysisRuleSet>
+      <CodeAnalysisRuleSet>Properties\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <ItemGroup>
@@ -57,6 +57,14 @@
         <None Include="Helpers\Collage.cs" />
         <None Include="wwwroot\css\_typography.css" />
         <None Include="wwwroot\js\_carousel.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="Properties\launchSettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

@@ -1,23 +1,23 @@
 [
-  {
-    "outputFileName": "wwwroot/css/site.css",
-    "inputFiles": [
-        "wwwroot/css/_buttons.css",
-        "wwwroot/css/_card.css",
-        "wwwroot/css/_carousel.css",
-        "wwwroot/css/_content.css",
-        "wwwroot/css/_images.css",
-        "wwwroot/css/_layout.css",
-        "wwwroot/css/_navbar.css",
-        "wwwroot/css/_typography.css"
-    ]
-  },
-  {
-    "outputFileName": "wwwroot/js/site.js",
-    "inputFiles": [
-      "wwwroot/js/_card-overlay.js",
-      "wwwroot/js/_carousel.js",
-      "wwwroot/js/_navbar.js"
-    ]
-  }
+    {
+        "outputFileName": "wwwroot/css/site.css",
+        "inputFiles": [
+            "wwwroot/css/_buttons.css",
+            "wwwroot/css/_card.css",
+            "wwwroot/css/_carousel.css",
+            "wwwroot/css/_content.css",
+            "wwwroot/css/_images.css",
+            "wwwroot/css/_layout.css",
+            "wwwroot/css/_navbar.css",
+            "wwwroot/css/_typography.css"
+        ]
+    },
+    {
+        "outputFileName": "wwwroot/js/site.js",
+        "inputFiles": [
+            "wwwroot/js/_card-overlay.js",
+            "wwwroot/js/_carousel.js",
+            "wwwroot/js/_navbar.js"
+        ]
+    }
 ]

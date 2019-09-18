@@ -1,4 +1,16 @@
 ﻿@* Displays the favicon immediately, during page loading. *@
 <link rel="icon" href="~/favicon.ico" asp-append-version="true">
 <link rel="stylesheet" href="https://use.typekit.net/lge2pgz.css" />
-<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<environment include="Development">
+    <link rel="stylesheet" href="~/css/_buttons.css" />
+    <link rel="stylesheet" href="~/css/_card.css" />
+    <link rel="stylesheet" href="~/css/_carousel.css" />
+    <link rel="stylesheet" href="~/css/_content.css" />
+    <link rel="stylesheet" href="~/css/_images.css" />
+    <link rel="stylesheet" href="~/css/_layout.css" />
+    <link rel="stylesheet" href="~/css/_navbar.css" />
+    <link rel="stylesheet" href="~/css/_typography.css" />
+</environment>
+<environment exclude="Development">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</environment>
