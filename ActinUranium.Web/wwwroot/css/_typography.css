@@ -1,0 +1,18 @@
+﻿.multi-level-numbering {
+    counter-reset: chapter;
+}
+
+.chapter:before {
+    content: counter(chapter) ". ";
+    counter-increment: chapter;
+}
+
+.chapter {
+    counter-reset: section;
+}
+
+/* Enables sub-level numbering for multi-paragraph chapters. */
+p.verse:not(:only-of-type)::before {
+    content: counter(chapter) "." counter(section) " ";
+    counter-increment: section;
+}

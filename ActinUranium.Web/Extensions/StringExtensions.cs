@@ -70,10 +70,10 @@ namespace ActinUranium.Web.Extensions
                 throw new ArgumentNullException(nameof(text));
             }
 
-            if (text == string.Empty)
+            if (text.Length == 0)
             {
                 string message = $"'{nameof(text)}' cannot be empty.";
-                throw new ArgumentException(nameof(text), message);
+                throw new ArgumentException(message, nameof(text));
             }
 
             // See: https://stackoverflow.com/a/27073919

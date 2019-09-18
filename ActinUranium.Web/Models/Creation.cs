@@ -15,8 +15,6 @@ namespace ActinUranium.Web.Models
     {
         public const int SlugMaxLength = 64;
 
-        private static readonly Random Random = new Random();
-
         [Key]
         [MaxLength(SlugMaxLength)]
         public string Slug { get; set; }

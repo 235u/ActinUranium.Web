@@ -3,40 +3,18 @@
     ViewData["Title"] = Localizer["terms and conditions"];
 }
 
-@section Styles {
-    <style>
-        article {
-            counter-reset: chapter;
-        }
-
-        h2:before {
-            content: counter(chapter) ". ";
-            counter-increment: chapter;
-        }
-
-        h2 {
-            counter-reset: section;
-        }
-
-        p:not(:only-of-type)::before {
-            content: counter(chapter) "." counter(section) " ";
-            counter-increment: section;
-        }
-    </style>
-}
-
-<article>
+<article class="multi-level-numbering">
     <h1>@ViewData["Title"]</h1>
     @for (int section = 1; section <= 15; section++)
     {
         <section>
-            <h2>@LoremIpsum.NextHeading(1, 4)</h2>
+            <h2 class="chapter">@LoremIpsum.NextHeading(1, 4)</h2>
             @{
                 var random = new Random();
                 int paragraphCount = random.Next(1, 7);
                 for (int paragraph = 1; paragraph <= paragraphCount; paragraph++)
                 {
-                    <p>@LoremIpsum.NextParagraph(1, 4)</p>
+                    <p class="verse">@LoremIpsum.NextParagraph(1, 4)</p>
                 }
             }
         </section>

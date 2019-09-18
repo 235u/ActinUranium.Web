@@ -2,7 +2,7 @@
 
 namespace ActinUranium.Web.Helpers
 {
-    public class ActinUraniumInfo
+    public static class ActinUraniumInfo
     {
         public const short YearOfDiscovery = 1935;
 
