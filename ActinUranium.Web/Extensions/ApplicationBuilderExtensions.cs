@@ -129,6 +129,7 @@ namespace ActinUranium.Web.Extensions
                 "font-src 'self' https://*.typekit.net",
                 "img-src 'self'",
                 "media-src 'self'",
+                "object-src 'none'",
                 "script-src 'self'",
                 "style-src 'self' https://*.typekit.net",
 
