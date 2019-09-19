@@ -4,13 +4,17 @@
   </a>
 </p>
 
+## State
+
+![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fwww.235u.net)
+
 ## Ideas
 
 - Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
-- Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
-- Time-Machine-Funktionalität
+- Time-Machine kÃ¶nnte fÃ¼r Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
+- Time-Machine-FunktionalitÃ¤t
   - Verlinkung zu bestimmten Versionen, statt Screenshots
-  - Eine Multi-Tenancy-Funktionalität
+  - Eine Multi-Tenancy-FunktionalitÃ¤t
 - Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
 - Developer PC Build
 
@@ -39,7 +43,7 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 
 ## Built with
 
-In Form einer schönen Tabelle; eventuell als SVG
+In Form einer schÃ¶nen Tabelle; eventuell als SVG
 
 - <https://www.codingdojo.com/web-development-courses>
 - <https://builtwith.com/>
@@ -65,5 +69,5 @@ In Form einer schönen Tabelle; eventuell als SVG
 
 ## Data Seeding
 
-Nicht per Session - der Speicher würde explodieren.
+Nicht per Session - der Speicher wÃ¼rde explodieren.
 
