@@ -29,6 +29,9 @@ namespace ActinUranium.Web
             else
             {
                 app.UseHsts();
+                app.UseContentTypeOptions();
+                app.UseContentSecurityPolicy();
+                app.UseFrameOptions();
             }
 
             app.UseDataSeeding();
@@ -36,9 +39,6 @@ namespace ActinUranium.Web
             app.UseConfiguredRewriter();
             app.UseConfiguredStaticFiles();
             app.UseConfiguredMvc();
-            app.UseContentTypeOptions();
-            app.UseContentSecurityPolicy();
-            app.UseFrameOptions();
         }
     }
 }
