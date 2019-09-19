@@ -126,10 +126,10 @@ namespace ActinUranium.Web.Extensions
             var directives = new string[]
             {
                 // Fetch directives, controlling locations from which certain resource types may be loaded:
+                "default-src 'none'",
                 "font-src 'self' https://*.typekit.net",
                 "img-src 'self'",
                 "media-src 'self'",
-                "object-src 'none'",
                 "script-src 'self'",
                 "style-src 'self' https://*.typekit.net",
 
