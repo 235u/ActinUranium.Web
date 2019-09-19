@@ -32,6 +32,7 @@ namespace ActinUranium.Web
                 app.UseContentTypeOptions();
                 app.UseContentSecurityPolicy();
                 app.UseFrameOptions();
+                app.UseReferrerPolicy();
             }
 
             app.UseDataSeeding();
