@@ -113,8 +113,8 @@ namespace ActinUranium.Web.Extensions
         /// cross-site scripting (XSS) attacks.
         /// </para>
         /// <para>
-        /// The <c>frame-ancestors</c> directive, which is not yet supported by all major browsers, supercedes the
-        /// <c>X-Frame-Options</c> header.
+        /// The <c>frame-ancestors</c> directive supercedes the <c>X-Frame-Options</c> header, but is not yet supported
+        /// by all major browsers.
         /// </para>
         /// </remarks>
         /// <seealso cref="UseFrameOptions(IApplicationBuilder)"/>
@@ -123,10 +123,32 @@ namespace ActinUranium.Web.Extensions
         /// </seealso>
         public static IApplicationBuilder UseContentSecurityPolicy(this IApplicationBuilder app)
         {
+            var directives = new string[]
+            {
+                // Fetch directives, controlling locations from which certain resource types may be loaded:
+                "font-src 'self' https://*.typekit.net",
+                "img-src 'self'",
+                "media-src 'self'",
+                "script-src 'self'",
+                "style-src 'self' https://*.typekit.net",
+
+                // Restricts the URLs which can be used in a document's <base> element.
+                "base-uri 'none'",
+
+                // Restricts the URLs which can be used as the target of a form submissions.
+                "form-action 'self'",
+
+                // Specifies valid parents that may embed a page using <frame>, <iframe>, <object>, <embed> or <applet>.
+                "frame-ancestors 'none'"
+            };
+
+            const string Separator = "; ";
+            string headerValue = string.Join(Separator, directives);
+
             app.Use(async (context, next) =>
             {
-                const string Value = "default-src 'self'; font-src https://*.typekit.net; style-src 'self' https://*.typekit.net; frame-ancestors 'none'";
-                context.Response.Headers.Add(HeaderNames.ContentSecurityPolicy, Value);
+
+                context.Response.Headers.Add(HeaderNames.ContentSecurityPolicy, headerValue);
                 await next();
             });
 
@@ -169,7 +191,7 @@ namespace ActinUranium.Web.Extensions
         {
             app.Use(async (context, next) =>
             {
-                context.Response.Headers.Add("Referrer-Policy", "no-referrer");
+                context.Response.Headers.Add("Referrer-Policy", "same-origin");
                 await next();
             });
 
