@@ -22,34 +22,5 @@
         </div>
     </div>
     <partial name="Unshared/_Scripts" />
-    @RenderSection("Scripts", required: false)
-    <script>
-        window.addEventListener('load', () => {
-            let brand = document.querySelector('.brand');
-            if (brand) {
-
-
-                // ignores scrolling done by browser on refresh of an already scrolled page
-                setTimeout(() => {
-                    let scrolling = false;
-                    window.addEventListener('scroll', () => {
-                        scrolling = true;
-                    });
-
-                    setInterval(() => {
-                        if (scrolling) {
-                            if (window.scrollY > 0) {
-                                brand.classList.add('fade-out');
-                            } else {
-                                brand.classList.remove('fade-out');
-                            }
-
-                            scrolling = false;
-                        }
-                    }, 100)
-                }, 100);
-            }
-        });
-    </script>
 </body>
 </html>

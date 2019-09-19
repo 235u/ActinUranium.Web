@@ -17,6 +17,9 @@
         "inputFiles": [
             "wwwroot/js/_card-overlay.js",
             "wwwroot/js/_carousel.js",
+            "wwwroot/js/_logo.js",
+            "wwwroot/js/_masonry.js",
+            "wwwroot/js/_masthead.js",
             "wwwroot/js/_navbar.js"
         ]
     }

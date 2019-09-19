@@ -13,24 +13,3 @@
         }
     </div>
 </main>
-
-@section Scripts {
-    <script>
-        //let elements = document.getElementsByClassName('card');
-        //for (let element of elements) {
-        //    quantizeHeight(element);
-        //}
-
-        function quantizeHeight(element) {
-            const HeightQuantum = 25;
-            let actualHeight = element.getBoundingClientRect().height;
-            let quantumCount = Math.floor(actualHeight / HeightQuantum);
-            if ((actualHeight % HeightQuantum) > 0) {
-                quantumCount += 1;
-            }
-
-            element.style.height = (quantumCount * HeightQuantum) + 'px';
-            element.style.visibility = "visible";
-        }
-    </script>
-}

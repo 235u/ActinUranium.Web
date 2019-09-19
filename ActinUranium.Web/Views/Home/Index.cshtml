@@ -11,30 +11,3 @@
 <vc:creation-section creation-count="4"></vc:creation-section>
 <vc:headline-section headline-count="4"></vc:headline-section>
 <vc:customer-section customer-count="12"></vc:customer-section>
-
-@section Scripts {
-    <script>
-        window.addEventListener('load', () => {
-            animateButtons();
-        });
-
-        let masthead = document.querySelector('.masthead');
-        if (masthead) {
-            let scrolling = false;
-            window.addEventListener('scroll', () => {
-                scrolling = true;
-                setInterval(() => {
-                    if (scrolling) {
-                        const mastheadHeight = masthead.getBoundingClientRect().height;
-                        const mastheadOpacity = 1 - window.scrollY / mastheadHeight;
-                        if (mastheadOpacity >= 0) {
-                            masthead.style.opacity = mastheadOpacity;
-                        }
-
-                        scrolling = false;
-                    }
-                }, 100);
-            });
-        }
-    </script>
-}
