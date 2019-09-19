@@ -16,6 +16,8 @@
 
 ![GitHub language count](https://img.shields.io/github/languages/count/235u/ActinUranium.Web?style=for-the-badge)
 ![GitHub top language](https://img.shields.io/github/languages/top/235u/ActinUranium.Web?style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/235u/ActinUranium.Web?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/235u/ActinUranium.Web?style=for-the-badge)
 ![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/235u/ActinUranium.Web?style=for-the-badge)
 
