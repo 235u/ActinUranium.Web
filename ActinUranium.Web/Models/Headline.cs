@@ -11,8 +11,7 @@ namespace ActinUranium.Web.Models
 {
     public sealed class Headline : IRelease
     {
-        public const int SlugMaxLength = 128;
-        public const int Count = 20;
+        internal const int SlugMaxLength = 128;
 
         [Key]
         [MaxLength(SlugMaxLength)]
@@ -61,7 +60,7 @@ namespace ActinUranium.Web.Models
             var tags = dbContext.Tags.ToList();
             var tagLottery = new Lottery<Tag>(tags);
 
-            for (int count = 0; count < Count; count++)
+            for (int count = 0; count < 20; count++)
             {
                 Headline headline = Create(dbContext);
 

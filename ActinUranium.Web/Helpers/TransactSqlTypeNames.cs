@@ -7,7 +7,7 @@
     /// <seealso cref="Microsoft.Net.Http.Headers.HeaderNames"/>
     /// <seealso href="https://stackoverflow.com/questions/7961282/naming-convention-for-class-of-constants-in-c-plural-or-singular">
     /// Class Naming in the Plural</seealso>
-    public static class TransactSqlTypeNames
+    internal static class TransactSqlTypeNames
     {
         /// <summary>
         /// Date taking 3 bytes of storage.

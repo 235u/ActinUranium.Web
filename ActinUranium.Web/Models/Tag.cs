@@ -8,7 +8,7 @@ namespace ActinUranium.Web.Models
 {
     public sealed class Tag
     {
-        public const int SlugMaxLength = 16;
+        internal const int SlugMaxLength = 16;
 
         [Key]
         [MaxLength(SlugMaxLength)]

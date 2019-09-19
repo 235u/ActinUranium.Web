@@ -23,11 +23,13 @@
 
 ## Ideas
 
+Was man alles machen könnte:
+
 - Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
 - Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
 - Time-Machine-Funktionalität
-  - Verlinkung zu bestimmten Versionen, statt Screenshots
-  - Eine Multi-Tenancy-Funktionalität
+    - Verlinkung zu bestimmten Versionen, statt Screenshots
+    - Eine Multi-Tenancy-Funktionalität
 - Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
 - Developer PC Build
 
@@ -46,13 +48,15 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 
 ## Versioning
 
+Ist zu streichen
+
 - 2019.01.25 22:39:11
 - 2019.07.15.1730
 - 2019.07
 
 ## Text-Bausteine
 
-- Ich werde nicht nur Software entwickeln, sondern auch viel Software anwenden / einsetzen.
+Ich werde nicht nur Software entwickeln, sondern auch viel Software anwenden / einsetzen.
 
 ## Built with
 
@@ -63,6 +67,8 @@ In Form einer schönen Tabelle; eventuell als SVG
 
 ## Referenzen
 
+Verweise zu:
+
 - Stack Overflow
 - CSS Tricks
 - Wikipedia
@@ -71,11 +77,11 @@ In Form einer schönen Tabelle; eventuell als SVG
 - Creative Market
 - Font Awesome
 - Microsoft
-  - Design Guidelines
+    - Design Guidelines
 - Coding Guidelines
- - Google
-  - Styles
-  - Speed
+    - Google
+    - Styles
+    - Speed
  - MDN
  - W3C
  - Adobe

@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models
 {
-    public class Author
+    public sealed class Author
     {
-        public const int SlugMaxLength = 32;
+        internal const int SlugMaxLength = 32;
 
         [Key]
         [MaxLength(SlugMaxLength)]

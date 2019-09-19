@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace ActinUranium.Web.Models
 {
     [Description("Bild")]
-    public class Image
+    public sealed class Image
     {
-        public const int SourceMaxLength = 128;
+        internal const int SourceMaxLength = 128;
 
         /// <summary>
         /// Gets or sets the web root relative path.

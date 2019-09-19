@@ -10,9 +10,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ActinUranium.Web.Models
 {
     [Description("Kunde")]
-    public class Customer
+    public sealed class Customer
     {
-        public const int SlugMaxLength = 64;
+        internal const int SlugMaxLength = 64;
 
         [Key]
         [MaxLength(SlugMaxLength)]

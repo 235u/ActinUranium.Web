@@ -11,9 +11,9 @@ using System.Linq;
 namespace ActinUranium.Web.Models
 {
     [Description("Arbeit")]
-    public class Creation : IRelease
+    public sealed class Creation : IRelease
     {
-        public const int SlugMaxLength = 64;
+        internal const int SlugMaxLength = 64;
 
         [Key]
         [MaxLength(SlugMaxLength)]
