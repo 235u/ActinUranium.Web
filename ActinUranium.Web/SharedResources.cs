@@ -8,24 +8,24 @@ namespace ActinUranium.Web
         Justification = "Not supported by the framework")]
     public class SharedResources
     {
-        public const string Creations = nameof(Creations);
-        public const string CreationsIcon = "Creations icon";
-        public const string Customers = nameof(Customers);
-        public const string CustomersIcon = "Customers icon";
-        public const string GitHubIcon = "GitHub icon";
-        public const string Headlines = nameof(Headlines);
-        public const string HeadlinesIcon = "Headlines icon";
-        public const string Home = nameof(Home);
-        public const string HomeIcon = "Home icon";
-        public const string Imprint = nameof(Imprint);
-        public const string LoyalCustomers = "Loyal customers";
-        public const string Privacy = nameof(Privacy);
-        public const string RecentHeadlines = "Recent headlines";
-        public const string RecentlyReleasedCreations = "Recently released creations";
-        public const string SourceCode = "Source code";
-        public const string Terms = nameof(Terms);
-        public const string TermsAndConditions = "Terms and conditions";
-        public const string ViewAllCreations = "View all creations";
-        public const string ViewAllHeadlines = "View all headlines";
+        public static readonly string Creations = nameof(Creations);
+        public static readonly string CreationsIcon = $"{Creations} icon";
+        public static readonly string Customers = nameof(Customers);
+        public static readonly string CustomersIcon = $"{Customers} icon";
+        public static readonly string GitHubIcon = "GitHub icon";
+        public static readonly string Headlines = nameof(Headlines);
+        public static readonly string HeadlinesIcon = $"{Headlines} icon";
+        public static readonly string Home = nameof(Home);
+        public static readonly string HomeIcon = $"{Home} icon";
+        public static readonly string Imprint = nameof(Imprint);
+        public static readonly string LoyalCustomers = "Loyal customers";
+        public static readonly string Privacy = nameof(Privacy);
+        public static readonly string RecentHeadlines = "Recent headlines";
+        public static readonly string RecentlyReleasedCreations = "Recently released creations";
+        public static readonly string SourceCode = "Source code";
+        public static readonly string Terms = nameof(Terms);
+        public static readonly string TermsAndConditions = "Terms and conditions";
+        public static readonly string ViewAllCreations = "View all creations";
+        public static readonly string ViewAllHeadlines = "View all headlines";
     }
 }

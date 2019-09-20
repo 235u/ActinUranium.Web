@@ -35,8 +35,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="Extensions\HtmlHelperSvgExtensions.cs" />
       <Compile Remove="Helpers\Collage.cs" />
+      <Compile Remove="Helpers\ElementId.cs" />
+      <Compile Remove="Helpers\HtmlHelperSvgExtensions.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -65,8 +66,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="Extensions\HtmlHelperSvgExtensions.cs" />
+        <None Include="Helpers\HtmlHelperSvgExtensions.cs" />
         <None Include="Helpers\Collage.cs" />
+        <None Include="Helpers\ElementId.cs" />
         <None Include="wwwroot\css\_typography.css" />
         <None Include="wwwroot\js\_carousel.js" />
     </ItemGroup>

@@ -2,7 +2,8 @@
 {
     public static class ViewDataKeys
     {
-        public const string Title = nameof(Title);
-        public const string VerticallyCentered = nameof(VerticallyCentered);
+        // On const vs. static readonly, see: https://stackoverflow.com/a/3190876
+        public static readonly string Title = nameof(Title);
+        public static readonly string VerticallyCentered = nameof(VerticallyCentered);
     }
 }

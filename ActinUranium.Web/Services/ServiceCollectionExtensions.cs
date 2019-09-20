@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace ActinUranium.Web.Extensions
+namespace ActinUranium.Web.Services
 {
     public static class ServiceCollectionExtensions
     {

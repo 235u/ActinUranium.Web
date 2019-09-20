@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace ActinUranium.Web.Extensions
+namespace ActinUranium.Web.Helpers
 {
     internal static class StringExtensions
     {

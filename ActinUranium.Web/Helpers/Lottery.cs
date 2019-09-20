@@ -12,8 +12,8 @@ namespace ActinUranium.Web.Helpers
     internal class Lottery<T> : IEnumerable
     {
         private const string PoolEmptyMessage = "The element pool is empty.";
-        private static readonly Random Random = new Random();
 
+        private readonly Random _random = new Random();
         private readonly List<T> _elementPool;
 
         public Lottery()
@@ -45,7 +45,7 @@ namespace ActinUranium.Web.Helpers
                 throw new InvalidOperationException(PoolEmptyMessage);
             }
 
-            int index = Random.Next(maxValue: _elementPool.Count);
+            int index = _random.Next(maxValue: _elementPool.Count);
             return _elementPool[index];
         }
 
@@ -56,7 +56,7 @@ namespace ActinUranium.Web.Helpers
                 throw new InvalidOperationException(PoolEmptyMessage);
             }
 
-            int index = Random.Next(maxValue: _elementPool.Count);
+            int index = _random.Next(maxValue: _elementPool.Count);
             T element = _elementPool[index];
             _elementPool.RemoveAt(index);
             return element;

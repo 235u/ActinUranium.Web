@@ -1,4 +1,4 @@
-﻿using ActinUranium.Web.Extensions;
+﻿using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;

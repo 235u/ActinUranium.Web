@@ -1,5 +1,4 @@
-﻿using ActinUranium.Web.Services;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Rewrite;
@@ -8,7 +7,7 @@ using Microsoft.Net.Http.Headers;
 using System.Globalization;
 using System.Linq;
 
-namespace ActinUranium.Web.Extensions
+namespace ActinUranium.Web.Services
 {
     internal static class ApplicationBuilderExtensions
     {

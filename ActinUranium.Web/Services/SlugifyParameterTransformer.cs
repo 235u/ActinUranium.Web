@@ -21,8 +21,7 @@ namespace ActinUranium.Web.Services
             }
 
             string input = value.ToString();
-            string result = Regex.Replace(input, Pattern, Replacement).ToLowerInvariant();
-            return result;
+            return Regex.Replace(input, Pattern, Replacement).ToLowerInvariant();
         }
     }
 }
