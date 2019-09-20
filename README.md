@@ -11,6 +11,8 @@
 ![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fwww.235u.net)
 ![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m783489721-6dbd879caf5b391ffe19c142?style=for-the-badge)
 ![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/www.235u.net?publish&style=for-the-badge)
+![Codacy grade](https://img.shields.io/codacy/grade/86622d802de64d499eb5dea26ba742aa?style=for-the-badge)
+![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)
 
 ### Other
 
@@ -18,8 +20,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/235u/ActinUranium.Web?style=for-the-badge)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/235u/ActinUranium.Web?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/235u/ActinUranium.Web?style=for-the-badge)
-![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/235u/ActinUranium.Web?style=for-the-badge)
 
 ## Ideas
 
