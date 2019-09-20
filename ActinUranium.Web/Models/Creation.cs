@@ -88,7 +88,7 @@ namespace ActinUranium.Web.Models
                 }
             }
 
-            return new Creation()
+            return new Creation
             {
                 Slug = slug,
                 Title = title,

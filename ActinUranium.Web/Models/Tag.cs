@@ -52,7 +52,7 @@ namespace ActinUranium.Web.Models
                 }
             }
 
-            return new Tag()
+            return new Tag
             {
                 Slug = slug,
                 Name = name

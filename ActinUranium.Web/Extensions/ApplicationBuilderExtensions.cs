@@ -56,7 +56,7 @@ namespace ActinUranium.Web.Extensions
 
         public static IApplicationBuilder UseConfiguredStaticFiles(this IApplicationBuilder app)
         {
-            var options = new StaticFileOptions()
+            var options = new StaticFileOptions
             {
                 OnPrepareResponse = (context) =>
                 {

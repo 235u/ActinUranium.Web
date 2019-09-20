@@ -64,11 +64,11 @@ namespace ActinUranium.Web.Models
 
         private static Customer CreateCustomer(string name, string fileName)
         {
-            return new Customer()
+            return new Customer
             {
                 Slug = name.Slugify(),
                 Name = name,
-                Logo = new Image()
+                Logo = new Image
                 {
                     Title = name,
                     AlternativeText = name + " Logo",

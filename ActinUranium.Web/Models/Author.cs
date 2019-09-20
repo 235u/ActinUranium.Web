@@ -31,7 +31,8 @@ namespace ActinUranium.Web.Models
         internal static void Seed(ApplicationDbContext dbContext)
         {
             const string FullName = "Legion von Gadara";
-            var author = new Author()
+
+            var author = new Author
             {
                 Slug = FullName.Slugify(),
                 Name = FullName,

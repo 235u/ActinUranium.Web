@@ -45,7 +45,7 @@ namespace ActinUranium.Web.Models
                 dbContext.Images.Add(image);
 
                 Creation creation = dbContext.Creations.Skip(count - 1).First();
-                var creationImage = new CreationImage()
+                var creationImage = new CreationImage
                 {
                     ImageSource = image.Source,
                     CreationSlug = creation.Slug
@@ -59,7 +59,7 @@ namespace ActinUranium.Web.Models
 
         private static Image CreateImage(string fileName)
         {
-            return new Image()
+            return new Image
             {
                 Source = $"~/img/creations/{fileName}",
                 AlternativeText = LoremIpsum.NextSentence()

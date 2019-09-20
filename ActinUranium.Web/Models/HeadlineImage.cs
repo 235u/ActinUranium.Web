@@ -70,7 +70,7 @@ namespace ActinUranium.Web.Models
 
         private static Image CreateImage(string fileName)
         {
-            return new Image()
+            return new Image
             {
                 Source = $"~/img/headlines/{fileName}",
                 AlternativeText = LoremIpsum.NextSentence(),
