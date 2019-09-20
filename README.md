@@ -44,7 +44,7 @@ Setting (via `Project Properties > Package > Assembly neutral language` or manua
 </PropertyGroup>
 ```
 
-leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI.
+leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI).
 
 ## Versioning
 
