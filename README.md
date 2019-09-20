@@ -20,7 +20,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/235u/ActinUranium.Web?style=for-the-badge)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/235u/ActinUranium.Web?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/235u/ActinUranium.Web?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/235u/ActinUranium.Web?style=for-the-badge)
 
 ## Ideas
 
