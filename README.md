@@ -28,8 +28,8 @@ Was man alles machen könnte:
 * Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
 * Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden
 * Time-Machine-Funktionalität
-    * Verlinkung zu bestimmten Versionen, statt Screenshots
-    * Eine Multi-Tenancy-Funktionalität
+  * Verlinkung zu bestimmten Versionen, statt Screenshots
+  * Eine Multi-Tenancy-Funktionalität
 * Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
 * Developer PC Build
 
