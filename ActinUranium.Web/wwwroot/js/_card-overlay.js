@@ -1,35 +1,35 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     const ClassName = {
-        CARD: 'card'        
+        CARD: "card"        
     };
 
     const Selector = {
-        OVERLAY: '.card-overlay'
+        OVERLAY: ".card-overlay"
     };
 
     const Directions = new Map([
-        [0, 'top'],
-        [1, 'right'],
-        [2, 'bottom'],
-        [3, 'left']
+        [0, "top"],
+        [1, "right"],
+        [2, "bottom"],
+        [3, "left"]
     ]);
 
     const ClassNamePostfix = {
-        IN: '-in',
-        OUT: '-out'
+        IN: "-in",
+        OUT: "-out"
     };
 
     const AnimationClassNames = [
-        'top-in',
-        'top-out',
-        'right-in',
-        'right-out',
-        'bottom-in',
-        'bottom-out',
-        'left-in',
-        'left-out'
+        `top${ClassNamePostfix.IN}`,
+        `top${ClassNamePostfix.OUT}`,
+        `right${ClassNamePostfix.IN}`,
+        `right${ClassNamePostfix.OUT}`,
+        `bottom${ClassNamePostfix.IN}`,
+        `bottom${ClassNamePostfix.OUT}`,
+        `left${ClassNamePostfix.IN}`,
+        `left${ClassNamePostfix.OUT}`
     ];
 
     class CardOverlay {
@@ -37,8 +37,8 @@
             this.card = card;
             this.overlay = overlay;
 
-            this.card.addEventListener('mouseenter', (e) => this.update(e, ClassNamePostfix.IN));
-            this.card.addEventListener('mouseleave', (e) => this.update(e, ClassNamePostfix.OUT));
+            this.card.addEventListener("mouseenter", (e) => this.update(e, ClassNamePostfix.IN));
+            this.card.addEventListener("mouseleave", (e) => this.update(e, ClassNamePostfix.OUT));
         }
 
         update(e, postfix) {
@@ -70,7 +70,7 @@
         }
     }
 
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
         let cards = document.getElementsByClassName(ClassName.CARD);
         for (let card of cards) {
             let overlay = card.querySelector(Selector.OVERLAY);

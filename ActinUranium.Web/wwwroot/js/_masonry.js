@@ -1,9 +1,9 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     const Selector = {
-        //// ITEM: '.card-columns .card'
-        ITEM: '.masonry .card'
+        //// ITEM: ".card-columns .card"
+        ITEM: ".masonry .card"
     };
 
     const HEIGHT_QUANTUM_IN_PIXELS = 25;
@@ -24,7 +24,7 @@
             }
 
             // TODO: Switch to classes; test for visibility issues.
-            element.style.height = (quantumCount * HEIGHT_QUANTUM_IN_PIXELS) + 'px';
+            element.style.height = (quantumCount * HEIGHT_QUANTUM_IN_PIXELS) + "px";
             element.style.visibility = "visible";
         }
     }

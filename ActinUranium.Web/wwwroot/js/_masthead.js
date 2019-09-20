@@ -1,8 +1,8 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     const Selectors = {
-        MASTHEAD: '.masthead'
+        MASTHEAD: ".masthead"
     };
 
     class Masthead {
@@ -15,7 +15,7 @@
 
         static animate(element) {
             let scrolling = false;
-            window.addEventListener('scroll', () => {
+            window.addEventListener("scroll", () => {
                 scrolling = true;
                 setInterval(() => {
                     if (scrolling) {

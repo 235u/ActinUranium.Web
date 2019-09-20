@@ -25,13 +25,13 @@
 
 Was man alles machen könnte:
 
-- Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
-- Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
-- Time-Machine-Funktionalität
-    - Verlinkung zu bestimmten Versionen, statt Screenshots
-    - Eine Multi-Tenancy-Funktionalität
-- Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
-- Developer PC Build
+* Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
+* Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden.
+* Time-Machine-Funktionalität
+  * Verlinkung zu bestimmten Versionen, statt Screenshots
+  * Eine Multi-Tenancy-Funktionalität
+* Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
+* Developer PC Build
 
 ## Observations
 
@@ -48,11 +48,11 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 
 ## Versioning
 
-Ist zu streichen
+Doch SemVer?
 
-- 2019.01.25 22:39:11
-- 2019.07.15.1730
-- 2019.07
+* 2019.01.25 22:39:11
+* 2019.07.15.1730
+* 2019.07
 
 ## Text-Bausteine
 
@@ -62,29 +62,25 @@ Ich werde nicht nur Software entwickeln, sondern auch viel Software anwenden / e
 
 In Form einer schönen Tabelle; eventuell als SVG
 
-- <https://www.codingdojo.com/web-development-courses>
-- <https://builtwith.com/>
+* <https://www.codingdojo.com/web-development-courses>
+* <https://builtwith.com/>
 
 ## Referenzen
 
 Verweise zu:
 
-- Stack Overflow
-- CSS Tricks
-- Wikipedia
-- Google Styles
-- Pixabay
-- Creative Market
-- Font Awesome
-- Microsoft
-    - Design Guidelines
-- Coding Guidelines
-    - Google
-    - Styles
-    - Speed
- - MDN
- - W3C
- - Adobe
+* Stack Overflow
+* CSS Tricks
+* Wikipedia
+* Google Styles
+* Pixabay
+* Creative Market
+* Font Awesome
+* Microsoft / Design Guidelines
+* Coding Guidelines: Google / Styles /Speed
+* MDN
+* W3C
+* Adobe
 
 ## Data Seeding
 

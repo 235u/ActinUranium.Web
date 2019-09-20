@@ -1,12 +1,12 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     const Selectors = {
-        LOGO: '.brand'
+        LOGO: ".brand"
     };
 
     const ClassNames = {
-        FADE_OUT: 'fade-out'
+        FADE_OUT: "fade-out"
     };
 
     class Logo {
@@ -21,7 +21,7 @@
             // ignores scrolling done by browser on refresh of an already scrolled page
             setTimeout(() => {
                 let scrolling = false;
-                window.addEventListener('scroll', () => {
+                window.addEventListener("scroll", () => {
                     scrolling = true;
                 });
 

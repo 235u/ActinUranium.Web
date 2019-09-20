@@ -1,5 +1,5 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     const SlideOrder = {
         NONE: 0,
@@ -10,23 +10,23 @@
     const INTERVAL_IN_MILLISECONDS = 5000;
 
     const ClassName = {
-        ACTIVE_SLIDE: 'active-slide',
-        ACTIVE_SLIDE_BULLET: 'active-slide-bullet',
-        CAROUSEL: 'carousel',
-        NEXT_SLIDE: 'next-slide',
-        PREV_SLIDE: 'prev-slide',
-        SLIDE: 'slide',
-        SLIDE_BULLET: 'slide-bullet',
-        SLIDE_LEFT: 'slide-left',
-        SLIDE_RIGHT: 'slide-right'
+        ACTIVE_SLIDE: "active-slide",
+        ACTIVE_SLIDE_BULLET: "active-slide-bullet",
+        CAROUSEL: "carousel",
+        NEXT_SLIDE: "next-slide",
+        PREV_SLIDE: "prev-slide",
+        SLIDE: "slide",
+        SLIDE_BULLET: "slide-bullet",
+        SLIDE_LEFT: "slide-left",
+        SLIDE_RIGHT: "slide-right"
     };
 
     const Selector = {
-        ACTIVE_SLIDE: '.active-slide',
-        NEXT_SLIDE_CONTROL: '.next-slide-control',
-        PREV_SLIDE_CONTROL: '.prev-slide-control',
-        SLIDE_BULLETS: '.active-slide-bullet, .slide-bullet',
-        SLIDES: '.active-slide, .slide'
+        ACTIVE_SLIDE: `.${ClassName.ACTIVE_SLIDE}`,
+        NEXT_SLIDE_CONTROL: ".next-slide-control",
+        PREV_SLIDE_CONTROL: ".prev-slide-control",
+        SLIDE_BULLETS: `.${ClassName.ACTIVE_SLIDE_BULLET}, .${ClassName.SLIDE_BULLET}`,
+        SLIDES: `.${ClassName.ACTIVE_SLIDE}, .${ClassName.SLIDE}`
     };    
 
     class Carousel {
@@ -165,7 +165,7 @@
             activeSlide.classList.add(slidingDirectionClassName);
             targetSlide.classList.add(slidingDirectionClassName);
 
-            activeSlide.addEventListener('transitionend', () => {
+            activeSlide.addEventListener("transitionend", () => {
                 targetSlide.classList.remove(slidingDirectionClassName);
                 targetSlide.classList.replace(slideOrderClassName, ClassName.ACTIVE_SLIDE);
 
@@ -205,7 +205,7 @@
         }
     }
 
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
         let rootElements = document.getElementsByClassName(ClassName.CAROUSEL);
         for (let element of rootElements) {
             new Carousel(element);
