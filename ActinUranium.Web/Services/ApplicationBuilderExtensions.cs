@@ -125,6 +125,7 @@ namespace ActinUranium.Web.Services
             var directives = new string[]
             {
                 // Fetch directives, controlling locations from which certain resource types may be loaded:
+                "connect-src 'self'",
                 "default-src 'none'",
                 "font-src 'self' https://*.typekit.net",
                 "img-src 'self'",

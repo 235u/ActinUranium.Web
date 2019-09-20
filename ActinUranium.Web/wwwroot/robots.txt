@@ -1,2 +1,6 @@
-﻿User-agent: *
-Disallow:
+User-agent: *
+Disallow: /css/
+Disallow: /img/
+Disallow: /js/
+
+Sitemap: https://www.235u.net/sitemap.xml

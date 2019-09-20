@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.235u.net/</loc>
+        <lastmod>2019-09-20</lastmod>
+    </url>
+    <url>
+        <loc>https://www.235u.net/creations</loc>
+        <lastmod>2019-09-20</lastmod>
+    </url>
+    <url>
+        <loc>https://www.235u.net/headlines</loc>
+        <lastmod>2019-09-20</lastmod>
+    </url>
+    <url>
+        <loc>https://www.235u.net/customers</loc>
+        <lastmod>2019-09-20</lastmod>
+    </url>
+    <url>
+        <loc>https://www.235u.net/terms-and-conditions</loc>
+        <changefreq>always</changefreq>
+    </url>
+    <url>
+        <loc>https://www.235u.net/privacy</loc>
+        <changefreq>always</changefreq>
+    </url>
+    <url>
+        <loc>https://www.235u.net/imprint</loc>
+        <lastmod>2019-09-20</lastmod>
+    </url>
+</urlset>
