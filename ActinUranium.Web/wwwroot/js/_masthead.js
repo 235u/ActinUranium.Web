@@ -19,10 +19,10 @@
                 scrolling = true;
                 setInterval(() => {
                     if (scrolling) {
-                        const mastheadHeight = element.getBoundingClientRect().height;
-                        const mastheadOpacity = 1 - window.scrollY / mastheadHeight;
-                        if (mastheadOpacity >= 0) {
-                            element.style.opacity = mastheadOpacity;
+                        const height = element.getBoundingClientRect().height;
+                        const opacity = 1 - (window.scrollY / height);
+                        if (opacity >= 0) {
+                            element.style.opacity = opacity.toFixed(2);
                         }
 
                         scrolling = false;
