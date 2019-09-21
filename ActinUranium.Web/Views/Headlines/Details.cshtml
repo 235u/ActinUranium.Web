@@ -10,10 +10,11 @@
 
 <article>
     <partial name="_Carousel" model="images" />
-    <a class="tag tag-link"
+    @*<a class="tag tag-link"
        asp-controller="Headlines"
        asp-action="Tag"
-       asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
+       asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>*@
+    <div class="tag">@Model.Tag.Name</div>
     <h1>@ViewData[ViewDataKeys.Title]</h1>
     <p><strong>@Model.Lead</strong></p>
     <p>@Model.Text</p>

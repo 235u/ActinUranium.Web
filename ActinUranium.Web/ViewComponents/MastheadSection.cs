@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
 {
-    public class ReleaseCarousel : ViewComponent
+    public class MastheadSection : ViewComponent
     {
         private readonly CreationStore _creationStore;
         private readonly HeadlineStore _headlineStore;
 
-        public ReleaseCarousel(CreationStore creationStore, HeadlineStore headlineStore)
+        public MastheadSection(CreationStore creationStore, HeadlineStore headlineStore)
         {
             _creationStore = creationStore;
             _headlineStore = headlineStore;
@@ -22,7 +22,8 @@ namespace ActinUranium.Web.ViewComponents
         {
             // Take twice the required release count to ensure the chronological release order.
             IReadOnlyCollection<IRelease> creations = await _creationStore.GetCreationsAsync(releaseCount);
-            IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(releaseCount);
+            IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(
+                releaseCount);
 
             var model = creations.Concat(headlines)
                 .OrderByDescending(r => r.ReleaseDate)
