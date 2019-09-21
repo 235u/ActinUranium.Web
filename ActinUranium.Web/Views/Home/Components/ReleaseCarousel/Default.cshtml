@@ -1,6 +1,6 @@
 ﻿@model IReadOnlyCollection<IRelease>
 
-<div class="carousel">
+<section class="masthead carousel">
     @foreach (var release in Model)
     {
         var className = release == Model.First() ? "active-slide" : "slide";
@@ -18,9 +18,9 @@
                        asp-action="Details"
                        asp-route-slug="@creation.Slug">
                         <div class="card-body">
-                            <h1 class="line-clamp-2">@creation.Title</h1>
+                            <h2 class="line-clamp-2">@creation.Title</h2>
                             <ul class="unstyled-list">
-                                <li class="line-clamp-2">@creation.Mission</li>
+                                <li class="line-clamp-3">@creation.Mission</li>
                                 <li class="line-clamp-1 muted-text">@creation.Customer.Name</li>
                             </ul>
                         </div>
@@ -34,8 +34,8 @@
                        asp-action="Details"
                        asp-route-slug="@headline.Slug">
                         <div class="card-body">
-                            <h1 class="line-clamp-2">@headline.Title</h1>
-                            <p class="line-clamp-3">@headline.Lead</p>
+                            <h2 class="line-clamp-2">@headline.Title</h2>
+                            <p class="line-clamp-4">@headline.Lead</p>
                         </div>
                         <div class="card-overlay"></div>
                     </a>
@@ -59,4 +59,4 @@
             }
         </ol>
     }
-</div>
+</section>

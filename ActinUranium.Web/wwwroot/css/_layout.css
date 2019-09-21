@@ -27,6 +27,7 @@ section {
 .masthead {
     height: 100vh;
     /*width: 100%;*/
+    margin-bottom: 45px;
 }
 
 .row {
@@ -94,7 +95,6 @@ footer {
 .fake-header,
 .main,
 .footer {
-    /*background-color: lightgray;*/
     flex-shrink: 0;
 }
 
@@ -109,5 +109,16 @@ footer {
 .fake-header {
     height: 42px;
     width: 285px;
-    /*opacity: 0;*/
+}
+
+article > header {
+    margin-bottom: 30px;
+}
+
+article section:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.article-footer:not(:last-child) {
+    margin-bottom: 30px;
 }

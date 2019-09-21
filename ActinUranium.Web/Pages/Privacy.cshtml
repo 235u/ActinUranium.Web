@@ -4,7 +4,10 @@
 }
 
 <article>
-    <h1>@ViewData[ViewDataKeys.Title]</h1>
+    <header>
+        <h1>@ViewData[ViewDataKeys.Title]</h1>
+        <p>@LoremIpsum.NextSentence()</p>
+    </header>
     <section>
         <h2>@LoremIpsum.NextHeading(2, 4)</h2>
         <p>@LoremIpsum.NextParagraph(2, 4)</p>

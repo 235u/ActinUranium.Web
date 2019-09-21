@@ -4,8 +4,8 @@
 }
 
 <article>
-    <header>
-        <partial name="_Carousel" model="@Model.GetImages()" />
+    <partial name="_Carousel" model="@Model.GetImages()" />
+    <header>        
         <ul class="inline-list">
             <li>@Model.ReleaseDate.Year</li>
             <li><a href="@Model.Customer.Website" target="_blank">@Model.Customer.Name</a></li>

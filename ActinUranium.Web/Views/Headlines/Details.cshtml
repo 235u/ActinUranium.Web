@@ -9,17 +9,15 @@
 }
 
 <article>
-    <header>
-        <partial name="_Carousel" model="images" />
-        <a class="tag tag-link"
-           asp-controller="Headlines"
-           asp-action="Tag"
-           asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
-        <h1>@ViewData[ViewDataKeys.Title]</h1>
-    </header>
+    <partial name="_Carousel" model="images" />
+    <a class="tag tag-link"
+       asp-controller="Headlines"
+       asp-action="Tag"
+       asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
+    <h1>@ViewData[ViewDataKeys.Title]</h1>
     <p><strong>@Model.Lead</strong></p>
     <p>@Model.Text</p>
-    <ul class="inline-list">
+    <ul class="inline-list article-footer">
         <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
         <li><a href="mailto:@Model.Author.Email">@Model.Author.Name</a></li>
     </ul>

@@ -4,7 +4,10 @@
 }
 
 <article class="multi-level-numbering">
-    <h1>@ViewData[ViewDataKeys.Title]</h1>
+    <header>
+        <h1>@ViewData[ViewDataKeys.Title]</h1>
+        <p>@LoremIpsum.NextSentence()</p>
+    </header>
     @for (int section = 1; section <= 15; section++)
     {
         <section>

@@ -166,6 +166,14 @@
     <value>Zuletzt veröffentliche Kombinationen</value>
     <comment>Zuletzt veröffentliche Kreationen</comment>
   </data>
+  <data name="Related creations" xml:space="preserve">
+    <value>Weitere Kombinationen</value>
+    <comment>Verwandte Kreationen</comment>
+  </data>
+  <data name="Related headlines" xml:space="preserve">
+    <value>Verwandte Beiträge</value>
+    <comment>Weitere Schlagzeilen</comment>
+  </data>
   <data name="Source code" xml:space="preserve">
     <value>Forensik</value>
     <comment>Quellcode</comment>

@@ -22,6 +22,8 @@ namespace ActinUranium.Web
         public static readonly string Privacy = nameof(Privacy);
         public static readonly string RecentHeadlines = "Recent headlines";
         public static readonly string RecentlyReleasedCreations = "Recently released creations";
+        public static readonly string RelatedCreations = "Related creations";
+        public static readonly string RelatedHeadlines = "Related headlines";
         public static readonly string SourceCode = "Source code";
         public static readonly string Terms = nameof(Terms);
         public static readonly string TermsAndConditions = "Terms and conditions";
