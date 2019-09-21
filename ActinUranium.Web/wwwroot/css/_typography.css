@@ -1,5 +1,9 @@
-﻿.muted-text {
-    color: #757575; /* achromatic gray: 117 */
+﻿strong {
+    font-weight: 700;
+}
+
+.muted-text {
+    color: #757575; /* achromatic gray: 117, maximum value for an acceptable contrast ratio on a white background */
 }
 
 .multi-level-numbering {

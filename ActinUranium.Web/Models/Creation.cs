@@ -92,7 +92,7 @@ namespace ActinUranium.Web.Models
                 Slug = slug,
                 Title = title,
                 ReleaseDate = ActinUraniumInfo.NextDate(),
-                Mission = LoremIpsum.NextHeading(2, 6),
+                Mission = LoremIpsum.NextParagraph(2, 3),
                 Strategy = LoremIpsum.NextParagraph(1, 3),
                 Execution = LoremIpsum.NextParagraph(1, 3)
             };
