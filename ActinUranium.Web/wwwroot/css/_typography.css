@@ -75,3 +75,7 @@ p.verse:not(:only-of-type)::before {
     content: counter(chapter) "." counter(section) " ";
     counter-increment: section;
 }
+
+address {
+    font-style: normal;
+}

@@ -1,6 +1,9 @@
 ﻿@model Customer
 
-<a class="customer-card card" href="@Model.Website" target="_blank" rel="noreferrer">
-    <img class="img-fluid" src="@Model.LogoSource" asp-append-version="true" alt="@Html.DisplayFor(c => c.Name) Logo" />
+<a class="card" href="@Model.Website" target="_blank" rel="noreferrer">
+    <img class="customer-card-img"
+         src="@Model.LogoSource"
+         asp-append-version="true"
+         alt="@Html.DisplayFor(c => c.Name) Logo" />
     <div class="card-overlay"></div>
 </a>

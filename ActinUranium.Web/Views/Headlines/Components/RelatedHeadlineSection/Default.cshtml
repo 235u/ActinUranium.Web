@@ -9,7 +9,7 @@
             <div class="card-columns">
                 @foreach (var headline in Model)
                 {
-                    <partial name="_Headline" model="headline" />
+                    <partial name="_Headline" model="@headline" />
                 }
             </div>
         }
@@ -18,7 +18,7 @@
             <div class="card-group responsive-flex-wrap">
                 @foreach (var headline in Model)
                 {
-                    <partial name="_Headline" model="headline" />
+                    <partial name="_Headline" model="@headline" />
                 }
             </div>
         }

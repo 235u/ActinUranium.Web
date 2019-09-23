@@ -1,7 +1,13 @@
 ﻿@model Headline
+@{
+    var image = @Model.GetPrimaryImage();
+}
 
-<a class="headline-card card" asp-controller="Headlines" asp-action="Details" asp-route-slug="@Model.Slug">
-    <partial name="_Image" model="@Model.GetPrimaryImage()" />
+<a class="card" asp-controller="Headlines" asp-action="Details" asp-route-slug="@Model.Slug">
+    @if (image != null)
+    {
+        <img class="headline-card-img" src="@image.Source" asp-append-version="true" />
+    }    
     <div class="card-body">
         <div class="tag">@Model.Tag.Name</div>
         <h3 class="line-clamp-3">@Model.Title</h3>

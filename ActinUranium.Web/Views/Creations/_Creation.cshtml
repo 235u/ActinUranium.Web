@@ -1,7 +1,7 @@
 ﻿@model Creation
 
-<a class="creation-card card" asp-controller="Creations" asp-action="Details" asp-route-slug="@Model.Slug">
-    <partial name="_Image" model="@Model.GetPrimaryImage()" />    
+<a class="card" asp-controller="Creations" asp-action="Details" asp-route-slug="@Model.Slug">
+    <img class="creation-card-img" src="@Model.GetPrimaryImage().Source" asp-append-version="true" />
     <div class="card-body">
         <ul class="inline-list">
             <li class="text">@Model.ReleaseDate.Year</li>

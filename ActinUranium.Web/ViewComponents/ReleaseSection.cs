@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
 {
-    public class MastheadSection : ViewComponent
+    public class ReleaseSection : ViewComponent
     {
         private readonly CreationStore _creationStore;
         private readonly HeadlineStore _headlineStore;
 
-        public MastheadSection(CreationStore creationStore, HeadlineStore headlineStore)
+        public ReleaseSection(CreationStore creationStore, HeadlineStore headlineStore)
         {
             _creationStore = creationStore;
             _headlineStore = headlineStore;

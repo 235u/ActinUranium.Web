@@ -5,7 +5,7 @@
     <div class="card-group flex-wrap">
         @foreach (var customer in Model)
         {
-            <partial name="~/Views/Customers/_Customer.cshtml" model="customer" />
+            <partial name="~/Views/Customers/_Customer.cshtml" model="@customer" />
         }
     </div>
 </section>

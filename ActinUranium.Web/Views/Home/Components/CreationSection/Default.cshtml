@@ -5,7 +5,7 @@
     <div class="card-group responsive-flex-wrap">
         @foreach (var creation in Model)
         {
-            <partial name="~/Views/Creations/_Creation.cshtml" model="creation" />
+            <partial name="~/Views/Creations/_Creation.cshtml" model="@creation" />
         }
     </div>
     <div class="float-right">

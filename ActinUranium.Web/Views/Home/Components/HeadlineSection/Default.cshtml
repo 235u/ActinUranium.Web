@@ -5,7 +5,7 @@
     <div class="card-group responsive-flex-wrap">
         @foreach (var headline in Model)
         {
-            <partial name="~/Views/Headlines/_Headline.cshtml" model="headline" />
+            <partial name="~/Views/Headlines/_Headline.cshtml" model="@headline" />
         }
     </div>
     <div class="float-right">

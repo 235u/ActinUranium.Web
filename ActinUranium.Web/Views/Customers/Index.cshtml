@@ -9,7 +9,7 @@
     <div class="card-group flex-wrap">
         @foreach (Customer customer in Model)
         {
-            <partial name="_Customer" model="customer" />
+            <partial name="_Customer" model="@customer" />
         }
     </div>
 </main>
