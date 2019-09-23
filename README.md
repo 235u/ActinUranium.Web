@@ -11,11 +11,10 @@
 [![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fwww.235u.net)](https://www.235u.net)
 [![Uptime Robot ratio (30 days)](https://img.shields.io/uptimerobot/ratio/m783489721-6dbd879caf5b391ffe19c142?style=for-the-badge)](https://uptimerobot.com/)
 [![Mozilla HTTP Observatory Grade](https://img.shields.io/mozilla-observatory/grade/www.235u.net?publish&style=for-the-badge)](https://observatory.mozilla.org/analyze/www.235u.net)
-[![Codacy grade](https://img.shields.io/codacy/grade/86622d802de64d499eb5dea26ba742aa?style=for-the-badge)](https://app.codacy.com/manual/legion-von-gadara/ActinUranium.Web/dashboard?bid=14337177)
-[![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)](https://github.com/235u/ActinUranium.Web/graphs/commit-activity)
 
 ### Other
 
+[![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)](https://github.com/235u/ActinUranium.Web/graphs/commit-activity)
 ![GitHub language count](https://img.shields.io/github/languages/count/235u/ActinUranium.Web?style=for-the-badge)
 [![GitHub top language](https://img.shields.io/github/languages/top/235u/ActinUranium.Web?style=for-the-badge)](https://github.com/search?q=repo%3A235u%2FActinUranium.Web+language%3AC%23&type=Code&ref=advsearch&l=C%23)
 
