@@ -1,6 +1,5 @@
 ﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models
@@ -21,12 +20,6 @@ namespace ActinUranium.Web.Models
         [MaxLength(64)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
-        internal static void OnModelCreating(EntityTypeBuilder<Author> typeBuilder)
-        {
-            typeBuilder.HasIndex(a => a.Name).IsUnique();
-            typeBuilder.HasIndex(a => a.Email).IsUnique();
-        }
 
         internal static void Seed(ApplicationDbContext dbContext)
         {

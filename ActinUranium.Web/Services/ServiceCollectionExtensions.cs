@@ -1,5 +1,4 @@
-﻿using ActinUranium.Web.Services;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -69,14 +68,14 @@ namespace ActinUranium.Web.Services
                 options.UseInMemoryDatabase(DatabaseName);
             });
 
-            return services;
+            return services.AddScoped<ApplicationDbInitializer>();
         }
 
         public static IServiceCollection AddDataStores(this IServiceCollection services)
         {
             services.AddTransient<CreationStore>();
             services.AddTransient<CustomerStore>();
-            services.AddTransient<GeometryStore>();
+            services.AddTransient<ImageStore>();
             services.AddTransient<HeadlineStore>();
             return services;
         }

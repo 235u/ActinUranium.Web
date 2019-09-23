@@ -1,6 +1,5 @@
 ﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -33,12 +32,6 @@ namespace ActinUranium.Web.Models
 
         public string Website => "https://translate.google.com/#view=home&op=translate&sl=la&tl=de&text=" +
             Uri.EscapeDataString(Name);
-
-        internal static void OnModelCreating(EntityTypeBuilder<Customer> typeBuilder)
-        {
-            typeBuilder.HasIndex(c => c.Name)
-                .IsUnique();
-        }
 
         internal static void Seed(ApplicationDbContext dbContext)
         {

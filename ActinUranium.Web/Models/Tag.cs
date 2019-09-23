@@ -1,6 +1,5 @@
 ﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models
@@ -27,12 +26,6 @@ namespace ActinUranium.Web.Models
             }
 
             dbContext.SaveChanges();
-        }
-
-        internal static void OnModelCreating(EntityTypeBuilder<Tag> typeBuilder)
-        {
-            typeBuilder.HasIndex(t => t.Name)
-                .IsUnique();
         }
 
         private static Tag Create(ApplicationDbContext dbContext)

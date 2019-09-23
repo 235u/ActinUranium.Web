@@ -67,7 +67,9 @@
     width: 60px;
 }
 
-.slide-bullet {
+.slide-bullet,
+.prev-slide-control,
+.next-slide-control {
     opacity: .1;
 }
 

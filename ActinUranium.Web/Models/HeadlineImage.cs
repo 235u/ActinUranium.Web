@@ -39,8 +39,8 @@ namespace ActinUranium.Web.Models
         {
             var imageLottery = new WeightedLottery<bool>
             {
-                { true, 16 },
-                { false, 4 }
+                { true, 11 },
+                { false, 5 }
             };
 
             var imageNumberLottery = new Int32Lottery(1, 17);

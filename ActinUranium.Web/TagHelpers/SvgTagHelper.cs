@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
-using System.Text;
 using System.Xml.Linq;
 
 namespace ActinUranium.Web.TagHelpers

@@ -1,10 +1,5 @@
-﻿using ActinUranium.Web.Helpers;
-using ActinUranium.Web.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
-using System.Linq;
 
 namespace ActinUranium.Web.Models
 {
@@ -25,45 +20,5 @@ namespace ActinUranium.Web.Models
 
         [Display(Name = "Anzeigereihenfolge")]
         public byte DisplayOrder { get; set; } = 1;
-
-        internal static void OnModelCreating(EntityTypeBuilder<CreationImage> typeBuilder)
-        {
-            typeBuilder.HasIndex(ci => new { ci.CreationSlug, ci.DisplayOrder })
-                .IsUnique();
-
-            typeBuilder.HasOne(ci => ci.Creation)
-                .WithMany(c => c.CreationImages)
-                .HasForeignKey(ci => ci.CreationSlug);
-        }
-
-        internal static void Seed(ApplicationDbContext dbContext)
-        {
-            for (int count = 1; count <= 32; count++)
-            {
-                string fileName = string.Format(CultureInfo.InvariantCulture, "{0:00}.svg", count);
-                Image image = CreateImage(fileName);
-                dbContext.Images.Add(image);
-
-                Creation creation = dbContext.Creations.Skip(count - 1).First();
-                var creationImage = new CreationImage
-                {
-                    ImageSource = image.Source,
-                    CreationSlug = creation.Slug
-                };
-
-                dbContext.CreationImages.Add(creationImage);
-            }
-
-            dbContext.SaveChanges();
-        }
-
-        private static Image CreateImage(string fileName)
-        {
-            return new Image
-            {
-                Source = $"~/img/creations/{fileName}",
-                AlternativeText = LoremIpsum.NextSentence()
-            };
-        }
     }
 }

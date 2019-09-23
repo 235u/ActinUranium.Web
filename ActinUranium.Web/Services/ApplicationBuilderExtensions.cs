@@ -18,8 +18,8 @@ namespace ActinUranium.Web.Services
 
             using (IServiceScope serviceScope = serviceScopeFactory.CreateScope())
             {
-                var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                dbContext.Seed();
+                var initializer = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbInitializer>();
+                initializer.SeedData();
             }
 
             return app;

@@ -1,5 +1,6 @@
 ﻿using ActinUranium.Web.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ActinUranium.Web.Services
 {
@@ -26,25 +27,54 @@ namespace ActinUranium.Web.Services
 
         public DbSet<Image> Images { get; set; }
 
-        /// <summary>
-        /// Populates the database with an initial set of data.
-        /// </summary>
-        public void Seed()
-        {
-            Customer.Seed(this);
-            Creation.Seed(this);
-            CreationImage.Seed(this);
-            Author.Seed(this);
-            Tag.Seed(this);
-            Headline.Seed(this);
-            HeadlineImage.Seed(this);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Author.OnModelCreating(modelBuilder.Entity<Author>());
-            CreationImage.OnModelCreating(modelBuilder.Entity<CreationImage>());
-            HeadlineImage.OnModelCreating(modelBuilder.Entity<HeadlineImage>());
+            OnModelCreating(modelBuilder.Entity<Author>());
+            OnModelCreating(modelBuilder.Entity<CreationImage>());
+            OnModelCreating(modelBuilder.Entity<Customer>());
+            OnModelCreating(modelBuilder.Entity<HeadlineImage>());
+            OnModelCreating(modelBuilder.Entity<Tag>());
+        }
+
+        private static void OnModelCreating(EntityTypeBuilder<Author> entity)
+        {
+            entity.HasIndex(author => author.Name)
+                .IsUnique();
+
+            entity.HasIndex(author => author.Email)
+                .IsUnique();
+        }
+
+        private static void OnModelCreating(EntityTypeBuilder<CreationImage> entity)
+        {
+            entity.HasIndex(creationImage => new { creationImage.CreationSlug, creationImage.DisplayOrder })
+                .IsUnique();
+
+            entity.HasOne(creationImage => creationImage.Creation)
+                .WithMany(creation => creation.CreationImages)
+                .HasForeignKey(creationImage => creationImage.CreationSlug);
+        }
+
+        private static void OnModelCreating(EntityTypeBuilder<Customer> entity)
+        {
+            entity.HasIndex(customer => customer.Name)
+                .IsUnique();
+        }
+
+        private static void OnModelCreating(EntityTypeBuilder<HeadlineImage> entity)
+        {
+            entity.HasIndex(headlineImage => new { headlineImage.HeadlineSlug, headlineImage.DisplayOrder })
+                .IsUnique();
+
+            entity.HasOne(headlineImage => headlineImage.Headline)
+                .WithMany(headline => headline.HeadlineImages)
+                .HasForeignKey(headlineImage => headlineImage.HeadlineSlug);
+        }
+
+        private static void OnModelCreating(EntityTypeBuilder<Tag> entity)
+        {
+            entity.HasIndex(tag => tag.Name)
+                .IsUnique();
         }
     }
 }

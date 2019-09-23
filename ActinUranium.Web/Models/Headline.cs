@@ -59,7 +59,7 @@ namespace ActinUranium.Web.Models
             var tags = dbContext.Tags.ToList();
             var tagLottery = new Lottery<Tag>(tags);
 
-            for (int count = 0; count < 20; count++)
+            for (int count = 0; count < 16; count++)
             {
                 Headline headline = Create(dbContext);
 

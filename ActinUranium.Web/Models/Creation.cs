@@ -58,7 +58,7 @@ namespace ActinUranium.Web.Models
             var customers = dbContext.Customers.ToList();
             var customerLottery = new Lottery<Customer>(customers);
 
-            for (int count = 0; count < 32; count++)
+            for (int count = 0; count < 12; count++)
             {
                 Creation creation = Create(dbContext);
 
