@@ -18,16 +18,15 @@ namespace ActinUranium.Web.ViewComponents
             _headlineStore = headlineStore;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int releaseCount)
+        public async Task<IViewComponentResult> InvokeAsync(int count)
         {
             // Take twice the required release count to ensure the chronological release order.
-            IReadOnlyCollection<IRelease> creations = await _creationStore.GetCreationsAsync(releaseCount);
-            IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(
-                releaseCount);
+            IReadOnlyCollection<IRelease> creations = await _creationStore.GetCreationsAsync(count);
+            IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(count);
 
             var model = creations.Concat(headlines)
                 .OrderByDescending(r => r.ReleaseDate)
-                .Take(releaseCount)
+                .Take(count)
                 .ToList();
 
             return View(model);

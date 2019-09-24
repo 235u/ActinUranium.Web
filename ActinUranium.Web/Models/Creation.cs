@@ -42,12 +42,12 @@ namespace ActinUranium.Web.Models
 
         [Required]
         [MaxLength(256)]
-        [Display(Name = "Masterplan")]
+        [Display(Name = SharedResources.Strategy)]
         public string Strategy { get; set; }
 
         [Required]
         [MaxLength(256)]
-        [Display(Name = "Maßnahmen")]
+        [Display(Name = SharedResources.Execution)]
         public string Execution { get; set; }
 
         [Display(Name = "Bilder")]

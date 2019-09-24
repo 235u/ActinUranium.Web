@@ -15,9 +15,9 @@ namespace ActinUranium.Web.ViewComponents
             _store = store;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int creationCount)
+        public async Task<IViewComponentResult> InvokeAsync(int count)
         {
-            IReadOnlyCollection<Creation> model = await _store.GetCreationsAsync(creationCount);
+            IReadOnlyCollection<Creation> model = await _store.GetCreationsAsync(count);
             return View(model);
         }
     }

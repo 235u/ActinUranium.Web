@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
 {
-    public class RelatedCreationSection : ViewComponent
+    public class ContemporaryCreationSection : ViewComponent
     {
         private readonly CreationStore _store;
 
-        public RelatedCreationSection(CreationStore store)
+        public ContemporaryCreationSection(CreationStore store)
         {
             _store = store;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(Creation creation, int count)
+        public async Task<IViewComponentResult> InvokeAsync(Creation reference, int count)
         {
-            IReadOnlyCollection<Creation> model = await _store.GetRelatedCreationsAsync(creation, count);
+            IReadOnlyCollection<Creation> model = await _store.GetContemporaryCreationsAsync(reference, count);
             return View(model);
         }
     }

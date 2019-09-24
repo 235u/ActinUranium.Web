@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Contemporary creations" xml:space="preserve">
+    <value>Zeitnahe Kombinationen</value>
+    <comment>Zeitnahe Kreationen</comment>
+  </data>
   <data name="Creations" xml:space="preserve">
     <value>Kombinatorik</value>
     <comment>Kreationen</comment>
@@ -130,6 +134,10 @@
   </data>
   <data name="Customers icon" xml:space="preserve">
     <value>Diagnostik-Symbol</value>
+  </data>
+  <data name="Execution" xml:space="preserve">
+    <value>Ausführung</value>
+    <comment>Maßnahmen</comment>
   </data>
   <data name="GitHub icon" xml:space="preserve">
     <value>GitHub-Symbol</value>
@@ -166,17 +174,17 @@
     <value>Zuletzt veröffentliche Kombinationen</value>
     <comment>Zuletzt veröffentliche Kreationen</comment>
   </data>
-  <data name="Related creations" xml:space="preserve">
-    <value>Weitere Kombinationen</value>
-    <comment>Verwandte Kreationen</comment>
-  </data>
   <data name="Related headlines" xml:space="preserve">
-    <value>Verwandte Beiträge</value>
+    <value>Thematische Beiträge</value>
     <comment>Weitere Schlagzeilen</comment>
   </data>
   <data name="Source code" xml:space="preserve">
     <value>Forensik</value>
     <comment>Quellcode</comment>
+  </data>
+  <data name="Strategy" xml:space="preserve">
+    <value>Strategie</value>
+    <comment>Masterplan</comment>
   </data>
   <data name="Terms" xml:space="preserve">
     <value>AGBs</value>

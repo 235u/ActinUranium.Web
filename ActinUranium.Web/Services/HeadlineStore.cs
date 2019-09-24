@@ -46,9 +46,9 @@ namespace ActinUranium.Web.Services
                 .ToListAsync();
         }
 
-        public async Task<IReadOnlyCollection<Headline>> GetRelatedHeadlinesAsync(Headline headline)
+        public async Task<IReadOnlyCollection<Headline>> GetRelatedHeadlinesAsync(Headline reference)
         {
-            return await HeadlinesQuery.Where(h => (h.Slug != headline.Slug) && (h.TagSlug == headline.TagSlug))
+            return await HeadlinesQuery.Where(h => (h.Slug != reference.Slug) && (h.TagSlug == reference.TagSlug))
                 .ToListAsync();
         }
     }
