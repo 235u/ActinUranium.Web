@@ -2,33 +2,22 @@
 using ActinUranium.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ActinUranium.Web.ViewComponents
 {
     public class ReleaseSection : ViewComponent
     {
-        private readonly CreationStore _creationStore;
-        private readonly HeadlineStore _headlineStore;
+        private readonly ReleaseStore _releaseStore;
 
-        public ReleaseSection(CreationStore creationStore, HeadlineStore headlineStore)
+        public ReleaseSection(ReleaseStore releaseStore)
         {
-            _creationStore = creationStore;
-            _headlineStore = headlineStore;
+            _releaseStore = releaseStore;
         }
 
         public async Task<IViewComponentResult> InvokeAsync(int count)
         {
-            // Take twice the required release count to ensure the chronological release order.
-            IReadOnlyCollection<IRelease> creations = await _creationStore.GetCreationsAsync(count);
-            IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(count);
-
-            var model = creations.Concat(headlines)
-                .OrderByDescending(r => r.ReleaseDate)
-                .Take(count)
-                .ToList();
-
+            IReadOnlyCollection<IRelease> model = await _releaseStore.GetLatestReleasesAsync(count);
             return View(model);
         }
     }

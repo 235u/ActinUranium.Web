@@ -77,6 +77,7 @@ namespace ActinUranium.Web.Services
             services.AddTransient<CustomerStore>();
             services.AddTransient<ImageStore>();
             services.AddTransient<HeadlineStore>();
+            services.AddTransient<ReleaseStore>();
             return services;
         }
     }
