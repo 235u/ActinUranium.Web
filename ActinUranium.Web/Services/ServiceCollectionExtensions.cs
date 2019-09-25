@@ -71,6 +71,11 @@ namespace ActinUranium.Web.Services
             return services.AddScoped<ApplicationDbInitializer>();
         }
 
+        public static IServiceCollection AddApplicationDbInitializer(this IServiceCollection services)
+        {
+            return services.AddScoped<ApplicationDbInitializer>();
+        }
+
         public static IServiceCollection AddDataStores(this IServiceCollection services)
         {
             services.AddTransient<CreationStore>();

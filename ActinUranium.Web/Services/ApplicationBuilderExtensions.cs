@@ -11,7 +11,7 @@ namespace ActinUranium.Web.Services
 {
     internal static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseDataSeeding(this IApplicationBuilder app)
+        public static IApplicationBuilder UseApplicationDbInitializer(this IApplicationBuilder app)
         {
             var serviceType = typeof(IServiceScopeFactory);
             var serviceScopeFactory = app.ApplicationServices.GetService(serviceType) as IServiceScopeFactory;

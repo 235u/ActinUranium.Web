@@ -16,6 +16,7 @@ namespace ActinUranium.Web
             services.AddConfiguredMvc();
             services.AddConfiguredHsts();
             services.AddApplicationDbContext();
+            services.AddApplicationDbInitializer();
             services.AddDataStores();
         }
 
@@ -35,7 +36,7 @@ namespace ActinUranium.Web
                 app.UseReferrerPolicy();
             }
 
-            app.UseDataSeeding();
+            app.UseApplicationDbInitializer();
             app.UseConfiguredRequestLocalization();
             app.UseConfiguredRewriter();
             app.UseConfiguredStaticFiles();
