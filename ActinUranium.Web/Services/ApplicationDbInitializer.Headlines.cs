@@ -18,18 +18,25 @@ namespace ActinUranium.Web.Services
             };
         }
 
-        private static Lottery<Tag> CreateTagLottery()
+        private static WeightedLottery<Tag> CreateTagLottery(int headlineCount)
         {
-            var tagLottery = new Lottery<Tag>();
+            var tagLottery = new WeightedLottery<Tag>();
 
             const int TargetCount = 2;
-            string[] tagNames = CreateUniqueSet(TargetCount, () => LoremIpsum.NextWord(minLength: 7));
+            string[] tagNames = CreateUniqueSet(TargetCount, () => LoremIpsum.NextWord(minLength: 7));            
 
-            for (int actualCount = 0; actualCount < TargetCount; actualCount++)
+            for (int tagIndex = 0; tagIndex < TargetCount; tagIndex++)
             {
-                string name = tagNames[actualCount];
+                string name = tagNames[tagIndex];
                 Tag tag = CreateTag(name);
-                tagLottery.Add(tag);
+                int tagWeight = headlineCount / TargetCount;
+                if (tagIndex == 0)
+                {
+                    // headline count: 11, first tag's weight: 6, second tag's weight: 5
+                    tagWeight += headlineCount % TargetCount;
+                }
+
+                tagLottery.Add(tag, tagWeight);
             }
 
             return tagLottery;
@@ -50,8 +57,8 @@ namespace ActinUranium.Web.Services
             {
                 Slug = title.Slugify(),
                 Title = title,
-                Lead = LoremIpsum.NextParagraph(1, 2),
-                Text = LoremIpsum.NextParagraph(2, 4),
+                Lead = LoremIpsum.NextParagraph(minSentenceCount: 1, maxSentenceCount: 2),
+                Text = LoremIpsum.NextParagraph(minSentenceCount: 2, maxSentenceCount: 4),
                 ReleaseDate = ActinUraniumInfo.NextDate(),
                 Author = author,
                 Tag = tag,
@@ -61,17 +68,17 @@ namespace ActinUranium.Web.Services
 
         private void SeedHeadlines()
         {
-            Author author = CreateAuthor();
-            Lottery<Tag> tagLottery = CreateTagLottery();
+            Author author = CreateAuthor();            
             DirectoryInfo[] imageDirectories = GetDirectories("img/headlines");
             int headlineCount = imageDirectories.Length;
+            WeightedLottery<Tag> tagLottery = CreateTagLottery(headlineCount);
             string[] headlineTitles = CreateUniqueSet(
                 headlineCount, () => LoremIpsum.NextHeading(minWordCount: 2, maxWordCount: 8));            
 
             for (int headlineIndex = 0; headlineIndex < headlineCount; headlineIndex++)
             {
                 string title = headlineTitles[headlineIndex];
-                Tag tag = tagLottery.Next();
+                Tag tag = tagLottery.Pull();
                 DirectoryInfo directory = imageDirectories[headlineIndex];
                 List<HeadlineImage> images = GetHeadlineImages(directory);
                 Headline headline = CreateHeadline(title, author, tag, images);

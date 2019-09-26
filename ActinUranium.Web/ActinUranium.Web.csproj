@@ -39,6 +39,7 @@
       <Compile Remove="Helpers\Collage.cs" />
       <Compile Remove="Helpers\ElementId.cs" />
       <Compile Remove="Helpers\HtmlHelperSvgExtensions.cs" />
+      <Compile Remove="Helpers\Int32Lottery.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -70,6 +71,7 @@
         <None Include="Helpers\HtmlHelperSvgExtensions.cs" />
         <None Include="Helpers\Collage.cs" />
         <None Include="Helpers\ElementId.cs" />
+        <None Include="Helpers\Int32Lottery.cs" />
         <None Include="wwwroot\css\_typography.css" />
         <None Include="wwwroot\js\_carousel.js" />
     </ItemGroup>

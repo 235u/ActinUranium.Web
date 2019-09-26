@@ -15,9 +15,9 @@ namespace ActinUranium.Web.Services
                 Slug = title.Slugify(),
                 Title = title,
                 ReleaseDate = ActinUraniumInfo.NextDate(),
-                Mission = LoremIpsum.NextParagraph(2, 3),
-                Strategy = LoremIpsum.NextParagraph(1, 3),
-                Execution = LoremIpsum.NextParagraph(1, 3),
+                Mission = LoremIpsum.NextParagraph(minSentenceCount: 2, maxSentenceCount: 3),
+                Strategy = LoremIpsum.NextParagraph(minSentenceCount: 1, maxSentenceCount: 3),
+                Execution = LoremIpsum.NextParagraph(minSentenceCount: 1, maxSentenceCount: 3),
                 Customer = customer,
                 CreationImages = images
             };
