@@ -1,9 +1,5 @@
-﻿using ActinUranium.Web.Helpers;
-using ActinUranium.Web.Services;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Globalization;
 
 namespace ActinUranium.Web.Models
 {

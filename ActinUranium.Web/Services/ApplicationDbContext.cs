@@ -38,7 +38,7 @@ namespace ActinUranium.Web.Services
 
         private static void OnModelCreating(EntityTypeBuilder<Author> entity)
         {
-            entity.HasIndex(author => author.Name)
+            entity.HasIndex(author => author.FullName)
                 .IsUnique();
 
             entity.HasIndex(author => author.Email)

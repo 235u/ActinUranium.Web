@@ -1,6 +1,4 @@
-﻿using ActinUranium.Web.Helpers;
-using ActinUranium.Web.Services;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ActinUranium.Web.Models
 {
@@ -14,26 +12,11 @@ namespace ActinUranium.Web.Models
 
         [Required(AllowEmptyStrings = false)]
         [MaxLength(SlugMaxLength)]
-        public string Name { get; set; }
+        public string FullName { get; set; }
 
         [Required(AllowEmptyStrings = false)]
         [MaxLength(64)]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
-        internal static void Seed(ApplicationDbContext dbContext)
-        {
-            const string FullName = "Legion von Gadara";
-
-            var author = new Author
-            {
-                Slug = FullName.Slugify(),
-                Name = FullName,
-                Email = "legion@235u.net"
-            };
-
-            dbContext.Authors.Add(author);
-            dbContext.SaveChanges();
-        }
     }
 }

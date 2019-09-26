@@ -16,7 +16,7 @@
     <p>@Model.Text</p>
     <ul class="inline-list article-footer">
         <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
-        <li><a href="mailto:@Model.Author.Email">@Model.Author.Name</a></li>
+        <li><a href="mailto:@Model.Author.Email">@Model.Author.FullName</a></li>
     </ul>
     <vc:related-headline-section reference="@Model"></vc:related-headline-section>
 </article>

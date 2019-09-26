@@ -1,5 +1,4 @@
 ﻿using ActinUranium.Web.Helpers;
-using ActinUranium.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -50,56 +49,6 @@ namespace ActinUranium.Web.Models
         public Tag Tag { get; set; }
 
         public List<HeadlineImage> HeadlineImages { get; set; } = new List<HeadlineImage>();
-
-        internal static void Seed(ApplicationDbContext dbContext)
-        {
-            var authors = dbContext.Authors.ToList();
-            var authorLottery = new Lottery<Author>(authors);
-
-            var tags = dbContext.Tags.ToList();
-            var tagLottery = new Lottery<Tag>(tags);
-
-            for (int count = 0; count < 16; count++)
-            {
-                Headline headline = Create(dbContext);
-
-                Tag headlineTag = tagLottery.Next();
-                headline.TagSlug = headlineTag.Slug;
-
-                Author headlineAuthor = authorLottery.Next();
-                headline.AuthorSlug = headlineAuthor.Slug;
-
-                dbContext.Headlines.Add(headline);
-            }
-
-            dbContext.SaveChanges();
-        }
-
-        private static Headline Create(ApplicationDbContext dbContext)
-        {
-            string slug;
-            string title;
-
-            while (true)
-            {
-                title = LoremIpsum.NextHeading(2, 8);
-                slug = title.Slugify();
-                bool isUnique = dbContext.Headlines.Find(slug) == null;
-                if (isUnique)
-                {
-                    break;
-                }
-            }
-
-            return new Headline
-            {
-                Slug = slug,
-                Title = title,
-                Lead = LoremIpsum.NextParagraph(1, 2),
-                Text = LoremIpsum.NextParagraph(2, 4),
-                ReleaseDate = ActinUraniumInfo.NextDate()
-            };
-        }
 
         public Image GetPrimaryImage()
         {

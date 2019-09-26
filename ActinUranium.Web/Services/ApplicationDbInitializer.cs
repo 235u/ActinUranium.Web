@@ -1,13 +1,14 @@
 ﻿using ActinUranium.Web.Helpers;
 using ActinUranium.Web.Models;
 using Microsoft.AspNetCore.Hosting;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
 namespace ActinUranium.Web.Services
 {
-    public sealed class ApplicationDbInitializer
+    public sealed partial class ApplicationDbInitializer
     {
         private readonly IHostingEnvironment _env;
         private readonly ApplicationDbContext _dbContext;
@@ -20,16 +21,26 @@ namespace ActinUranium.Web.Services
 
         public void SeedData()
         {
-            Customer.Seed(_dbContext);
-            Creation.Seed(_dbContext);
+            SeedCustomers();
+            SeedCreations();
+            SeedHeadlines();
+        }
 
-            SeedCreationImages();
+        private static string[] CreateUniqueSet(int elementCount, Func<string> createFunction)
+        {
+            var set = new HashSet<string>();
 
-            Author.Seed(_dbContext);
-            Tag.Seed(_dbContext);
-            Headline.Seed(_dbContext);
+            for (int actualCount = 0; actualCount < elementCount; actualCount++)
+            {
+                bool added = false;
+                while (!added)
+                {
+                    string value = createFunction();
+                    added = set.Add(value);
+                }
+            }
 
-            SeedHeadlineImages();
+            return set.ToArray();
         }
 
         private static Image CreateImage(string source)
@@ -41,61 +52,6 @@ namespace ActinUranium.Web.Services
             };
         }
 
-        private void SeedCreationImages()
-        {
-            DirectoryInfo[] directories = GetDirectories("img/creations");
-            for (int count = 0; count < directories.Length; count++)
-            {
-                Creation creation = _dbContext.Creations.Skip(count).First();
-
-                IEnumerable<string> imageSources = GetSources(directories[count]);
-                foreach (string source in imageSources)
-                {
-                    Image image = CreateImage(source);
-                    _dbContext.Images.Add(image);
-
-                    var creationImage = new CreationImage
-                    {
-                        ImageSource = image.Source,
-                        CreationSlug = creation.Slug
-                    };
-
-                    _dbContext.CreationImages.Add(creationImage);
-                }
-            }
-
-            _dbContext.SaveChanges();
-        }
-
-        private void SeedHeadlineImages()
-        {
-            var headlines = _dbContext.Headlines.ToList();
-            var headlineLottery = new Lottery<Headline>(headlines);
-
-            DirectoryInfo[] directories = GetDirectories("img/headlines");
-            for (int count = 0; count < directories.Length; count++)
-            {
-                Headline headline = headlineLottery.Pull();
-
-                IEnumerable<string> imageSources = GetSources(directories[count]);
-                foreach (string source in imageSources)
-                {
-                    Image image = CreateImage(source);
-                    _dbContext.Images.Add(image);
-
-                    var headlineImage = new HeadlineImage
-                    {
-                        ImageSource = image.Source,
-                        HeadlineSlug = headline.Slug
-                    };
-
-                    _dbContext.HeadlineImages.Add(headlineImage);
-                }
-            }
-
-            _dbContext.SaveChanges();
-        }
-
         private DirectoryInfo[] GetDirectories(string relativePath)
         {
             string fullPath = Path.GetFullPath(relativePath, _env.WebRootPath);
@@ -103,7 +59,7 @@ namespace ActinUranium.Web.Services
             return directory.GetDirectories();
         }
 
-        private IEnumerable<string> GetSources(DirectoryInfo directory)
+        private IEnumerable<string> GetImageSources(DirectoryInfo directory)
         {
             FileInfo[] files = directory.GetFiles("*.svg");
             foreach (FileInfo file in files)
@@ -112,8 +68,6 @@ namespace ActinUranium.Web.Services
                 relativePath = "~" + relativePath.Replace('\\', '/');
                 yield return relativePath;
             }
-        }
-
-        
+        }        
     }
 }

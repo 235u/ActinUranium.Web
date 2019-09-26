@@ -1,5 +1,4 @@
 ﻿using ActinUranium.Web.Helpers;
-using ActinUranium.Web.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,51 +51,6 @@ namespace ActinUranium.Web.Models
 
         [Display(Name = "Bilder")]
         public List<CreationImage> CreationImages { get; set; }
-
-        internal static void Seed(ApplicationDbContext dbContext)
-        {
-            var customers = dbContext.Customers.ToList();
-            var customerLottery = new Lottery<Customer>(customers);
-
-            for (int count = 0; count < 12; count++)
-            {
-                Creation creation = Create(dbContext);
-
-                Customer creationCustomer = customerLottery.Next();
-                creation.CustomerSlug = creationCustomer.Slug;
-
-                dbContext.Creations.Add(creation);
-            }
-
-            dbContext.SaveChanges();
-        }
-
-        private static Creation Create(ApplicationDbContext dbContext)
-        {
-            string slug;
-            string title;
-
-            while (true)
-            {
-                title = LoremIpsum.NextHeading(2, 3);
-                slug = title.Slugify();
-                bool isUnique = dbContext.Creations.Find(slug) == null;
-                if (isUnique)
-                {
-                    break;
-                }
-            }
-
-            return new Creation
-            {
-                Slug = slug,
-                Title = title,
-                ReleaseDate = ActinUraniumInfo.NextDate(),
-                Mission = LoremIpsum.NextParagraph(2, 3),
-                Strategy = LoremIpsum.NextParagraph(1, 3),
-                Execution = LoremIpsum.NextParagraph(1, 3)
-            };
-        }
 
         public Image GetPrimaryImage()
         {
