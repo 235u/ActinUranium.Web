@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace ActinUranium.Web.Controllers
 {
-    [Display(Name = "Gaga")]
     public class HeadlinesController : Controller
     {
         private readonly HeadlineStore _store;
@@ -21,6 +20,14 @@ namespace ActinUranium.Web.Controllers
         {
             IEnumerable<Headline> model = await _store.GetHeadlinesAsync();
             return View(model);
+        }
+
+        [Route("headlines/tag/{slug}")]
+        public async Task<IActionResult> Tag(string slug)
+        {
+            var viewName = nameof(Index);
+            IEnumerable<Headline> model = await _store.GetHeadlinesAsync(slug);            
+            return View(viewName, model);
         }
 
         [Route("headlines/{slug}")]

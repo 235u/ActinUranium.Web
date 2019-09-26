@@ -16,9 +16,7 @@ namespace ActinUranium.Web.Services
         }
 
         private IOrderedQueryable<Customer> CustomersQuery => 
-            _dbContext.Customers
-                .Include(c => c.Logo)
-                .OrderBy(c => c.Name);
+            _dbContext.Customers.Include(c => c.Logo).OrderBy(c => c.Name);
 
         public async Task<IEnumerable<Customer>> GetCustomersAsync()
         {

@@ -10,7 +10,7 @@ namespace ActinUranium.Web.Services
     {
         private readonly ApplicationDbContext _dbContext;
 
-        private IOrderedQueryable<Headline> HeadlinesQuery => 
+        private IOrderedQueryable<Headline> HeadlinesQuery =>
             _dbContext.Headlines
                 .Include(h => h.HeadlineImages)
                     .ThenInclude(hi => hi.Image)
@@ -18,6 +18,9 @@ namespace ActinUranium.Web.Services
                 .Include(h => h.Author)
                 .OrderByDescending(h => h.ReleaseDate)
                     .ThenBy(h => h.Title);
+
+        private IQueryable<Headline> RepresentativeHeadlinesQuery => 
+            HeadlinesQuery.Where(h => h.HeadlineImages.Any());
 
         public HeadlineStore(ApplicationDbContext dbContext)
         {
@@ -39,16 +42,21 @@ namespace ActinUranium.Web.Services
             return await HeadlinesQuery.ToListAsync();
         }
 
-        public async Task<IReadOnlyCollection<Headline>> GetRepresentativeHeadlinesAsync(int count)
+        public async Task<IReadOnlyCollection<Headline>> GetHeadlinesAsync(string tagSlug)
         {
-            return await HeadlinesQuery.Where(h => h.HeadlineImages.Any())
-                .Take(count)
-                .ToListAsync();
+            return await HeadlinesQuery.Where(h => h.TagSlug == tagSlug).ToListAsync();
         }
 
-        public async Task<IReadOnlyCollection<Headline>> GetRelatedHeadlinesAsync(Headline reference)
+        public async Task<IReadOnlyCollection<Headline>> GetRepresentativeHeadlinesAsync(int count)
         {
-            return await HeadlinesQuery.Where(h => (h.Slug != reference.Slug) && (h.TagSlug == reference.TagSlug))
+            return await RepresentativeHeadlinesQuery.Take(count).ToListAsync();
+        }
+
+        public async Task<IReadOnlyCollection<Headline>> GetRepresentativeHeadlinesAsync(Headline reference, int count)
+        {
+            return await RepresentativeHeadlinesQuery
+                .Where(h => (h.Slug != reference.Slug) && (h.TagSlug == reference.TagSlug))
+                .Take(count)
                 .ToListAsync();
         }
     }

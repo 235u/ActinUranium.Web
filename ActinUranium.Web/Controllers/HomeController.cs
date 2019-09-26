@@ -1,18 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System;
 
 namespace ActinUranium.Web.Controllers
 {
-    public class HomeController : Controller
+    public sealed class HomeController : Controller
     {
-        private readonly IActionDescriptorCollectionProvider _provider;
-
-        public HomeController(IActionDescriptorCollectionProvider provider)
-        {
-            _provider = provider;
-        }
-
         public ViewResult Index()
         {
             return View();

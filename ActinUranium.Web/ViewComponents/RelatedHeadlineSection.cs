@@ -15,9 +15,9 @@ namespace ActinUranium.Web.ViewComponents
             _store = store;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(Headline reference)
+        public async Task<IViewComponentResult> InvokeAsync(Headline reference, int count)
         {
-            IReadOnlyCollection<Headline> model = await _store.GetRelatedHeadlinesAsync(reference);
+            IReadOnlyCollection<Headline> model = await _store.GetRepresentativeHeadlinesAsync(reference, count);
             return View(model);
         }
     }

@@ -42,14 +42,16 @@ namespace ActinUranium.Web.Services
 
         public async Task<IReadOnlyCollection<Creation>> GetContemporaryCreationsAsync(Creation reference, int count)
         {
-            List<Creation> prevCreations = await OrderedCreationsQuery.Where(c => c.ReleaseDate < reference.ReleaseDate)
+            List<Creation> prevCreations = await OrderedCreationsQuery
+                .Where(c => c.ReleaseDate < reference.ReleaseDate)
                 .Take(count)
                 .ToListAsync();
 
             if (prevCreations.Count < count)
             {
                 int remainingCount = count - prevCreations.Count;
-                List<Creation> nextCreations = await CreationsQuery.Where(c => c.ReleaseDate > reference.ReleaseDate)
+                List<Creation> nextCreations = await CreationsQuery
+                    .Where(c => c.ReleaseDate > reference.ReleaseDate)
                     .OrderBy(c => c.ReleaseDate)
                     .Take(remainingCount)
                     .OrderByDescending(c => c.ReleaseDate)

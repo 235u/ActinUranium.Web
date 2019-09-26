@@ -10,7 +10,10 @@
 
 <article>
     <partial name="_Carousel" model="@images" />
-    <div class="tag">@Model.Tag.Name</div>
+    <a class="tag tag-link"
+       asp-controller="Headlines"
+       asp-action="Tag"
+       asp-route-slug="@Model.Tag.Slug">@Model.Tag.Name</a>
     <h1>@ViewData[ViewDataKeys.Title]</h1>
     <p><strong>@Model.Lead</strong></p>
     <p>@Model.Text</p>
@@ -18,5 +21,5 @@
         <li>@Html.DisplayFor(h => h.ReleaseDate)</li>
         <li><a href="mailto:@Model.Author.Email">@Model.Author.FullName</a></li>
     </ul>
-    <vc:related-headline-section reference="@Model"></vc:related-headline-section>
+    <vc:related-headline-section reference="@Model" count="4"></vc:related-headline-section>
 </article>
