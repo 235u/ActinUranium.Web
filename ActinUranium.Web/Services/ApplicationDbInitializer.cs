@@ -26,7 +26,7 @@ namespace ActinUranium.Web.Services
             SeedHeadlines();
         }
 
-        private static string[] CreateUniqueSet(int elementCount, Func<string> createFunction)
+        private static string[] CreateUniqueStringSet(int elementCount, Func<string> createFunction)
         {
             var set = new HashSet<string>();
 

@@ -23,7 +23,7 @@ namespace ActinUranium.Web.Services
         {
             var tags = new List<Tag>();
 
-            string[] tagNames = CreateUniqueSet(count, () => LoremIpsum.NextWord(minLength: 7));
+            string[] tagNames = CreateUniqueStringSet(count, () => LoremIpsum.NextWord(minLength: 7));
             foreach (string name in tagNames)
             {
                 Tag tag = CreateTag(name);
@@ -101,7 +101,7 @@ namespace ActinUranium.Web.Services
 
             IReadOnlyCollection<Tag> tags = CreateTags(count: 2);
             WeightedLottery<Tag> tagLottery = CreateTagLottery(tags, totalWeight: illustratedHeadlineCount);
-            string[] titles = CreateUniqueSet(
+            string[] titles = CreateUniqueStringSet(
                 totalHeadlineCount, () => LoremIpsum.NextHeading(minWordCount: 2, maxWordCount: 8));            
 
             for (int headlineIndex = 0; headlineIndex < illustratedHeadlineCount; headlineIndex++)

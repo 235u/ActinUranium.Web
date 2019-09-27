@@ -28,7 +28,7 @@ namespace ActinUranium.Web.Services
             Lottery<Customer> customerLottery = GetCustomerLottery();
             DirectoryInfo[] imageDirectories = GetDirectories("img/creations");
             int creationCount = imageDirectories.Length;
-            string[] creationTitles = CreateUniqueSet(
+            string[] creationTitles = CreateUniqueStringSet(
                 creationCount, () => LoremIpsum.NextHeading(minWordCount: 2, maxWordCount: 3));            
 
             for (int creationIndex = 0; creationIndex < creationCount; creationIndex++)
