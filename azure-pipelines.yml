@@ -15,10 +15,3 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: 'Visual Studio Enterprise – MPN (c6f68dcf-9138-4dec-b287-4c4afb186c7f)'
-    appType: 'webApp'
-    appName: '235u'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
