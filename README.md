@@ -48,9 +48,8 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 
 Doch SemVer?
 
-* 2019.01.25 22:39:11
+* 20191004.1
 * 2019.07.15.1730
-* 2019.07
 
 ## Text-Bausteine
 
