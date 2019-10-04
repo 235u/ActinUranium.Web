@@ -46,10 +46,9 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 
 ## Versioning
 
-Doch SemVer?
+SemVer?
 
 * 20191004.1
-* 2019.07.15.1730
 
 ## Text-Bausteine
 
