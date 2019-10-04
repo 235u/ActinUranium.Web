@@ -62,9 +62,9 @@ In Form einer schönen Tabelle; eventuell als SVG
 * <https://www.codingdojo.com/web-development-courses>
 * <https://builtwith.com/>
 
-## Referenzen
+## References
 
-Verweise zu:
+Links to:
 
 * Stack Overflow
 * CSS Tricks
