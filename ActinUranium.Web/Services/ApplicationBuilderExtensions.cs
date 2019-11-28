@@ -48,7 +48,7 @@ namespace ActinUranium.Web.Services
             var options = new RewriteOptions();
 
             options.AddRedirectToHttpsPermanent();
-            options.AddRedirectToWwwPermanent();
+            ////options.AddRedirectToWwwPermanent();
 
             return app.UseRewriter(options);
         }
