@@ -38,7 +38,6 @@ namespace ActinUranium.Web.Services
                 options.Conventions.Add(convention);
             });
 
-            mvc.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             mvc.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix);
             mvc.AddDataAnnotationsLocalization(options =>
             {

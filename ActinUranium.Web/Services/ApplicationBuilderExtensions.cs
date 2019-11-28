@@ -68,16 +68,6 @@ namespace ActinUranium.Web.Services
             return app.UseStaticFiles(options);
         }
 
-        public static IApplicationBuilder UseConfiguredMvc(this IApplicationBuilder app)
-        {
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(name: "default", template: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");
-            });
-
-            return app;
-        }
-
         /// <summary>
         /// Sets the <c>X-Content-Type-Options</c> response header to prevent XSS attacks.
         /// </summary>
