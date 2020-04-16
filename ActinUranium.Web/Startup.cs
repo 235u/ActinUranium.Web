@@ -52,6 +52,7 @@ namespace ActinUranium.Web
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller:slugify=Home}/{action:slugify=Index}/{slug?}");
