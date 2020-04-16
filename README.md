@@ -18,19 +18,6 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/235u/ActinUranium.Web?style=for-the-badge)
 [![GitHub top language](https://img.shields.io/github/languages/top/235u/ActinUranium.Web?style=for-the-badge)](https://github.com/search?q=repo%3A235u%2FActinUranium.Web+language%3AC%23&type=Code&ref=advsearch&l=C%23)
 
-## Ideas
-
-Was man alles machen könnte:
-
-* Zubau eines Shops bzw. Nachbau in einem Shop, mit Preisen in KiB, auf die kommerziellen Preise gerundet
-* Nachbau auch mit CMS (Umbraco / Orchard), Performance-Vergleich
-* Time-Machine könnte für Referenzen (interne Entwicklung, Verweise zu externen Ressourcen) verwendet werden
-* Time-Machine-Funktionalität
-  * Verlinkung zu bestimmten Versionen, statt Screenshots
-  * Eine Multi-Tenancy-Funktionalität
-* Business Lunch, Gesamtprojekt (Planung, Konstruktion etc.) als Schlagzeilen und Arbeiten
-* Developer PC Build
-
 ## Observations
 
 ### Globalization and localization
@@ -43,41 +30,3 @@ Setting (via `Project Properties > Package > Assembly neutral language` or manua
 ```
 
 leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI).
-
-## Versioning
-
-SemVer?
-
-* 20191004.1
-
-## Text-Bausteine
-
-Ich werde nicht nur Software entwickeln, sondern auch viel Software anwenden / einsetzen.
-
-## Built with
-
-In Form einer schönen Tabelle; eventuell als SVG
-
-* <https://www.codingdojo.com/web-development-courses>
-* <https://builtwith.com/>
-
-## References
-
-Links to:
-
-* Stack Overflow
-* CSS Tricks
-* Wikipedia
-* Google Styles
-* Pixabay
-* Creative Market
-* Font Awesome
-* Microsoft / Design Guidelines
-* Coding Guidelines: Google / Styles /Speed
-* MDN
-* W3C
-* Adobe
-
-## Data Seeding
-
-Nicht per Session - der Speicher würde explodieren.
