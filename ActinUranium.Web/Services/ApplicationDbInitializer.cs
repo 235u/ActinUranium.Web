@@ -10,10 +10,10 @@ namespace ActinUranium.Web.Services
 {
     public sealed partial class ApplicationDbInitializer
     {
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly ApplicationDbContext _dbContext;
 
-        public ApplicationDbInitializer(IHostingEnvironment env, ApplicationDbContext dbContext)
+        public ApplicationDbInitializer(IWebHostEnvironment env, ApplicationDbContext dbContext)
         {
             _env = env;
             _dbContext = dbContext;

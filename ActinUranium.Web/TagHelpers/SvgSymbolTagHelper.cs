@@ -10,7 +10,7 @@ namespace ActinUranium.Web.TagHelpers
         private const string IdAttributeName = "id";
 
         [ActivatorUtilitiesConstructor]
-        public SvgSymbolTagHelper(IHostingEnvironment hostingEnvironment)
+        public SvgSymbolTagHelper(IWebHostEnvironment hostingEnvironment)
             : base(hostingEnvironment)
         {
         }

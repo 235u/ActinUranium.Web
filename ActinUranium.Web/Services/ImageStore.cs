@@ -6,9 +6,9 @@ namespace ActinUranium.Web.Services
 {
     public sealed class ImageStore
     {
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
 
-        public ImageStore(IHostingEnvironment env)
+        public ImageStore(IWebHostEnvironment env)
         {
             _env = env;
         }

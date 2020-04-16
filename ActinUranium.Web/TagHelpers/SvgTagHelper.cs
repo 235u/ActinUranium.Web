@@ -12,7 +12,7 @@ namespace ActinUranium.Web.TagHelpers
         private const string SrcAttributeName = "src";
 
         [ActivatorUtilitiesConstructor]
-        public SvgTagHelper(IHostingEnvironment hostingEnvironment)
+        public SvgTagHelper(IWebHostEnvironment hostingEnvironment)
         {
             HostingEnvironment = hostingEnvironment;
         }
@@ -20,7 +20,7 @@ namespace ActinUranium.Web.TagHelpers
         [HtmlAttributeName(SrcAttributeName)]
         public string Src { get; set; }
 
-        private IHostingEnvironment HostingEnvironment { get; }
+        private IWebHostEnvironment HostingEnvironment { get; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {

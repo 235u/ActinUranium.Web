@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 
 namespace ActinUranium.Web.Helpers
 {
@@ -8,23 +9,19 @@ namespace ActinUranium.Web.Helpers
         [TestMethod]
         public void GetWords()
         {
-            LoremIpsum.GetWords(9);
+            const int WordLength = 9;
+            string[] words = LoremIpsum.GetWords(WordLength);
+            Assert.IsTrue(words.All(word => word.Length == WordLength));
         }
 
         [TestMethod]
         public void NextHeading()
         {
-            for (int minWordCount = 1; minWordCount <= 4; minWordCount++)
+            for (int wordCount = 1; wordCount <= 4; wordCount++)
             {
-                string heading = LoremIpsum.NextHeading(minWordCount, maxWordCount: minWordCount);
+                string heading = LoremIpsum.NextHeading(minWordCount: wordCount, maxWordCount: wordCount);
+                Assert.AreEqual(wordCount, heading.SplitIntoWords().Length);
             }
-        }
-
-        [TestMethod]
-        public void NextHeading_SingleLetter()
-        {
-            string text = LoremIpsum.NextHeading(1, 1);
-            Assert.AreEqual(1, text.Length);
         }
     }
 }

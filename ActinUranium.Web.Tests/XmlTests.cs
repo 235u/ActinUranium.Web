@@ -22,7 +22,7 @@ namespace ActinUranium.Web
             symbol.Add(children);
 
             tree.ReplaceNodes(symbol);
-            svg = tree.ToString(SaveOptions.DisableFormatting | SaveOptions.OmitDuplicateNamespaces);
+            _ = tree.ToString(SaveOptions.DisableFormatting | SaveOptions.OmitDuplicateNamespaces);
         }
 
         [TestMethod]
@@ -31,6 +31,7 @@ namespace ActinUranium.Web
             string svg = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" />";
             var tree = XElement.Parse(svg);
             XNamespace ns = tree.GetDefaultNamespace();
+            Assert.AreEqual("http://www.w3.org/2000/svg", ns.NamespaceName);
         }
     }
 }
