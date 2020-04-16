@@ -10,22 +10,15 @@ namespace ActinUranium.Web.Services
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public CustomerStore(ApplicationDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
+        public CustomerStore(ApplicationDbContext dbContext) => _dbContext = dbContext;
 
         private IOrderedQueryable<Customer> CustomersQuery => 
             _dbContext.Customers.Include(c => c.Logo).OrderBy(c => c.Name);
 
-        public async Task<IEnumerable<Customer>> GetCustomersAsync()
-        {
-            return await CustomersQuery.ToListAsync();
-        }
+        public async Task<IEnumerable<Customer>> GetCustomersAsync() =>
+            await CustomersQuery.ToListAsync();
 
-        public async Task<IEnumerable<Customer>> GetCustomersAsync(int count)
-        {
-            return await CustomersQuery.Take(count).ToListAsync();
-        }
+        public async Task<IEnumerable<Customer>> GetCustomersAsync(int count) =>
+            await CustomersQuery.Take(count).ToListAsync();
     }
 }

@@ -82,14 +82,13 @@ namespace ActinUranium.Web.Services
         /// </seealso>
         public static IApplicationBuilder UseContentTypeOptions(this IApplicationBuilder app)
         {
-            app.Use(async (context, next) =>
+            return app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
                 await next();
             });
-
-            return app;
         }
+
 
         /// <summary>
         /// Sets the Content Security Policy response header to prevent XSS attacks.

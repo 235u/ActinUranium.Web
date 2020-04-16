@@ -11,10 +11,7 @@ namespace ActinUranium.Web
     [SuppressMessage("Performance", "CA1822:Mark members as static", Justification = "Not supported by the framework")]
     public sealed class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 

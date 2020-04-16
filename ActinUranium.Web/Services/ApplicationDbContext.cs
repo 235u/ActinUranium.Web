@@ -38,11 +38,8 @@ namespace ActinUranium.Web.Services
 
         private static void OnModelCreating(EntityTypeBuilder<Author> entity)
         {
-            entity.HasIndex(author => author.FullName)
-                .IsUnique();
-
-            entity.HasIndex(author => author.Email)
-                .IsUnique();
+            entity.HasIndex(author => author.FullName).IsUnique();
+            entity.HasIndex(author => author.Email).IsUnique();
         }
 
         private static void OnModelCreating(EntityTypeBuilder<CreationImage> entity)
@@ -55,11 +52,8 @@ namespace ActinUranium.Web.Services
                 .HasForeignKey(creationImage => creationImage.CreationSlug);
         }
 
-        private static void OnModelCreating(EntityTypeBuilder<Customer> entity)
-        {
-            entity.HasIndex(customer => customer.Name)
-                .IsUnique();
-        }
+        private static void OnModelCreating(EntityTypeBuilder<Customer> entity) =>
+            entity.HasIndex(customer => customer.Name).IsUnique();
 
         private static void OnModelCreating(EntityTypeBuilder<HeadlineImage> entity)
         {
@@ -71,10 +65,7 @@ namespace ActinUranium.Web.Services
                 .HasForeignKey(headlineImage => headlineImage.HeadlineSlug);
         }
 
-        private static void OnModelCreating(EntityTypeBuilder<Tag> entity)
-        {
-            entity.HasIndex(tag => tag.Name)
-                .IsUnique();
-        }
+        private static void OnModelCreating(EntityTypeBuilder<Tag> entity) =>
+            entity.HasIndex(tag => tag.Name).IsUnique();
     }
 }

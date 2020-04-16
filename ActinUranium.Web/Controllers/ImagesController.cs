@@ -8,10 +8,7 @@ namespace ActinUranium.Web.Controllers
     {
         private readonly ImageStore _service;
 
-        public ImagesController(ImageStore service)
-        {
-            _service = service;
-        }
+        public ImagesController(ImageStore service) => _service = service;
 
         public IActionResult Index()
         {

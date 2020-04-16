@@ -13,11 +13,8 @@ namespace ActinUranium.Web.Services
         private readonly IWebHostEnvironment _env;
         private readonly ApplicationDbContext _dbContext;
 
-        public ApplicationDbInitializer(IWebHostEnvironment env, ApplicationDbContext dbContext)
-        {
-            _env = env;
-            _dbContext = dbContext;
-        }
+        public ApplicationDbInitializer(IWebHostEnvironment env, ApplicationDbContext dbContext) =>
+            (_env, _dbContext) = (env, dbContext);
 
         public void SeedData()
         {

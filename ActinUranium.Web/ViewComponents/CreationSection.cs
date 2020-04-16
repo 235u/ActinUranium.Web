@@ -10,10 +10,7 @@ namespace ActinUranium.Web.ViewComponents
     {
         private readonly CreationStore _store;
 
-        public CreationSection(CreationStore store)
-        {
-            _store = store;
-        }
+        public CreationSection(CreationStore store) => _store = store;
 
         public async Task<IViewComponentResult> InvokeAsync(int count)
         {

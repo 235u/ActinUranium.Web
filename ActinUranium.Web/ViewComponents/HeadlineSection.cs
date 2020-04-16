@@ -10,10 +10,7 @@ namespace ActinUranium.Web.ViewComponents
     {
         private readonly HeadlineStore _store;
 
-        public HeadlineSection(HeadlineStore store)
-        {
-            _store = store;
-        }
+        public HeadlineSection(HeadlineStore store) => _store = store;
 
         public async Task<IViewComponentResult> InvokeAsync(int count)
         {

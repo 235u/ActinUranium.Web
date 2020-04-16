@@ -28,7 +28,7 @@ namespace ActinUranium.Web.Models
         [ForeignKey(nameof(LogoSource))]
         public Image Logo { get; set; }
 
-        public string Website => "https://translate.google.com/#view=home&op=translate&sl=la&tl=de&text=" +
-            Uri.EscapeDataString(Name);
+        public string Website =>
+            "https://translate.google.com/#view=home&op=translate&sl=la&tl=de&text=" + Uri.EscapeDataString(Name);
     }
 }

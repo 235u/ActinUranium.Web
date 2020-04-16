@@ -10,10 +10,7 @@ namespace ActinUranium.Web.Controllers
     {
         private readonly CustomerStore _store;
 
-        public CustomersController(CustomerStore store)
-        {
-            _store = store;
-        }
+        public CustomersController(CustomerStore store) => _store = store;
 
         public async Task<IActionResult> Index()
         {

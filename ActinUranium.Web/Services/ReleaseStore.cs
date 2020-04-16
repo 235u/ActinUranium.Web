@@ -10,18 +10,14 @@ namespace ActinUranium.Web.Services
         private readonly CreationStore _creationStore;
         private readonly HeadlineStore _headlineStore;
 
-        public ReleaseStore(CreationStore creationStore, HeadlineStore headlineStore)
-        {
-            _creationStore = creationStore;
-            _headlineStore = headlineStore;
-        }
+        public ReleaseStore(CreationStore creationStore, HeadlineStore headlineStore) =>
+            (_creationStore, _headlineStore) = (creationStore, headlineStore);
 
         public async Task<IReadOnlyCollection<IRelease>> GetLatestReleasesAsync(int count)
         {
             // Take twice the required release count to ensure the chronological release order.
             IReadOnlyCollection<IRelease> creations = await _creationStore.GetCreationsAsync(count);
             IReadOnlyCollection<IRelease> headlines = await _headlineStore.GetRepresentativeHeadlinesAsync(count);
-
             return creations.Concat(headlines)
                 .OrderByDescending(r => r.ReleaseDate)
                 .Take(count)

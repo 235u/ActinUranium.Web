@@ -8,10 +8,7 @@ namespace ActinUranium.Web.Services
     {
         private readonly IWebHostEnvironment _env;
 
-        public ImageStore(IWebHostEnvironment env)
-        {
-            _env = env;
-        }
+        public ImageStore(IWebHostEnvironment env) => _env = env;
 
         public IEnumerable<string> GetSources()
         {

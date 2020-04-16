@@ -52,14 +52,10 @@ namespace ActinUranium.Web.Models
         [Display(Name = "Bilder")]
         public List<CreationImage> CreationImages { get; set; }
 
-        public Image GetPrimaryImage()
-        {
-            return CreationImages.OrderBy(ci => ci.DisplayOrder).First().Image;
-        }
+        public Image GetPrimaryImage() =>
+            CreationImages.OrderBy(ci => ci.DisplayOrder).First().Image;
 
-        public IReadOnlyCollection<Image> GetImages()
-        {
-            return CreationImages.OrderBy(ci => ci.DisplayOrder).Select(ci => ci.Image).ToList();
-        }
+        public IReadOnlyCollection<Image> GetImages() =>
+            CreationImages.OrderBy(ci => ci.DisplayOrder).Select(ci => ci.Image).ToList();
     }
 }

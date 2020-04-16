@@ -82,15 +82,9 @@ namespace ActinUranium.Web.Extensions
             return Path.GetFullPath(path, basePath);
         }
 
-        private static bool IsVirtualPath(string path)
-        {
-            return path.StartsWith(TildeSlash);
-        }
+        private static bool IsVirtualPath(string path) => path.StartsWith(TildeSlash);
 
-        private static string GetRelativePath(string virtualPath)
-        {
-            return virtualPath.Remove(0, TildeSlash.Length);
-        }
+        private static string GetRelativePath(string virtualPath) => virtualPath.Remove(0, TildeSlash.Length);
 
         private static string GetWebRootPath(IHtmlHelper helper)
         {

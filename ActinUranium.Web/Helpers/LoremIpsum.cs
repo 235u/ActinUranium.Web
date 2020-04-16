@@ -15,15 +15,11 @@ namespace ActinUranium.Web.Helpers
         private static readonly string[] Words = OriginalText.SplitIntoWords();
         private static readonly Random Random = new Random();
 
-        public static string[] GetWords(int length)
-        {
-            return Words.Where(w => w.Length == length).OrderBy(w => w).ToArray();
-        }
+        public static string[] GetWords(int length) =>
+            Words.Where(w => w.Length == length).OrderBy(w => w).ToArray();
 
-        public static string[] GetWords(char firstCharacter)
-        {
-            return Words.Where(w => w.StartsWith(firstCharacter)).OrderBy(w => w).ToArray();
-        }
+        public static string[] GetWords(char firstCharacter) =>
+            Words.Where(w => w.StartsWith(firstCharacter)).OrderBy(w => w).ToArray();
 
         public static string NextHeading(int minWordCount, int maxWordCount)
         {
@@ -140,10 +136,8 @@ namespace ActinUranium.Web.Helpers
             return Sentences[index];
         }
 
-        public static string NextSentence(int minWordCount, int maxWordCount)
-        {
-            return NextSentence(minWordCount, maxWordCount, '.');
-        }
+        public static string NextSentence(int minWordCount, int maxWordCount) =>
+            NextSentence(minWordCount, maxWordCount, '.');
 
         public static string NextSentence(int minWordCount, int maxWordCount, char endMark)
         {

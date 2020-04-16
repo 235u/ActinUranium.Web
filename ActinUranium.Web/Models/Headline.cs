@@ -50,14 +50,10 @@ namespace ActinUranium.Web.Models
 
         public List<HeadlineImage> HeadlineImages { get; set; } = new List<HeadlineImage>();
 
-        public Image GetPrimaryImage()
-        {
-            return HeadlineImages.OrderBy(hi => hi.DisplayOrder).FirstOrDefault()?.Image;
-        }
+        public Image GetPrimaryImage() =>
+            HeadlineImages.OrderBy(hi => hi.DisplayOrder).FirstOrDefault()?.Image;
 
-        public IReadOnlyCollection<Image> GetImages()
-        {
-            return HeadlineImages.OrderBy(hi => hi.DisplayOrder).Select(hi => hi.Image).ToList();
-        }
+        public IReadOnlyCollection<Image> GetImages() =>
+            HeadlineImages.OrderBy(hi => hi.DisplayOrder).Select(hi => hi.Image).ToList();
     }
 }

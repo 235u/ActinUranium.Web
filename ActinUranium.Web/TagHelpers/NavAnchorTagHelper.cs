@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ActinUranium.Web.TagHelpers
 {
@@ -41,7 +42,8 @@ namespace ActinUranium.Web.TagHelpers
             output.Attributes.SetAttribute(ClassAttributeName, classAttributeValue);
         }
 
-#pragma warning disable IDE0019 // Use pattern matching
+
+        [SuppressMessage("Style", "IDE0019:Use pattern matching", Justification = "Reviewed")]
         private bool IsActive()
         {
             string currentController = ViewContext.RouteData.Values["controller"] as string;
@@ -49,6 +51,5 @@ namespace ActinUranium.Web.TagHelpers
             return (currentController != null) && (currentController == Controller) &&
                 ((currentAction == Action) || (currentAction == "Details"));
         }
-#pragma warning restore IDE0019 // Use pattern matching
     }
 }

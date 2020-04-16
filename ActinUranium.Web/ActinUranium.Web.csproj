@@ -26,6 +26,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
       <CodeAnalysisRuleSet>Properties\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+      <Optimize>false</Optimize>
     </PropertyGroup>
 
     <ItemGroup>

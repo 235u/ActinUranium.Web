@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -59,6 +58,7 @@ namespace ActinUranium.Web.Services
             return services;
         }
 
+
         public static IServiceCollection AddApplicationDbContext(this IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -70,19 +70,14 @@ namespace ActinUranium.Web.Services
             return services.AddScoped<ApplicationDbInitializer>();
         }
 
-        public static IServiceCollection AddApplicationDbInitializer(this IServiceCollection services)
-        {
-            return services.AddScoped<ApplicationDbInitializer>();
-        }
+        public static IServiceCollection AddApplicationDbInitializer(this IServiceCollection services) =>
+            services.AddScoped<ApplicationDbInitializer>();
 
-        public static IServiceCollection AddDataStores(this IServiceCollection services)
-        {
-            services.AddTransient<CreationStore>();
-            services.AddTransient<CustomerStore>();
-            services.AddTransient<ImageStore>();
-            services.AddTransient<HeadlineStore>();
-            services.AddTransient<ReleaseStore>();
-            return services;
-        }
+        public static IServiceCollection AddDataStores(this IServiceCollection services) => services
+            .AddTransient<CreationStore>()
+            .AddTransient<CustomerStore>()
+            .AddTransient<ImageStore>()
+            .AddTransient<HeadlineStore>()
+            .AddTransient<ReleaseStore>();
     }
 }

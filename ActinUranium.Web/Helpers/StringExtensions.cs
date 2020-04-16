@@ -30,10 +30,8 @@ namespace ActinUranium.Web.Helpers
                 const char Ellipsis = '…';
                 return text.Remove(startIndex) + Ellipsis;
             }
-            else
-            {
-                return text;
-            }
+
+            return text;
         }
 
         public static string[] SplitIntoSentences(this string text)
@@ -47,7 +45,7 @@ namespace ActinUranium.Web.Helpers
             const string Pattern = @"(?<=[\.!\?])\s+";
             return Regex.Split(text, Pattern);
         }
-        
+
         public static string[] SplitIntoWords(this string text)
         {
             if (text == null)
@@ -81,18 +79,10 @@ namespace ActinUranium.Web.Helpers
             return new string(charArray);
         }
 
-        public static string Slugify(this string text)
-        {
-            return text.Trim()
-                .CollapseAjacentWhitespace()
-                .Replace(' ', '-')
-                .ToLowerInvariant();
-        }
+        public static string Slugify(this string text) => 
+            text.Trim().CollapseAjacentWhitespace().Replace(' ', '-').ToLowerInvariant();
 
-        public static string CollapseAjacentWhitespace(this string text)
-        {
-            // replacing all whitespace characters like 'NO-BREAK SPACE' with common 'SPACE' characters
-            return Regex.Replace(text, @"\s+", " ");
-        }
+        // replacing all whitespace characters like 'NO-BREAK SPACE' with common 'SPACE' characters
+        public static string CollapseAjacentWhitespace(this string text) => Regex.Replace(text, @"\s+", " ");
     }
 }

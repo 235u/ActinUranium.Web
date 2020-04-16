@@ -10,10 +10,7 @@ namespace ActinUranium.Web.ViewComponents
     {
         private readonly ReleaseStore _releaseStore;
 
-        public ReleaseSection(ReleaseStore releaseStore)
-        {
-            _releaseStore = releaseStore;
-        }
+        public ReleaseSection(ReleaseStore releaseStore) => _releaseStore = releaseStore;
 
         public async Task<IViewComponentResult> InvokeAsync(int count)
         {

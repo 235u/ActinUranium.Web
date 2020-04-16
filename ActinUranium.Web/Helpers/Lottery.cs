@@ -16,27 +16,15 @@ namespace ActinUranium.Web.Helpers
         private readonly Random _random = new Random();
         private readonly List<T> _elementPool;
 
-        public Lottery()
-        {
-            _elementPool = new List<T>();
-        }
+        public Lottery() => _elementPool = new List<T>();
 
-        public Lottery(IEnumerable<T> elements)
-        {
-            _elementPool = new List<T>(elements);
-        }
+        public Lottery(IEnumerable<T> elements) => _elementPool = new List<T>(elements);
 
         public int Count => _elementPool.Count;
 
-        public IEnumerator GetEnumerator()
-        {
-            return _elementPool.GetEnumerator();
-        }
+        public IEnumerator GetEnumerator() => _elementPool.GetEnumerator(); 
 
-        public void Add(T element)
-        {
-            _elementPool.Add(element);
-        }
+        public void Add(T element) => _elementPool.Add(element);
 
         public T Next()
         {
