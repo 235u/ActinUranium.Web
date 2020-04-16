@@ -18,7 +18,7 @@ namespace ActinUranium.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLocalization();
-            services.AddConfiguredRouting();
+            services.AddConfiguredRouting();           
             services.AddConfiguredMvc();
             services.AddConfiguredHsts();
             services.AddApplicationDbContext();
