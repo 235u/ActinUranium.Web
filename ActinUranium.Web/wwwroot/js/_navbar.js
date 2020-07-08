@@ -9,9 +9,9 @@
         static initialize() {
             if (this.isHomeView()) {
                 window.addEventListener("load", () => {
-                    let items = document.querySelectorAll(Selectors.ITEM);
-                    if (items.length > 0) {
-                        this.animate(items);
+                    const elements = document.querySelectorAll(Selectors.ITEM);
+                    if (elements.length > 0) {
+                        Navbar.animate(elements);
                     }
                 });
             }
@@ -22,10 +22,10 @@
         }
 
         static animate(elements) {
-            this.expand(elements);
+            Navbar.expand(elements);
 
             document.addEventListener("scroll", () => {
-                this.collapse(elements);
+                Navbar.collapse(elements);
             }, { once: true });
         }
 

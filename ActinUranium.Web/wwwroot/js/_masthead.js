@@ -7,9 +7,9 @@
 
     class Masthead {
         static initialize() {
-            let masthead = document.querySelector(Selectors.MASTHEAD);
-            if (masthead) {
-                this.animate(masthead);
+            const element = document.querySelector(Selectors.MASTHEAD);
+            if (element) {
+                Masthead.animate(element);
             }
         }
 

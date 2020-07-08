@@ -2,7 +2,6 @@
     "use strict";
 
     const Selector = {
-        //// ITEM: ".card-columns .card"
         ITEM: ".masonry .card"
     };
 
@@ -10,14 +9,14 @@
 
     class Masonry {
         static initialize() {
-            let items = document.querySelectorAll(Selector.ITEM);
-            for (let item of items) {
-                this.quantizeHeight(item);
+            const elements = document.querySelectorAll(Selector.ITEM);
+            for (let element of elements) {
+                Masonry.quantizeHeight(element);
             }
         }
 
-        static quantizeHeight(element) {            
-            let actualHeight = element.getBoundingClientRect().height;
+        static quantizeHeight(element) {
+            const actualHeight = element.getBoundingClientRect().height;
             let quantumCount = Math.floor(actualHeight / HEIGHT_QUANTUM_IN_PIXELS);
             if ((actualHeight % HEIGHT_QUANTUM_IN_PIXELS) > 0) {
                 quantumCount += 1;

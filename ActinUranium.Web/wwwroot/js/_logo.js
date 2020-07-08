@@ -11,9 +11,9 @@
 
     class Logo {
         static initialize() {
-            let logo = document.querySelector(Selectors.LOGO);
-            if (logo) {
-                this.animate(logo);
+            const element = document.querySelector(Selectors.LOGO);
+            if (element) {
+                Logo.animate(element);
             }
         }
 

@@ -27,121 +27,22 @@
         PREV_SLIDE_CONTROL: ".prev-slide-control",
         SLIDE_BULLETS: `.${ClassName.ACTIVE_SLIDE_BULLET}, .${ClassName.SLIDE_BULLET}`,
         SLIDES: `.${ClassName.ACTIVE_SLIDE}, .${ClassName.SLIDE}`
-    };    
+    };
 
     class Carousel {
         constructor(element) {
-            this._rootElement = element;
-            this._slides = this.getElementsAsArray(Selector.SLIDES);                        
-            this._slideBullets = this.getElementsAsArray(Selector.SLIDE_BULLETS);
-            this._isSliding = false;
-            this._interval = null;
+            this.rootElement = element;
+            this.slides = this.getElementsAsArray(Selector.SLIDES);
+            this.slideBullets = this.getElementsAsArray(Selector.SLIDE_BULLETS);
+            this.isSliding = false;
+            this.interval = null;
 
             this.cycle();
             this.handleSlideControls();
             this.handleSlideBullets();
         }
 
-        getElementsAsArray(selector) {
-            const elements = this._rootElement.querySelectorAll(selector);
-            return Array.from(elements);
-        }
-
-        cycle() {
-            if (this._slides.length > 1) {
-                this._interval = setInterval(this.slideIn.bind(this), INTERVAL_IN_MILLISECONDS, SlideOrder.NEXT);
-            }
-        }
-
-        handleSlideControls() {
-            let prevSlideControl = this._rootElement.querySelector(Selector.PREV_SLIDE_CONTROL);
-            if (prevSlideControl) {
-                prevSlideControl.onclick = () => {
-                    clearInterval(this._interval);
-                    this.slideIn(SlideOrder.PREV);
-                };
-            }
-
-            let nextSlideControl = this._rootElement.querySelector(Selector.NEXT_SLIDE_CONTROL);
-            if (nextSlideControl) {
-                nextSlideControl.onclick = () => {
-                    clearInterval(this._interval);
-                    this.slideIn(SlideOrder.NEXT);
-                };
-            }
-        }
-
-        handleSlideBullets() {
-            for (let slideIndex = 0; slideIndex < this._slides.length; slideIndex++) {
-                if (slideIndex < this._slideBullets.length) {
-                    this._slideBullets[slideIndex].onclick = () => {
-                        clearInterval(this._interval);
-                        this.slideTo(slideIndex);
-                    };
-                }
-            }
-        }
-
-        slideIn(targetSlideOrder) {
-            if (!this._isSliding) {
-                let activeSlide = this.getActiveSlide();
-                let targetSlide = this.getTargetSlide(activeSlide, targetSlideOrder);
-                this.slide(activeSlide, targetSlide, targetSlideOrder);
-            }
-        }
-
-        slideTo(targetSlideIndex) {
-            if (targetSlideIndex < 0 || targetSlideIndex >= this._slides.length) {
-                throw `Slide index out of range: ${targetSlideIndex}.`;
-            }
-
-            if (!this._isSliding) {
-                let activeSlide = this.getActiveSlide();
-                const activeSlideIndex = this.getSlideIndex(activeSlide);
-                const targetSlideOrder = this.getTargetSlideOrder(activeSlideIndex, targetSlideIndex);
-
-                if (targetSlideOrder !== SlideOrder.NONE) {
-                    let targetSlide = this._slides[targetSlideIndex];
-                    this.slide(activeSlide, targetSlide, targetSlideOrder);
-                }                
-            }
-        }
-
-        getActiveSlide() {
-            return this._rootElement.querySelector(Selector.ACTIVE_SLIDE);
-        }
-
-        getTargetSlide(activeSlide, targetSlideOrder) {
-            const activeSlideIndex = this.getSlideIndex(activeSlide);
-            const targetSlideIndex = this.getTargetSlideIndex(activeSlideIndex, targetSlideOrder);
-            return this._slides[targetSlideIndex];
-        }
-
-        getSlideIndex(slide) {
-            return this._slides.indexOf(slide);
-        }
-
-        getTargetSlideIndex(activeSlideIndex, targetSlideOrder) {
-            let targetSlideIndex = 0;
-
-            if (targetSlideOrder === SlideOrder.PREV) {
-                targetSlideIndex = activeSlideIndex - 1;
-                if (targetSlideIndex < 0) {
-                    targetSlideIndex = this._slides.length - 1;
-                }
-            } else if (targetSlideOrder === SlideOrder.NEXT) {
-                targetSlideIndex = activeSlideIndex + 1;
-                if (targetSlideIndex === this._slides.length) {
-                    targetSlideIndex = 0;
-                }
-            } else {
-                throw `Invalid slide order: ${targetSlideOrder}.`;
-            }
-
-            return targetSlideIndex;
-        }
-
-        getTargetSlideOrder(activeSlideIndex, targetSlideIndex) {
+        static getTargetSlideOrder(activeSlideIndex, targetSlideIndex) {
             if (targetSlideIndex < activeSlideIndex) {
                 return SlideOrder.PREV;
             } else if (targetSlideIndex > activeSlideIndex) {
@@ -151,16 +52,127 @@
             }
         }
 
+        static getSlideOrderClassName(slideOrder) {
+            return slideOrder === SlideOrder.PREV ? ClassName.PREV_SLIDE : ClassName.NEXT_SLIDE;
+        }
+
+        static getSlidingDirectionClassName(slideOrder) {
+            return slideOrder === SlideOrder.PREV ? ClassName.SLIDE_RIGHT : ClassName.SLIDE_LEFT;
+        }
+
+        static reflow(element) {
+            element.offsetHeight;
+        }
+
+        getElementsAsArray(selector) {
+            const elements = this.rootElement.querySelectorAll(selector);
+            return [...elements];
+        }
+
+        cycle() {
+            if (this.slides.length > 1) {
+                this.interval = setInterval(this.slideIn.bind(this), INTERVAL_IN_MILLISECONDS, SlideOrder.NEXT);
+            }
+        }
+
+        handleSlideControls() {
+            const prevSlideControl = this.rootElement.querySelector(Selector.PREV_SLIDE_CONTROL);
+            if (prevSlideControl) {
+                prevSlideControl.onclick = () => {
+                    clearInterval(this.interval);
+                    this.slideIn(SlideOrder.PREV);
+                };
+            }
+
+            const nextSlideControl = this.rootElement.querySelector(Selector.NEXT_SLIDE_CONTROL);
+            if (nextSlideControl) {
+                nextSlideControl.onclick = () => {
+                    clearInterval(this.interval);
+                    this.slideIn(SlideOrder.NEXT);
+                };
+            }
+        }
+
+        handleSlideBullets() {
+            for (let slideIndex = 0; slideIndex < this.slides.length; slideIndex++) {
+                if (slideIndex < this.slideBullets.length) {
+                    this.slideBullets[slideIndex].onclick = () => {
+                        clearInterval(this.interval);
+                        this.slideTo(slideIndex);
+                    };
+                }
+            }
+        }
+
+        slideIn(targetSlideOrder) {
+            if (!this.isSliding) {
+                const activeSlide = this.getActiveSlide();
+                const targetSlide = this.getTargetSlide(activeSlide, targetSlideOrder);
+                this.slide(activeSlide, targetSlide, targetSlideOrder);
+            }
+        }
+
+        slideTo(targetSlideIndex) {
+            if (targetSlideIndex < 0 || targetSlideIndex >= this.slides.length) {
+                throw `Slide index out of range: ${targetSlideIndex}.`;
+            }
+
+            if (!this.isSliding) {
+                const activeSlide = this.getActiveSlide();
+                const activeSlideIndex = this.getSlideIndex(activeSlide);
+                const targetSlideOrder = Carousel.getTargetSlideOrder(activeSlideIndex, targetSlideIndex);
+
+                if (targetSlideOrder !== SlideOrder.NONE) {
+                    const targetSlide = this.slides[targetSlideIndex];
+                    this.slide(activeSlide, targetSlide, targetSlideOrder);
+                }
+            }
+        }
+
+        getActiveSlide() {
+            return this.rootElement.querySelector(Selector.ACTIVE_SLIDE);
+        }
+
+        getTargetSlide(activeSlide, targetSlideOrder) {
+            const activeSlideIndex = this.getSlideIndex(activeSlide);
+            const targetSlideIndex = this.getTargetSlideIndex(activeSlideIndex, targetSlideOrder);
+            return this.slides[targetSlideIndex];
+        }
+
+        getSlideIndex(slide) {
+            return this.slides.indexOf(slide);
+        }
+
+        getTargetSlideIndex(activeSlideIndex, targetSlideOrder) {
+            let targetSlideIndex = 0;
+
+            if (targetSlideOrder === SlideOrder.PREV) {
+                targetSlideIndex = activeSlideIndex - 1;
+                if (targetSlideIndex < 0) {
+                    targetSlideIndex = this.slides.length - 1;
+                }
+            } else if (targetSlideOrder === SlideOrder.NEXT) {
+                targetSlideIndex = activeSlideIndex + 1;
+                if (targetSlideIndex === this.slides.length) {
+                    targetSlideIndex = 0;
+                }
+            } else {
+                throw `Invalid slide order: ${targetSlideOrder}.`;
+            }
+
+            return targetSlideIndex;
+        }
+
         slide(activeSlide, targetSlide, targetSlideOrder) {
-            this._isSliding = true;
+            this.isSliding = true;
 
             this.updateSlideBullets(activeSlide, targetSlide);
 
-            const slideOrderClassName = this.getSlideOrderClassName(targetSlideOrder);
-            const slidingDirectionClassName = this.getSlidingDirectionClassName(targetSlideOrder);
+            const slideOrderClassName = Carousel.getSlideOrderClassName(targetSlideOrder);
+            const slidingDirectionClassName = Carousel.getSlidingDirectionClassName(targetSlideOrder);
 
             targetSlide.classList.replace(ClassName.SLIDE, slideOrderClassName);
-            this.reflow(targetSlide);
+            Carousel.reflow(targetSlide);
 
             activeSlide.classList.add(slidingDirectionClassName);
             targetSlide.classList.add(slidingDirectionClassName);
@@ -172,41 +184,27 @@
                 activeSlide.classList.remove(slidingDirectionClassName);
                 activeSlide.classList.replace(ClassName.ACTIVE_SLIDE, ClassName.SLIDE);
 
-                this._isSliding = false;
-            }, { once: true });            
-        }
-
-        getSlideOrderClassName(slideOrder) {
-            return slideOrder === SlideOrder.PREV ?
-                ClassName.PREV_SLIDE : ClassName.NEXT_SLIDE;
-        }
-
-        getSlidingDirectionClassName(slideOrder) {
-            return slideOrder === SlideOrder.PREV ?
-                ClassName.SLIDE_RIGHT : ClassName.SLIDE_LEFT;
-        }
-
-        reflow(element) {
-            element.offsetHeight;
+                this.isSliding = false;
+            }, { once: true });
         }
 
         updateSlideBullets(activeSlide, targetSlide) {
             const activeSlideIndex = this.getSlideIndex(activeSlide);
-            if (activeSlideIndex < this._slideBullets.length) {
-                let activeSlideBullet = this._slideBullets[activeSlideIndex];
+            if (activeSlideIndex < this.slideBullets.length) {
+                const activeSlideBullet = this.slideBullets[activeSlideIndex];
                 activeSlideBullet.classList.replace(ClassName.ACTIVE_SLIDE_BULLET, ClassName.SLIDE_BULLET);
             }
 
             const targetSlideIndex = this.getSlideIndex(targetSlide);
-            if (targetSlideIndex < this._slideBullets.length) {
-                let targetSlideBullet = this._slideBullets[targetSlideIndex];
+            if (targetSlideIndex < this.slideBullets.length) {
+                const targetSlideBullet = this.slideBullets[targetSlideIndex];
                 targetSlideBullet.classList.replace(ClassName.SLIDE_BULLET, ClassName.ACTIVE_SLIDE_BULLET);
             }
         }
     }
 
     window.addEventListener("load", () => {
-        let rootElements = document.getElementsByClassName(ClassName.CAROUSEL);
+        const rootElements = document.getElementsByClassName(ClassName.CAROUSEL);
         for (let element of rootElements) {
             new Carousel(element);
         }
