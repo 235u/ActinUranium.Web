@@ -34,6 +34,6 @@ leads to strange (mixed) localization behaviour at runtime; localization works a
 ## Optimizations
 
 - [ ] Refactor style sheets.
-- [ ] Redraw illustrations.
+- [ ] Redraw logo, icons, and illustrations.
 - [ ] Animate icons (s. [How SVG Line Animation Works](https://css-tricks.com/svg-line-animation-works))?
 - [ ] Enhance responsiveness?
