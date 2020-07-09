@@ -24,7 +24,7 @@
 
     .card-columns > .card {
         break-inside: avoid;
-        display: block;        
+        display: block;
     }
 
 .card {
@@ -44,7 +44,6 @@
 .release-slide-card {
     background-color: rgba(227, 227, 227, .95);
     width: 380px;
-    height: 202px;
 }
 
 .creation-card-img,

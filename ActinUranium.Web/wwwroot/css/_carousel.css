@@ -109,8 +109,12 @@
     top: 0;
     right: 25px;
     bottom: 0;
-    left: 0;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+}
+
+.masthead.carousel .prev-slide,
+.masthead.carousel .active-slide,
+.masthead.carousel .next-slide {
+    height: 100vh;
 }

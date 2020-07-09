@@ -17,12 +17,16 @@
                        asp-controller="Creations"
                        asp-action="Details"
                        asp-route-slug="@creation.Slug">
+                        @*<div class="card-body">
+                                <h2 class="line-clamp-2">@creation.Title</h2>
+                                <ul class="unstyled-list">
+                                    <li class="line-clamp-3">@creation.Mission</li>
+                                    <li class="line-clamp-1 muted-text">@creation.Customer.Name</li>
+                                </ul>
+                            </div>*@
                         <div class="card-body">
-                            <h2 class="line-clamp-2">@creation.Title</h2>
-                            <ul class="unstyled-list">
-                                <li class="line-clamp-3">@creation.Mission</li>
-                                <li class="line-clamp-1 muted-text">@creation.Customer.Name</li>
-                            </ul>
+                            <h2>@creation.Title</h2>
+                            <p>@creation.Mission</p>
                         </div>
                         <div class="card-overlay"></div>
                     </a>
@@ -33,9 +37,13 @@
                        asp-controller="Headlines"
                        asp-action="Details"
                        asp-route-slug="@headline.Slug">
-                        <div class="card-body">
+                        @*<div class="card-body">
                             <h2 class="line-clamp-2">@headline.Title</h2>
                             <p class="line-clamp-4">@headline.Lead</p>
+                        </div>*@
+                        <div class="card-body">
+                            <h2>@headline.Title</h2>
+                            <p>@headline.Lead</p>
                         </div>
                         <div class="card-overlay"></div>
                     </a>

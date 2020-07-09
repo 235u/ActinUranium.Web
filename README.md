@@ -30,3 +30,10 @@ Setting (via `Project Properties > Package > Assembly neutral language` or manua
 ```
 
 leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI).
+
+## Optimizations
+
+- [ ] Refactor style sheets.
+- [ ] Redraw illustrations.
+- [ ] Animate icons (s. [How SVG Line Animation Works](https://css-tricks.com/svg-line-animation-works))?
+- [ ] Enhance responsiveness?

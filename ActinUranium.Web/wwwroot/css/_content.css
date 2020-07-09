@@ -50,8 +50,8 @@
 }
 
 .fade-out {
-    opacity: 0;    
-} 
+    opacity: 0;
+}
 
 @media (max-width: 732px) {
     .brand {
@@ -70,7 +70,7 @@
 
 .brand-logo-img {
     margin: 13px 19px;
-    height: auto;    
+    height: auto;
     width: 109px;
 }
 
