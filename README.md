@@ -29,11 +29,19 @@ Setting (via `Project Properties > Package > Assembly neutral language` or manua
 </PropertyGroup>
 ```
 
-leads to strange (mixed) localization behaviour at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI).
+leads to strange (mixed) localization behavior at runtime; localization works as expected while leaving this setting empty (or setting to `(None)` in the Properties GUI).
 
 ## Optimizations
 
-- [ ] Refactor style sheets.
+- [ ] Introduce JS6 modules.
+- [ ] Define the (solved) problem, specify the requirements (on a GitHub board).
+- [ ] Describe architecture.
+- [ ] Describe coding conventions (`.editorconfig`, `CONTRIBUTING.md`).
+- [ ] Describe visual design (a la Material studies).
+- [ ] Automate versioning (if not done yet; in `YEAR.MONTH.DAY` schema).
+- [ ] Add Angular (convert JS stuff to TypeScript) / React / Vue / Blazor implementations
+- [ ] Refactor style sheets (switch to BEM; try SASS / LESS).
+- [ ] Add code reviews (of my own code, written some time ago).
 - [ ] Redraw logo, icons, and illustrations.
 - [ ] Animate icons (s. [How SVG Line Animation Works](https://css-tricks.com/svg-line-animation-works))?
 - [ ] Enhance responsiveness?

@@ -70,6 +70,7 @@
 }
 
 .btn-expand-left {
+    margin-top: 13px;
     right: calc(-100% + var(--img-width));
     transition: right ease .3s;
 }

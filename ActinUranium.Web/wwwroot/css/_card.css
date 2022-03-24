@@ -1,7 +1,6 @@
 ﻿.card-group {
     background: linear-gradient(to right, rgb(252, 252, 252) 285px, rgb(249, 249, 249) 286px 570px, rgb(246, 246, 246) 571px 855px, rgb(243, 243, 243) 856px);
     display: inline-flex;
-    margin-bottom: 13px;
 }
 
 .flex-wrap,

@@ -70,10 +70,6 @@ section {
     }
 }
 
-footer {
-    margin-top: 0;
-}
-
 .inline-list:only-child {
     margin: 0;
 }
@@ -100,8 +96,7 @@ footer {
 .fake-header,
 .footer {
     align-self: flex-end;
-    padding: 13px 19px;
-    margin: 25px;
+    padding: 38px 44px;
 }
 
 /* Helps center main vertically. */
